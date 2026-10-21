@@ -1,6 +1,6 @@
 generated_by: post-audit reconciliation from scripts/verify_core_prs.py and plan AC-10
 core_prs_total: 110
 core_prs_checksum_sha256: cde1aab41b706ba9b050d63b61a5d6a62c9c3c547d56caddd535b652ddfb7c59
-active_ceiling_mib: 50
+active_ceiling_mib: 60
 artifacts_file_budget: 6000
-notes: The size ceiling applies to the reviewable working tree; the file-count budget applies only to artifacts/. Raised from 25 to 50 MiB on 2026-10-20 for the post-2026-05-20 source-PR intake (scripts/local_prefilter.py + scripts/sync_prs.py, ~3,686 candidates, ~18 MiB of Markdown pages and ledger/index growth). The 25 MiB value was the Phase 3 AC-10 lower-bound cap for artifacts/ code bundles; PR pages add no bundles, and 50 MiB stays below AC-10's 60 MiB upper-bound cap for a one-shot clone without Git LFS.
+notes: The size ceiling applies to the reviewable working tree; the file-count budget applies only to artifacts/. Raised from 25 to 50 MiB on 2026-10-20 for the post-2026-05-20 source-PR intake (scripts/local_prefilter.py + scripts/sync_prs.py, ~3,686 candidates, ~18 MiB of Markdown pages and ledger/index growth). The 25 MiB value was the Phase 3 AC-10 lower-bound cap for artifacts/ code bundles; PR pages add no bundles, and 50 MiB stays below AC-10's 60 MiB upper-bound cap for a one-shot clone without Git LFS. Raised from 50 to 60 MiB on 2026-10-21 after the intake landed at 57.09 MiB (~33 MiB of growth, not ~18) because pages for large PRs enumerate every changed path, and the per-repo ledgers grew accordingly (candidates/flashinfer.yaml alone 0.4 -> 5 MiB). 60 MiB is AC-10's upper-bound cap, so the next intake needs page/ledger compaction or a deliberate AC-10 revision rather than another raise.

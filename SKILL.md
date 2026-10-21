@@ -118,5 +118,5 @@ To refresh the corpus: run `scripts/refresh_candidate_ledger.py`, regenerate PR 
 
 - Every `verified` page has official-doc + upstream-code evidence
 - Every technique/kernel/language page has a compilable snippet
-- Every PR page has `inclusion_reason` and an evidence-backed status; current distribution: 942 merged, 2 closed without merge
+- Every PR page has `inclusion_reason` and an evidence-backed status; current distribution: 4557 merged, 2 closed without merge
 - All Hopper-only wiki pages have explicit `blackwell_relevance`; source pages are exempt

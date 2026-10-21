@@ -1,5 +1,5 @@
 repo: triton-lang/triton
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - blackwell
 - sm100
@@ -10,8 +10,8 @@ keywords_used:
 - dot_scaled
 - wgmma
 - tl.dot
-total_candidates: 60
-included: 2
+total_candidates: 188
+included: 130
 excluded: 1
 deferred: 57
 prs:
@@ -2033,3 +2033,1301 @@ prs:
   deletions: 2
   changed_file_count: 3
   artifact_dir: evidence/pull-bundles/triton/gh-10184
+- number: 10361
+  title: '[KERNELS] Perf tuning knobs for _reduce_forward kernel.'
+  date: '2026-05-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/reduce.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/reduce.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10380
+  title: '[KERNELS] make setting idle sms process-global'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 10382
+  title: Fix K-ragged Blackwell activation scales
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/testing.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/testing.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10385
+  title: '[KERNELS] fix hopper mxfp4 swizzle bug'
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10386
+  title: '[kernels] change heuristic of smem calculation to be more accurate'
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 10401
+  title: Make `triton_kernels.tensor.convert_layout` idempotent
+  date: '2026-05-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 10405
+  title: '[FRONTEND] Add descriptive messages to bare asserts'
+  date: '2026-05-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/semantic.py'
+  files_changed:
+  - python/triton/language/semantic.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10422
+  title: '[KERNELS] Adjust warp size to avoid fp8 regression.'
+  date: '2026-05-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/reduce.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/reduce.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10427
+  title: Handle zero-size triton_kernels matmul shapes
+  date: '2026-05-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_amd.py,
+    python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_amd.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 10428
+  title: Fix Hopper MXFP4 packed value padding
+  date: '2026-05-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10432
+  title: Support zero-sized MX layout conversions
+  date: '2026-06-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 10455
+  title: '[FPSAN] Support two-CTA MMAv5 lowering'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/examples/gluon/05-moe-bmm1-fused-gather.py'
+  files_changed:
+  - python/examples/gluon/05-moe-bmm1-fused-gather.py
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 10460
+  title: '[FPSAN] Revert accidental two-CTA MMAv5 merge'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/examples/gluon/05-moe-bmm1-fused-gather.py'
+  files_changed:
+  - python/examples/gluon/05-moe-bmm1-fused-gather.py
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 10461
+  title: '[FPSAN] Support two-CTA MMAv5 lowering'
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/examples/gluon/05-moe-bmm1-fused-gather.py'
+  files_changed:
+  - python/examples/gluon/05-moe-bmm1-fused-gather.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 10463
+  title: Handle empty matmul outputs with custom layouts
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/numerics_details/mxfp.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 10464
+  title: Fix zero-grid reduce launches for empty shapes
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/reduce.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/reduce.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10489
+  title: '[kernels] Fix integer overflow in stride calculations'
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/distributed.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/distributed.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10491
+  title: '[KERNELS] Triton kernel for BlackwellMXScaleLayout swizzle.'
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10543
+  title: '[AMD][gfx1250] Enable LLVM scheduler and SGPR preload'
+  date: '2026-06-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/backend/compiler.py'
+  files_changed:
+  - third_party/amd/backend/compiler.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10551
+  title: '[Blackwell] Add pass to combine TMEM load followed by row reduction for sm103+'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: added device-code construct in: lib/Dialect/TritonNvidiaGPU/Transforms/FuseTMemLoadReduce.cpp'
+  files_changed:
+  - lib/Dialect/TritonNvidiaGPU/Transforms/FuseTMemLoadReduce.cpp
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 10554
+  title: Add direct layout storage shape queries
+  date: '2026-06-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 10562
+  title: Fix matmul launch_metadata for RAGGED_DIMENSION="K".
+  date: '2026-06-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_common.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10600
+  title: '[triton_kernels] Preserve Gluon specialization dialect'
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/specialize.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/specialize.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10601
+  title: '[FRONTEND] Fix INT_MIN signed overflow in uint_to_uniform_float'
+  date: '2026-06-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/random.py'
+  files_changed:
+  - python/triton/language/random.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10618
+  title: Reject odd StridedLayout FP4 packing dimensions
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10620
+  title: '[AMD][BACKEND] Add knob to disable expert scheduling mode'
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/backend/compiler.py'
+  files_changed:
+  - third_party/amd/backend/compiler.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 10623
+  title: Remove obsolete empty pad workarounds
+  date: '2026-06-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/gfx1250_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 10634
+  title: float64 matmul support
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_common.py, python/triton_kernels/triton_kernels/matmul_details/_matmul.py,
+    python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/reduce.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/reduce.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 10642
+  title: '[GSAN] Harden runtime and expose kernel warmup'
+  date: '2026-06-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gsan/_stream_sync.py'
+  files_changed:
+  - python/triton/experimental/gsan/_stream_sync.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 10650
+  title: Tensor scales in matmul.
+  date: '2026-06-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py,
+    python/triton_kernels/triton_kernels/numerics_details/mxfp.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 10667
+  title: '[triton_kernels] Avoid uint32 overflow in _keyed_add'
+  date: '2026-06-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/bitmatrix.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/bitmatrix.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10682
+  title: Tune BN512 shuffled MXFP4 matmul
+  date: '2026-06-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10721
+  title: '[AMD][gfx1250] Refine control knobs for CodeGen'
+  date: '2026-07-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/backend/compiler.py'
+  files_changed:
+  - third_party/amd/backend/compiler.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 10776
+  title: '[KERNELS] Fix unnecessary large tensors in reduce_launch_metadata.'
+  date: '2026-07-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/reduce.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/reduce.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10809
+  title: '[AMD] Rewrite gluon partition layout derivation'
+  date: '2026-07-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gluon/language/amd/gfx1250/_layouts.py'
+  files_changed:
+  - python/triton/experimental/gluon/language/amd/gfx1250/_layouts.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 10810
+  title: '[AMD][TRITON_KERNELS] Improve MXFP4 matmul_ogs config on RDNA'
+  date: '2026-07-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10814
+  title: '[TRITON_KERNELS] Prevent padded top-k experts under FPSan'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/topk_details/_topk_forward.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/topk_details/_topk_forward.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10824
+  title: '[AMD] Update mxfp fa example'
+  date: '2026-07-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/python/examples/gluon/mxfp_fa_gfx1250.py'
+  files_changed:
+  - third_party/amd/python/examples/gluon/mxfp_fa_gfx1250.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10873
+  title: Avoid output TMA for Blackwell matmul accumulation
+  date: '2026-07-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 10875
+  title: '[KERNELS] topk: don''t specialize on bitmatrix strides (fixes per-batch-size recompiles)'
+  date: '2026-07-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/bitmatrix_details/sum_bitmatrix_rows.py, python/triton_kernels/triton_kernels/topk_details/_topk_forward.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/bitmatrix_details/sum_bitmatrix_rows.py
+  - python/triton_kernels/triton_kernels/topk_details/_topk_forward.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10912
+  title: '[AMD]Add Benchmark Utility to MoE and MXFP GEMM Kernels for GFX1250'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/python/examples/gluon/moe_gfx1250.py'
+  files_changed:
+  - third_party/amd/python/examples/gluon/moe_gfx1250.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 10931
+  title: '[frontend] Validate 16-byte stride alignment in make_tensor_descriptor'
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/semantic.py'
+  files_changed:
+  - python/triton/language/semantic.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 10936
+  title: '[NVIDIA] Initial support for Rubin'
+  date: '2026-07-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/tutorials/10-block-scaled-matmul.py'
+  files_changed:
+  - python/tutorials/10-block-scaled-matmul.py
+  files_reviewed_count: 27
+  scope_disposition: retained
+- number: 10941
+  title: '[Rubin] Misc MMA enhancement and `mbarrier.arrive.multicast` support'
+  date: '2026-07-19'
+  decision: include
+  reason: 'retain: added device-code construct in: include/triton/Dialect/TritonNvidiaGPU/IR/Dialect.h'
+  files_changed:
+  - include/triton/Dialect/TritonNvidiaGPU/IR/Dialect.h
+  files_reviewed_count: 25
+  scope_disposition: retained
+- number: 11020
+  title: '[GSan][IR] Make GDC ops IR nodes, and support PDL in GSan'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 26
+  scope_disposition: retained
+- number: 11030
+  title: '[triton-kernels] Zero padded Blackwell activation scales'
+  date: '2026-07-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11056
+  title: '[Reapply][Backend] Fix WarpGroupDotWaitOp semantics when num_warps > 4'
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: added device-code construct in: third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/DotOpToLLVM.cpp'
+  files_changed:
+  - third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/DotOpToLLVM.cpp
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 11080
+  title: Fix large ragged NVFP4 tile selection on GB300
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11084
+  title: '[Gluon] Add native packed arithmetic API'
+  date: '2026-07-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/examples/gluon/05-moe-bmm1-fused-gather.py'
+  files_changed:
+  - python/examples/gluon/05-moe-bmm1-fused-gather.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 11098
+  title: '[CI] Warm compile-heavy tests in parallel'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/testing.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/testing.py
+  files_reviewed_count: 40
+  scope_disposition: retained
+- number: 11116
+  title: ' [NVWS][CLC] Add warp-specilaization to CLC'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/tutorials/09-persistent-matmul.py'
+  files_changed:
+  - python/tutorials/09-persistent-matmul.py
+  files_reviewed_count: 39
+  scope_disposition: retained
+- number: 11122
+  title: '[PROTON] Intra kernel async event profiling'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/proton/proton/language.py'
+  files_changed:
+  - third_party/proton/proton/language.py
+  files_reviewed_count: 23
+  scope_disposition: retained
+- number: 11124
+  title: '[NVIDIA] Add core Triton CLC support'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/tutorials/09-persistent-matmul.py'
+  files_changed:
+  - python/tutorials/09-persistent-matmul.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 11135
+  title: '[GSan] Model cluster synchronization'
+  date: '2026-08-12'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 25
+  scope_disposition: retained
+- number: 11166
+  title: '[AMD][Gluon] Fix transposed asymmetric WMMA CTA layout'
+  date: '2026-08-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gluon/language/amd/cdna5/_layouts.py'
+  files_changed:
+  - python/triton/experimental/gluon/language/amd/cdna5/_layouts.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11170
+  title: '[Gluon] Expose FPSan embedding operations'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/fpsan.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/fpsan.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 11171
+  title: '[KERNELS] Fix Blackwell NVFP4 x dense matmul tile selection'
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11176
+  title: Add CLC mode to triton_kernels matmul
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11178
+  title: '[AMD] Support warp-based split-k for mxfp fa on gfx1250'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/python/examples/gluon/mxfp_fa_gfx1250.py'
+  files_changed:
+  - third_party/amd/python/examples/gluon/mxfp_fa_gfx1250.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11185
+  title: '[CI] Reduce warmup overhead and enable AMD warmup'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/testing.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/testing.py
+  files_reviewed_count: 23
+  scope_disposition: retained
+- number: 11187
+  title: '[GSan] Lock once per tensor access'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11199
+  title: '[GSan] Fix race in gdc_wait handling'
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11204
+  title: Remove redundant Triton Python guards
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_common.py, python/triton_kernels/triton_kernels/numerics_details/mxfp.py, python/triton_kernels/triton_kernels/tensor.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp.py
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 11213
+  title: '[AMD][Gluon] NFC: Migrate consumers to CDNA5 APIs'
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: third_party/amd/python/examples/gluon/moe_cdna5.py'
+  files_changed:
+  - third_party/amd/python/examples/gluon/moe_cdna5.py
+  files_reviewed_count: 20
+  scope_disposition: retained
+- number: 11253
+  title: '[triton_kernels] Raise matmul warp floor'
+  date: '2026-08-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11270
+  title: Disable floating-point fusion by default
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/reduce.py, python/triton_kernels/triton_kernels/topk.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/reduce.py
+  - python/triton_kernels/triton_kernels/topk.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 11286
+  title: '[triton_kernels] add FP4 matmul metadata'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_common.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11297
+  title: '[GSan] Avoid materializing full pointer tensors for TMA accesses'
+  date: '2026-08-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 11303
+  title: '[GSan] Fix initial mbarrier phase state'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11345
+  title: '[NVIDIA] Reuse TCGen5 A operands across N tiles'
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: added device-code construct in: include/triton/Dialect/TritonNvidiaGPU/IR/TargetFeatures.h, third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/DotOpToLLVM/MMAv5.cpp'
+  files_changed:
+  - include/triton/Dialect/TritonNvidiaGPU/IR/TargetFeatures.h
+  - third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/DotOpToLLVM/MMAv5.cpp
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 11347
+  title: Add matmul tuning constraints for swap_xw, group_m and use_output_tma
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11351
+  title: '[GSan] Weaken mbarrier semantics'
+  date: '2026-08-19'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 11358
+  title: '[KERNELS] Fix Blackwell MXFP fused-output tile selection'
+  date: '2026-08-19'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11360
+  title: '[KERNELS] Reduce MXFP4 layout conversion allocations'
+  date: '2026-08-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 11371
+  title: Fix NVFP4 matmul profiler names
+  date: '2026-08-19'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_common.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11385
+  title: Represent tt.ptr address space as a named enum
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/semantic.py'
+  files_changed:
+  - python/triton/language/semantic.py
+  files_reviewed_count: 28
+  scope_disposition: retained
+- number: 11387
+  title: '[KERNELS] Convert Hopper and Blackwell FP4 directly to strided layouts'
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 11398
+  title: Follow up TheRock runtime support
+  date: '2026-08-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/roofline.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/roofline.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 11409
+  title: '[FRONTEND] Fix tl.softmax normalizing along the wrong axis (#11406)'
+  date: '2026-08-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/topk_details/_topk_forward.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/topk_details/_topk_forward.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11445
+  title: '[triton_kernels] Support arbitrary top-k widths'
+  date: '2026-08-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/distributed_details/mesh.py, python/triton_kernels/triton_kernels/tensor_details/bitmatrix.py, python/triton_kernels/triton_kernels/topk.py,
+    python/triton_kernels/triton_kernels/topk_details/_topk_backward.py, python/triton_kernels/triton_kernels/topk_details/_topk_forward.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/distributed_details/mesh.py
+  - python/triton_kernels/triton_kernels/tensor_details/bitmatrix.py
+  - python/triton_kernels/triton_kernels/topk.py
+  - python/triton_kernels/triton_kernels/topk_details/_topk_backward.py
+  - python/triton_kernels/triton_kernels/topk_details/_topk_forward.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 11464
+  title: '[MEMBAR] Schedule`tcgen05_wait::{ld,st}`'
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: added device-code construct in: third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/TensorMemoryToLLVM.cpp'
+  files_changed:
+  - third_party/nvidia/lib/TritonNVIDIAGPUToLLVM/TensorMemoryToLLVM.cpp
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 11481
+  title: '[Membar] Schedule thread synchronization with Membar analysis'
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: added device-code construct in: lib/Analysis/Membar.cpp'
+  files_changed:
+  - lib/Analysis/Membar.cpp
+  files_reviewed_count: 26
+  scope_disposition: retained
+- number: 11482
+  title: '[Gluon] Expose rich cache policies'
+  date: '2026-09-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gluon/language/nvidia/ampere/__init__.py'
+  files_changed:
+  - python/triton/experimental/gluon/language/nvidia/ampere/__init__.py
+  files_reviewed_count: 67
+  scope_disposition: retained
+- number: 11493
+  title: '[triton_kernels] Enable CLC inner-loop warp specialization'
+  date: '2026-08-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11495
+  title: '[KERNELS] Fuse forward FP4 layout conversion'
+  date: '2026-08-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 11496
+  title: '[KERNELS] Fuse compact Hopper FP4 inverse layout conversion'
+  date: '2026-08-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11504
+  title: '[KERNELS] Allow layout conversion into existing storage'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/base.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/strided.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 11563
+  title: '[KERNELS] Convert between Blackwell FP4 layouts directly'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11565
+  title: '[KERNELS] Accelerate Blackwell and Hopper layout conversions'
+  date: '2026-09-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/scale.py,
+    python/triton_kernels/triton_kernels/testing.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/scale.py
+  - python/triton_kernels/triton_kernels/testing.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 11576
+  title: '[KERNELS] Consolidate Blackwell FP4 layout metadata and tests'
+  date: '2026-09-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_value_shuffled.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11591
+  title: '[Language] Add dedicated atomic_{load,store} ops'
+  date: '2026-09-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 41
+  scope_disposition: retained
+- number: 11618
+  title: '[KERNELS] Keep scale layout shape calculations in integer arithmetic'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna4_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11619
+  title: '[KERNELS] Add broadcastable MX scale pointer helpers'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_scale.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11624
+  title: '[Triton] Fix E8M0 scale decoding'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/numerics_details/mxfp.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py,
+    python/triton_kernels/triton_kernels/reduce.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py
+  - python/triton_kernels/triton_kernels/reduce.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/hopper_value.py
+  files_reviewed_count: 37
+  scope_disposition: retained
+- number: 11639
+  title: '[GSan] Add configurable per-allocation shadow granularity'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 19
+  scope_disposition: retained
+- number: 11648
+  title: '[KERNELS] Correct shared-memory budgeting for FP4 reduction epilogues'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 11652
+  title: '[KERNELS] Support unscaled FP8 E4M3 matmul with FP16/BF16'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_common.py, python/triton_kernels/triton_kernels/matmul_details/_matmul.py,
+    python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_amd.py,
+    python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_amd.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 11668
+  title: '[triton_kernels] Add explicit nearest-even NVFP4 scale rounding'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/numerics_details/mxfp.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_downcast_to_mxfp.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_downcast_to_mxfp.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11670
+  title: '[triton_kernels] Avoid Torch imports in numerics and target_info'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/numerics.py, python/triton_kernels/triton_kernels/target_info.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/numerics.py
+  - python/triton_kernels/triton_kernels/target_info.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11724
+  title: '[KERNELS] Avoid local output allocation for fused communication'
+  date: '2026-09-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_common.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 11774
+  title: '[GSan] Add write_once allocations'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 11801
+  title: Preserve source locations for Python 3.13 inspection
+  date: '2026-09-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/specialize.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/specialize.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11862
+  title: '[KERNELS] Don''t take the TMA scatter path on sm_12x'
+  date: '2026-09-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/target_info.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/target_info.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11892
+  title: Tune Gluon fused MoE for Rubin
+  date: '2026-09-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/examples/gluon/05-moe-bmm1-fused-gather.py'
+  files_changed:
+  - python/examples/gluon/05-moe-bmm1-fused-gather.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11914
+  title: Fix FP4 TMA Alignment
+  date: '2026-09-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/tensor.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/tensor.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 11918
+  title: '[Gluon] Skip unsupported cluster sizes in Gluon tests'
+  date: '2026-09-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/_internal_testing.py'
+  files_changed:
+  - python/triton/_internal_testing.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11928
+  title: '[triton_kernels] Fix gathered activation scale indexing'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 11941
+  title: '[FRONTEND][NFC] Add TritonSemantic.make_tensor helper function'
+  date: '2026-09-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/semantic.py'
+  files_changed:
+  - python/triton/language/semantic.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 11973
+  title: '[BACKEND] Reject TCGen05 ops on unsupported targets'
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: added device-code construct in: lib/Dialect/TritonNvidiaGPU/IR/Ops.cpp'
+  files_changed:
+  - lib/Dialect/TritonNvidiaGPU/IR/Ops.cpp
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 11992
+  title: '[AMD][KERNELS] Disable XCD swizzle on RDNA'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 12000
+  title: '[Gluon][NVIDIA] Support L2 cache policies on TMA transfers'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gluon/language/nvidia/hopper/tma.py'
+  files_changed:
+  - python/triton/experimental/gluon/language/nvidia/hopper/tma.py
+  files_reviewed_count: 19
+  scope_disposition: retained
+- number: 12023
+  title: '[GSan] Support graphs of kernel dependencies'
+  date: '2026-10-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 18
+  scope_disposition: retained
+- number: 12032
+  title: '[triton_kernels] Use explicit FMA for matmul bias epilogues'
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 12041
+  title: '[triton_kernels] Support tiled storage for persistent ragged-K matmul'
+  date: '2026-10-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/tensor.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout.py, python/triton_kernels/triton_kernels/tensor_details/layout_details/tiled.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/tensor.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/tiled.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 12055
+  title: '[NVIDIA] Move GSan shared-memory reservation to the launcher'
+  date: '2026-10-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/experimental/gsan/_testing_utils.py, python/triton/experimental/gsan/graph.py'
+  files_changed:
+  - python/triton/experimental/gsan/_testing_utils.py
+  - python/triton/experimental/gsan/graph.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 12078
+  title: '[GSan] Use 32-bit atomics for shadow lock'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 12088
+  title: '[NVIDIA] Use NVVM operations for elementwise lowering'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/numerics_details/flexpoint.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_downcast_to_mxfp.py,
+    python/triton_kernels/triton_kernels/swiglu_details/_swiglu.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/numerics_details/flexpoint.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_downcast_to_mxfp.py
+  - python/triton_kernels/triton_kernels/swiglu_details/_swiglu.py
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 12089
+  title: '[NVIDIA] Use NVVM intrinsics for TF32 rounding'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_common.py, python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_common.py
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 12091
+  title: '[NVIDIA] Use NVVM operations for tensor-memory loads'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 12129
+  title: '[Standard] Add any/all reductions'
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton/language/standard.py'
+  files_changed:
+  - python/triton/language/standard.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 12132
+  title: '[triton_kernels] Preserve feasible Hopper MXFP4 occupancy'
+  date: '2026-10-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/opt_flags.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 12135
+  title: '[KERNELS] Support NVFP4 activations with MXFP4 weights by upcasting via MXFP8'
+  date: '2026-10-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul.py, python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py,
+    python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 12204
+  title: '[KERNELS] Preserve row-scale bias fusion for full epilogues'
+  date: '2026-10-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 12213
+  title: '[triton_kernels] Support four-column Blackwell activation scale alignment'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/blackwell_scale.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 12279
+  title: '[AMD] NFC: Rename gfx1250 symbols and definitions to CDNA5'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/target_info.py, python/triton_kernels/triton_kernels/tensor_details/layout.py,
+    python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna5_scale.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/target_info.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout.py
+  - python/triton_kernels/triton_kernels/tensor_details/layout_details/cdna5_scale.py
+  files_reviewed_count: 66
+  scope_disposition: retained
+- number: 12282
+  title: '[KERNELS] Expose top-k and reduction compilation controls'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/reduce.py, python/triton_kernels/triton_kernels/topk.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/reduce.py
+  - python/triton_kernels/triton_kernels/topk.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 12285
+  title: '[KERNELS] Absorb NVFP4 row scales during MXFP8 conversion'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/triton_kernels/triton_kernels/matmul_details/_matmul.py, python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py, python/triton_kernels/triton_kernels/matmul_details/opt_flags.py,
+    python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py, python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py'
+  files_changed:
+  - python/triton_kernels/triton_kernels/matmul_details/_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/_p_matmul.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags.py
+  - python/triton_kernels/triton_kernels/matmul_details/opt_flags_details/opt_flags_nvidia.py
+  - python/triton_kernels/triton_kernels/numerics_details/mxfp_details/_upcast_from_mxfp.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 12389
+  title: '[GSan] Use unaligned barriers for warp-specialized synchronization'
+  date: '2026-10-20'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): python/triton/experimental/gsan/src/GSanLibrary.cu'
+  files_changed:
+  - python/triton/experimental/gsan/src/GSanLibrary.cu
+  files_reviewed_count: 2
+  scope_disposition: retained

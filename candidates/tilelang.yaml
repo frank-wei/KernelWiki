@@ -1,5 +1,5 @@
 repo: tile-ai/tilelang
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - blackwell
 - hopper
@@ -9,9 +9,9 @@ keywords_used:
 - tilelang
 - tma
 - cute
-total_candidates: 215
-included: 43
-excluded: 11
+total_candidates: 314
+included: 141
+excluded: 12
 deferred: 161
 prs:
 - number: 1945
@@ -9631,3 +9631,1115 @@ prs:
   - src/op/copy.h
   files_reviewed_count: 20
   scope_disposition: removed
+- number: 1869
+  title: '[Metal] Add Metal GEMM support with simdgroup_matrix MMA'
+  date: '2026-05-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/tileop/gemm/gemm_metal.py'
+  files_changed:
+  - tilelang/tileop/gemm/gemm_metal.py
+  files_reviewed_count: 29
+  scope_disposition: retained
+- number: 2010
+  title: '[Example] Migrate eligible examples to eager style'
+  date: '2026-05-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/analyze/example_conv_analyze.py, examples/analyze/example_gemm_analyze.py, examples/autodd/tilelang_buggy.py, examples/autodd/tilelang_minimized_expected.py,
+    examples/blocksparse_gemm/example_blocksparse_gemm.py, examples/cast/example_group_per_split_token_cast_to_fp8.py, examples/cast/example_per_token_cast_to_fp8.py, examples/convolution/example_convolution.py,
+    examples/convolution/example_convolution_autotune.py, examples/deepseek_deepgemm/example_deepgemm_fp8_2xAcc.py, examples/deepseek_mhc/example_mhc_bwd.py, examples/deepseek_nsa/example_tilelang_nsa_bwd.py,
+    examples/deepseek_nsa/example_tilelang_nsa_decode.py, examples/deepseek_nsa/example_tilelang_nsa_fwd.py, examples/deepseek_nsa/example_tilelang_nsa_fwd_varlen.py, examples/deepseek_v32/fp8_lighting_indexer.py,
+    examples/deepseek_v32/sparse_mla_bwd.py, examples/deepseek_v32/sparse_mla_fwd.py, examples/deepseek_v32/sparse_mla_fwd_pipelined.py, examples/deepseek_v32/sparse_mla_fwd_seesaw.py, examples/deepseek_v32/topk_selector.py,
+    examples/dsa_sparse_finetune/indexer_bwd.py, examples/dsa_sparse_finetune/sparse_mla_bwd.py, examples/dsa_sparse_finetune/sparse_mla_fwd.py, examples/dsa_sparse_finetune/sparse_mla_topk_reducesum.py,
+    examples/dynamic_shape/example_dynamic.py, examples/elementwise/example_elementwise_add.py, examples/fusedmoe/example_fusedmoe_tilelang.py, examples/gemm/example_gemm.py, examples/gemm/example_gemm_intrinsics.py,
+    examples/gemm/example_gemm_persistent.py, examples/gemm_fp8/example_tilelang_gemm_fp8.py, examples/gemm_fp8/example_tilelang_gemm_fp8_2xAcc.py, examples/gemm_fp8/example_tilelang_gemm_fp8_sm100.py,
+    examples/gemm_sm100/gemm_mma.py, examples/gemm_sm100/gemm_tcgen5mma.py, examples/gemm_splitk/example_tilelang_gemm_splitk.py, examples/gemm_splitk/example_tilelang_gemm_splitk_vectorize_atomicadd.py,
+    examples/gemm_streamk/example_tilelang_gemm_streamk.py, examples/gemv/example_gemv.py, examples/grouped_gemm/example_grouped_gemm_bwd.py, examples/grouped_gemm/example_grouped_gemm_fwd.py, examples/hadamard_transform/example_hadamard.py,
+    examples/linear_attention/example_mamba_chunk_scan.py, examples/linear_attention/example_mamba_chunk_state.py, examples/norm/rms_norm.py, examples/online_softmax/online_softmax.py, examples/quickstart.py,
+    examples/rand/rand_uint.py, examples/topk/example_topk.py, examples/visual_layout_inference/visual_layout_inference.py, examples/warp_specialize/example_warp_specialize_gemm_barrierpipe_stage2.py, examples/warp_specialize/example_warp_specialize_gemm_copy_0_gemm_1.py,
+    examples/warp_specialize/example_warp_specialize_gemm_copy_1_gemm_0.py, examples/warp_specialize/example_warp_specialize_gemm_copy_gemm_0_1.py, examples/warp_specialize/example_warp_specialize_gemm_softpipe_stage2.py'
+  files_changed:
+  - examples/analyze/example_conv_analyze.py
+  - examples/analyze/example_gemm_analyze.py
+  - examples/autodd/tilelang_buggy.py
+  - examples/autodd/tilelang_minimized_expected.py
+  - examples/blocksparse_gemm/example_blocksparse_gemm.py
+  - examples/cast/example_group_per_split_token_cast_to_fp8.py
+  - examples/cast/example_per_token_cast_to_fp8.py
+  - examples/convolution/example_convolution.py
+  - examples/convolution/example_convolution_autotune.py
+  - examples/deepseek_deepgemm/example_deepgemm_fp8_2xAcc.py
+  - examples/deepseek_mhc/example_mhc_bwd.py
+  - examples/deepseek_nsa/example_tilelang_nsa_bwd.py
+  - examples/deepseek_nsa/example_tilelang_nsa_decode.py
+  - examples/deepseek_nsa/example_tilelang_nsa_fwd.py
+  - examples/deepseek_nsa/example_tilelang_nsa_fwd_varlen.py
+  - examples/deepseek_v32/fp8_lighting_indexer.py
+  - examples/deepseek_v32/sparse_mla_bwd.py
+  - examples/deepseek_v32/sparse_mla_fwd.py
+  - examples/deepseek_v32/sparse_mla_fwd_pipelined.py
+  - examples/deepseek_v32/sparse_mla_fwd_seesaw.py
+  - examples/deepseek_v32/topk_selector.py
+  - examples/dsa_sparse_finetune/indexer_bwd.py
+  - examples/dsa_sparse_finetune/sparse_mla_bwd.py
+  - examples/dsa_sparse_finetune/sparse_mla_fwd.py
+  - examples/dsa_sparse_finetune/sparse_mla_topk_reducesum.py
+  - examples/dynamic_shape/example_dynamic.py
+  - examples/elementwise/example_elementwise_add.py
+  - examples/fusedmoe/example_fusedmoe_tilelang.py
+  - examples/gemm/example_gemm.py
+  - examples/gemm/example_gemm_intrinsics.py
+  - examples/gemm/example_gemm_persistent.py
+  - examples/gemm_fp8/example_tilelang_gemm_fp8.py
+  - examples/gemm_fp8/example_tilelang_gemm_fp8_2xAcc.py
+  - examples/gemm_fp8/example_tilelang_gemm_fp8_sm100.py
+  - examples/gemm_sm100/gemm_mma.py
+  - examples/gemm_sm100/gemm_tcgen5mma.py
+  - examples/gemm_splitk/example_tilelang_gemm_splitk.py
+  - examples/gemm_splitk/example_tilelang_gemm_splitk_vectorize_atomicadd.py
+  - examples/gemm_streamk/example_tilelang_gemm_streamk.py
+  - examples/gemv/example_gemv.py
+  - examples/grouped_gemm/example_grouped_gemm_bwd.py
+  - examples/grouped_gemm/example_grouped_gemm_fwd.py
+  - examples/hadamard_transform/example_hadamard.py
+  - examples/linear_attention/example_mamba_chunk_scan.py
+  - examples/linear_attention/example_mamba_chunk_state.py
+  - examples/norm/rms_norm.py
+  - examples/online_softmax/online_softmax.py
+  - examples/quickstart.py
+  - examples/rand/rand_uint.py
+  - examples/topk/example_topk.py
+  - examples/visual_layout_inference/visual_layout_inference.py
+  - examples/warp_specialize/example_warp_specialize_gemm_barrierpipe_stage2.py
+  - examples/warp_specialize/example_warp_specialize_gemm_copy_0_gemm_1.py
+  - examples/warp_specialize/example_warp_specialize_gemm_copy_1_gemm_0.py
+  - examples/warp_specialize/example_warp_specialize_gemm_copy_gemm_0_1.py
+  - examples/warp_specialize/example_warp_specialize_gemm_softpipe_stage2.py
+  files_reviewed_count: 72
+  scope_disposition: retained
+- number: 2032
+  title: '[Feature] Introduce T.tfloat32  data type support'
+  date: '2026-05-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_mhc/example_mhc_pre.py, examples/gdn/example_chunk_delta_bwd.py'
+  files_changed:
+  - examples/deepseek_mhc/example_mhc_pre.py
+  - examples/gdn/example_chunk_delta_bwd.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 2132
+  title: '[AMD][CDNA4] Add MXFP4 (FP4 E2M1) support for gfx950'
+  date: '2026-05-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/dequantize_gemm/example_dequant_gemm_bf16_mxfp4_cdna4.py'
+  files_changed:
+  - examples/dequantize_gemm/example_dequant_gemm_bf16_mxfp4_cdna4.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 2169
+  title: '[Example] Add CLC-pipelined 2-CTA GEMM example for sm100'
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm_sm100/gemm_tcgen5mma_ws_clc.py'
+  files_changed:
+  - examples/gemm_sm100/gemm_tcgen5mma_ws_clc.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 2176
+  title: Optimize disk cache source loading
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 2185
+  title: '[Transform] Rewrite MergeSharedMemoryAllocations with per-epoch liveness'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/merge_shared_memory_allocations/example_branch_arena_reuse.py'
+  files_changed:
+  - examples/merge_shared_memory_allocations/example_branch_arena_reuse.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 2221
+  title: '  [CuTeDSL] Integrate host codegen call sites'
+  date: '2026-05-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py, tilelang/jit/adapter/cutedsl/kernel_cache.py, tilelang/jit/adapter/cutedsl/wrapper.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  - tilelang/jit/adapter/cutedsl/kernel_cache.py
+  - tilelang/jit/adapter/cutedsl/wrapper.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 2237
+  title: '[Pipeline] Support scalar bind-free pipeline annotations'
+  date: '2026-05-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/language/loop.py'
+  files_changed:
+  - tilelang/language/loop.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 2245
+  title: '[Pipeline] Refactor software pipeline transforms'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: added device-code construct in: src/transform/pipeline/barrier.cc'
+  files_changed:
+  - src/transform/pipeline/barrier.cc
+  files_reviewed_count: 24
+  scope_disposition: retained
+- number: 2252
+  title: '[Metal] M5 Cooperative Tensor T.gemm'
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/metal/op/gemm/gemm_metal.py'
+  files_changed:
+  - tilelang/metal/op/gemm/gemm_metal.py
+  files_reviewed_count: 38
+  scope_disposition: retained
+- number: 2261
+  title: '[CuTeDSL] Lower handle_add_byte_offset in Python codegen'
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/utils.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/utils.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2262
+  title: '[TileOP] Add scan operators'
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/reduce.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/reduce.py
+  files_reviewed_count: 24
+  scope_disposition: retained
+- number: 2266
+  title: '[Bugfix] Fix cached source restore and Metal codegen fallback'
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 2274
+  title: '[Refactor] Refactor blockscaled TCGEN5, support .f8f6f4/.mxf8f6f4 and restore maint scripts'
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py, examples/blockscaled_gemm_sm100/grouped_gemm_mxfp8_blockscaled_1d1d.py,
+    examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py, maint/gemm/correctness_evaluation.py, maint/gemm/correctness_evaluation_sm70.py, maint/gemm/correctness_evaluation_tcgen05.py, maint/gemm/correctness_evaluation_tcgen05_2cta.py,
+    maint/gemm/correctness_evaluation_tcgen05_fp4_unpacked.py'
+  files_changed:
+  - examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py
+  - examples/blockscaled_gemm_sm100/grouped_gemm_mxfp8_blockscaled_1d1d.py
+  - examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py
+  - maint/gemm/correctness_evaluation.py
+  - maint/gemm/correctness_evaluation_sm70.py
+  - maint/gemm/correctness_evaluation_tcgen05.py
+  - maint/gemm/correctness_evaluation_tcgen05_2cta.py
+  - maint/gemm/correctness_evaluation_tcgen05_fp4_unpacked.py
+  files_reviewed_count: 46
+  scope_disposition: retained
+- number: 2275
+  title: '[BugFix][Examples] Align grouped GEMM backward runner arguments'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/grouped_gemm/example_grouped_gemm_bwd.py'
+  files_changed:
+  - examples/grouped_gemm/example_grouped_gemm_bwd.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 2289
+  title: '[BugFix][CuTeDSL] Support TileKernels backend cases'
+  date: '2026-05-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/math.py, tilelang/jit/adapter/cutedsl/wrapper.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/math.py
+  - tilelang/jit/adapter/cutedsl/wrapper.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 2300
+  title: '[Feature] Add read option to TMA store wait'
+  date: '2026-05-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/cpasync.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/cpasync.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 2315
+  title: '[Transform] Place auto WS producers in first warp group'
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/dequantize_gemm/example_dequant_gemm_fp4_hopper.py, examples/dequantize_gemm/example_dequant_gemm_w4a8.py'
+  files_changed:
+  - examples/dequantize_gemm/example_dequant_gemm_fp4_hopper.py
+  - examples/dequantize_gemm/example_dequant_gemm_w4a8.py
+  files_reviewed_count: 25
+  scope_disposition: retained
+- number: 2319
+  title: '[BugFix][CuTeDSL] Complete TileKernels benchmark support'
+  date: '2026-06-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/grid_sync.py, tilelang/contrib/cutedsl/math.py, tilelang/contrib/cutedsl/reduce.py, tilelang/contrib/cutedsl/utils.py,
+    tilelang/contrib/cutedsl/warp.py, tilelang/jit/adapter/cutedsl/adapter.py, tilelang/jit/adapter/cutedsl/wrapper.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/grid_sync.py
+  - tilelang/contrib/cutedsl/math.py
+  - tilelang/contrib/cutedsl/reduce.py
+  - tilelang/contrib/cutedsl/utils.py
+  - tilelang/contrib/cutedsl/warp.py
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  - tilelang/jit/adapter/cutedsl/wrapper.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 2323
+  title: '[Backend] Add target detector/normalizer registeration and merge ExecutionBackend into backend module'
+  date: '2026-06-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  files_reviewed_count: 75
+  scope_disposition: retained
+- number: 2326
+  title: '[ROCm] Fix scan wavefront dispatch and gfx950 targets'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/dequantize_gemm/example_dequant_gemm_bf16_mxfp4_cdna4.py'
+  files_changed:
+  - examples/dequantize_gemm/example_dequant_gemm_bf16_mxfp4_cdna4.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 2334
+  title: '[BugFix] Fix eager JIT sub-btye shape binding'
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py'
+  files_changed:
+  - examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 2339
+  title: '[TileOP] Add SM70 GEMM FMA fallback'
+  date: '2026-07-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/cuda/op/gemm/gemm_fma.py'
+  files_changed:
+  - tilelang/cuda/op/gemm/gemm_fma.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 2364
+  title: '[CUDA] Add SM120 NVF4 block-scale MMA support'
+  date: '2026-07-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): maint/gemm/gemm_sm120/cutlass_nvf4_ref.cu'
+  files_changed:
+  - maint/gemm/gemm_sm120/cutlass_nvf4_ref.cu
+  files_reviewed_count: 29
+  scope_disposition: retained
+- number: 2369
+  title: '[BugFix][CuTeDSL] Fix TileKernels scan, optional-shape, and e5m6 paths'
+  date: '2026-06-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/reduce.py, tilelang/jit/adapter/cutedsl/adapter.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/reduce.py
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 2380
+  title: '[Backend] Support TMA lowering for arbitrary (swizzled) SMEM layout'
+  date: '2026-06-18'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/copy.cc, src/cuda/transform/producer_consumer_ws.cc, src/layout/cute_layout.cc, src/layout/cute_layout.h'
+  files_changed:
+  - src/cuda/op/copy.cc
+  - src/cuda/transform/producer_consumer_ws.cc
+  - src/layout/cute_layout.cc
+  - src/layout/cute_layout.h
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 2387
+  title: '[Transform] Materialize kernel launch per backend'
+  date: '2026-06-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py, examples/gemm_sm100/gemm_tcgen5mma_ws.py, maint/gemm/correctness_evaluation_tcgen05_2cta.py,
+    tilelang/language/kernel.py'
+  files_changed:
+  - examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py
+  - examples/gemm_sm100/gemm_tcgen5mma_ws.py
+  - maint/gemm/correctness_evaluation_tcgen05_2cta.py
+  - tilelang/language/kernel.py
+  files_reviewed_count: 35
+  scope_disposition: retained
+- number: 2390
+  title: Add assert that block_K is a multiple of micro_size_k in CUDA MMA GEMM backends to prevent silent miscompilation.
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/cuda/op/gemm/gemm_mma.py, tilelang/cuda/op/gemm/gemm_mma_sm70.py'
+  files_changed:
+  - tilelang/cuda/op/gemm/gemm_mma.py
+  - tilelang/cuda/op/gemm/gemm_mma_sm70.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2391
+  title: '[CUDA] Align swizzled TMA shared buffers'
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: added device-code construct in: src/op/builtin.h, src/op/operator.h'
+  files_changed:
+  - src/op/builtin.h
+  - src/op/operator.h
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 2392
+  title: '[CUDA] Add SM75 MMA dispatchers for FP16 accumulation and UINT8'
+  date: '2026-06-14'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/instruction/mma.h'
+  files_changed:
+  - src/tl_templates/cuda/instruction/mma.h
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 2417
+  title: '[Feature] Support stmatrix m16n8 on Blackwell'
+  date: '2026-06-23'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/ldsm.h'
+  files_changed:
+  - src/tl_templates/cuda/ldsm.h
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 2441
+  title: '[Feature] Introduce tile scheduler'
+  date: '2026-06-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py, examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py, examples/gemm_sm100/gemm_tcgen5mma_ws_persistent.py'
+  files_changed:
+  - examples/blockscaled_gemm_sm100/gemm_mxfp8_blockscaled_1d1d.py
+  - examples/deepseek_v4/fp8_fp4_gemm_1d1d_sm100.py
+  - examples/gemm_sm100/gemm_tcgen5mma_ws_persistent.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 2444
+  title: '[Pipeline] Simplify async copy lowering'
+  date: '2026-06-24'
+  decision: exclude
+  reason: 'remove: no positive device-kernel implementation in 28 authoritative changed file(s)'
+  files_changed:
+  - src/cuda/codegen/codegen_cuda.cc
+  - src/cuda/op/copy.cc
+  - src/cuda/transform/lower_ptx_async_copy.cc
+  - src/cuda/transform/multi_version_buffer_rewriter.cc
+  - src/cuda/transform/ptx_async_copy_injector.cc
+  - src/cuda/transform/ptx_async_copy_injector.h
+  - src/rocm/op/copy.cc
+  - src/rocm/transform/async_copy_injector.cc
+  - src/rocm/transform/async_copy_injector.h
+  - src/transform/common/pipeline_utils.h
+  - src/transform/inject_pipeline.cc
+  - src/transform/loop_vectorize.cc
+  - src/transform/lower_tile_op.cc
+  - src/transform/pipeline/access_analysis.cc
+  - src/transform/pipeline/access_analysis.h
+  - src/transform/pipeline/barrier.cc
+  - src/transform/pipeline/barrier.h
+  - src/transform/pipeline/body_analysis.h
+  - src/transform/pipeline/helpers.cc
+  - src/transform/pipeline/helpers.h
+  - src/transform/pipeline/rewriter.cc
+  - src/transform/pipeline/rewriter.h
+  - src/transform/pipeline/stage_analysis.h
+  - src/transform/pipeline_planning.cc
+  - testing/python/issue/test_tilelang_issue_2365.py
+  - testing/python/transform/test_tilelang_transform_Inject_software_pipeline.py
+  - testing/python/transform/test_tilelang_transform_lower_ptx_async_copy.py
+  - tilelang/cuda/transform/__init__.py
+  files_reviewed_count: 28
+  scope_disposition: removed
+- number: 2445
+  title: '[CUDA] Remove `__shfl_sync` from `tl_shuffle_elect`'
+  date: '2026-06-24'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/intrin.h'
+  files_changed:
+  - src/tl_templates/cuda/intrin.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2449
+  title: '[Feature][Tool] Add pass_visualizer: structure-tree pass browser'
+  date: '2026-07-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/tools/pass_visualizer/core.py, tilelang/tools/pass_visualizer/examples/gemm_relu.py, tilelang/tools/pass_visualizer/viewer.py'
+  files_changed:
+  - tilelang/tools/pass_visualizer/core.py
+  - tilelang/tools/pass_visualizer/examples/gemm_relu.py
+  - tilelang/tools/pass_visualizer/viewer.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 2452
+  title: '[Backend] [CUDA] Support GMMA/UMMA lowering for sliced SMEM layout (actually arbitrary layout)'
+  date: '2026-07-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/warp_specialize/example_warp_specialize_flashmla.py, tilelang/cuda/intrinsics/macro/tcgen05_macro_generator.py, tilelang/cuda/intrinsics/macro/wgmma_macro_generator.py'
+  files_changed:
+  - examples/warp_specialize/example_warp_specialize_flashmla.py
+  - tilelang/cuda/intrinsics/macro/tcgen05_macro_generator.py
+  - tilelang/cuda/intrinsics/macro/wgmma_macro_generator.py
+  files_reviewed_count: 21
+  scope_disposition: retained
+- number: 2461
+  title: '[CI][BugFix] Flash bwd varlen: zero-init lse/Delta padding to avoid NaN in Dk'
+  date: '2026-06-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/flash_attention/example_gqa_bwd_tma_reduce_varlen.py'
+  files_changed:
+  - examples/flash_attention/example_gqa_bwd_tma_reduce_varlen.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 2473
+  title: '[Feature] Expose multiple CUDA intrinsics'
+  date: '2026-07-02'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/hip/atomic.h'
+  files_changed:
+  - src/tl_templates/hip/atomic.h
+  files_reviewed_count: 22
+  scope_disposition: retained
+- number: 2474
+  title: '[CUDA] Reduce template include overhead'
+  date: '2026-07-01'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/intrin.h'
+  files_changed:
+  - src/tl_templates/cuda/intrin.h
+  files_reviewed_count: 32
+  scope_disposition: retained
+- number: 2496
+  title: '[Autotune] Support per-config pass_configs in autotuning'
+  date: '2026-07-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm/example_gemm_autotune_pass_configs.py'
+  files_changed:
+  - examples/gemm/example_gemm_autotune_pass_configs.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 2499
+  title: '[FEATURE] Add block-causal attention for dLLM example'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/block_causal_attention/block_causal_attention.py, examples/block_causal_attention/block_causal_attention_varlen.py'
+  files_changed:
+  - examples/block_causal_attention/block_causal_attention.py
+  - examples/block_causal_attention/block_causal_attention_varlen.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 2511
+  title: '[Enhancement] Add optimized fp8↔half/bf16 vectorized and scalar cast codegen'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/common.h, src/tl_templates/cuda/cuda_fp8.h'
+  files_changed:
+  - src/tl_templates/cuda/common.h
+  - src/tl_templates/cuda/cuda_fp8.h
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 2515
+  title: '[Feature] Support iket profiler for CUDA backend'
+  date: '2026-07-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/iket/all_features.py, examples/iket/minimal.py, examples/iket/payload_minimal.py'
+  files_changed:
+  - examples/iket/all_features.py
+  - examples/iket/minimal.py
+  - examples/iket/payload_minimal.py
+  files_reviewed_count: 29
+  scope_disposition: retained
+- number: 2553
+  title: '[Language][Scheduler] Expose scalar tile scheduler state'
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/language/tile_schedule.py'
+  files_changed:
+  - tilelang/language/tile_schedule.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 2637
+  title: '[CUDA] Support fp32x2 ops as reducers'
+  date: '2026-07-12'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/common.h'
+  files_changed:
+  - src/tl_templates/cuda/common.h
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 2711
+  title: '[BugFix] Implement atomic load and store for HIP'
+  date: '2026-07-20'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/hip/atomic.h'
+  files_changed:
+  - src/tl_templates/hip/atomic.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2723
+  title: '[Autotune] Add early stop to skip slow configs during benchmark'
+  date: '2026-07-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm/example_gemm_autotune_early_stop.py'
+  files_changed:
+  - examples/gemm/example_gemm_autotune_early_stop.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 2729
+  title: '[Autotune] Support early_stop in decorator mode and add decorator example'
+  date: '2026-07-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm/example_gemm_autotune_early_stop.py'
+  files_changed:
+  - examples/gemm/example_gemm_autotune_early_stop.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2743
+  title: '[BugFix] Gate TMEM and TMA builtins by CUDA architecture'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/barrier.h, src/tl_templates/cuda/copy_sm100.h, src/tl_templates/cuda/copy_sm90.h'
+  files_changed:
+  - src/tl_templates/cuda/barrier.h
+  - src/tl_templates/cuda/copy_sm100.h
+  - src/tl_templates/cuda/copy_sm90.h
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 2761
+  title: '[Refactor] Move example-only helpers out of tilelang package'
+  date: '2026-07-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/quantize.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/quantize.py
+  files_reviewed_count: 25
+  scope_disposition: retained
+- number: 2768
+  title: '[BugFix] Add arithmetic operators to vec_type in common.h for CPU codegen'
+  date: '2026-07-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: reproducer_vec_type.py'
+  files_changed:
+  - reproducer_vec_type.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2769
+  title: '[BugFix] Add pre-SM80 fallback for bf16 __hfma'
+  date: '2026-07-25'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/common.h'
+  files_changed:
+  - src/tl_templates/cuda/common.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2781
+  title: '[Enhancement] More compile-time guards for architecture-specific CUDA intrinsics'
+  date: '2026-07-27'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/barrier.h, src/tl_templates/cuda/instruction/wgmma.h, src/tl_templates/cuda/instruction/wgmma_sp.h, src/tl_templates/cuda/intrin.h'
+  files_changed:
+  - src/tl_templates/cuda/barrier.h
+  - src/tl_templates/cuda/instruction/wgmma.h
+  - src/tl_templates/cuda/instruction/wgmma_sp.h
+  - src/tl_templates/cuda/intrin.h
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 2785
+  title: '[CUDA] Support arbitrary TMEM layouts'
+  date: '2026-07-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm_sm100/gemm_tcgen5mma_ws.py, examples/gemm_sm100/gemm_tcgen5mma_ws_clc.py, examples/gemm_sm100/gemm_tcgen5mma_ws_persistent.py,
+    tilelang/cuda/intrinsics/layout/mma_sm100_layout.py, tilelang/cuda/intrinsics/macro/tcgen05_macro_generator.py'
+  files_changed:
+  - examples/gemm_sm100/gemm_tcgen5mma_ws.py
+  - examples/gemm_sm100/gemm_tcgen5mma_ws_clc.py
+  - examples/gemm_sm100/gemm_tcgen5mma_ws_persistent.py
+  - tilelang/cuda/intrinsics/layout/mma_sm100_layout.py
+  - tilelang/cuda/intrinsics/macro/tcgen05_macro_generator.py
+  files_reviewed_count: 27
+  scope_disposition: retained
+- number: 2831
+  title: '[CUDA] Pack logical TMEM buffers into shared `tcgen05.alloc` arenas'
+  date: '2026-08-03'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/transform/lower_shared_tmem.cc'
+  files_changed:
+  - src/cuda/transform/lower_shared_tmem.cc
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 2836
+  title: '[CUDA] Adopt multi-staged buffers in examples'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_mla/example_mla_decode_ws.py, examples/deepseek_v32/sparse_mla_bwd.py, examples/deepseek_v32/sparse_mla_fwd.py, examples/deepseek_v32/sparse_mla_fwd_pipelined.py,
+    examples/deepseek_v32/sparse_mla_fwd_seesaw.py, examples/flash_attention_sm100/gqa_fwd_bshd.py, examples/flash_attention_sm100/mha_fwd_bshd.py, examples/minference/example_vertical_slash_sparse_attn.py'
+  files_changed:
+  - examples/deepseek_mla/example_mla_decode_ws.py
+  - examples/deepseek_v32/sparse_mla_bwd.py
+  - examples/deepseek_v32/sparse_mla_fwd.py
+  - examples/deepseek_v32/sparse_mla_fwd_pipelined.py
+  - examples/deepseek_v32/sparse_mla_fwd_seesaw.py
+  - examples/flash_attention_sm100/gqa_fwd_bshd.py
+  - examples/flash_attention_sm100/mha_fwd_bshd.py
+  - examples/minference/example_vertical_slash_sparse_attn.py
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 2846
+  title: '[CUDA][TMA] Separate atomic-add dtype support from layout encoding'
+  date: '2026-08-03'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/copy.cc, src/cuda/op/tma_layout.cc, src/cuda/op/tma_layout.h'
+  files_changed:
+  - src/cuda/op/copy.cc
+  - src/cuda/op/tma_layout.cc
+  - src/cuda/op/tma_layout.h
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 2855
+  title: '[CUDA][ROCm][Metal] Split backend-specific builtin ops'
+  date: '2026-08-03'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/builtin.h'
+  files_changed:
+  - src/cuda/op/builtin.h
+  files_reviewed_count: 45
+  scope_disposition: retained
+- number: 2871
+  title: '[CuTeDSL] Port backend intrinsics to CUTLASS DSL primitives'
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: maint/host_checks/cutedsl_launcher_overhead.py, maint/host_checks/cutedsl_tma_launcher_overhead.py, tilelang/contrib/cutedsl/atomic.py,
+    tilelang/contrib/cutedsl/cluster.py, tilelang/contrib/cutedsl/cpasync.py, tilelang/contrib/cutedsl/gemm_tcgen05.py, tilelang/contrib/cutedsl/ieee_math.py, tilelang/contrib/cutedsl/ldsm.py, tilelang/contrib/cutedsl/math.py,
+    tilelang/contrib/cutedsl/quantize.py, tilelang/contrib/cutedsl/reduce.py, tilelang/contrib/cutedsl/threadblock_swizzle.py, tilelang/contrib/cutedsl/utils.py, tilelang/contrib/cutedsl/warp.py, tilelang/jit/adapter/cutedsl/checks.py,
+    tilelang/jit/adapter/cutedsl/wrapper.py'
+  files_changed:
+  - maint/host_checks/cutedsl_launcher_overhead.py
+  - maint/host_checks/cutedsl_tma_launcher_overhead.py
+  - tilelang/contrib/cutedsl/atomic.py
+  - tilelang/contrib/cutedsl/cluster.py
+  - tilelang/contrib/cutedsl/cpasync.py
+  - tilelang/contrib/cutedsl/gemm_tcgen05.py
+  - tilelang/contrib/cutedsl/ieee_math.py
+  - tilelang/contrib/cutedsl/ldsm.py
+  - tilelang/contrib/cutedsl/math.py
+  - tilelang/contrib/cutedsl/quantize.py
+  - tilelang/contrib/cutedsl/reduce.py
+  - tilelang/contrib/cutedsl/threadblock_swizzle.py
+  - tilelang/contrib/cutedsl/utils.py
+  - tilelang/contrib/cutedsl/warp.py
+  - tilelang/jit/adapter/cutedsl/checks.py
+  - tilelang/jit/adapter/cutedsl/wrapper.py
+  files_reviewed_count: 24
+  scope_disposition: retained
+- number: 2880
+  title: '[Layout] Support half-subpartition (M=64) TMEM tiles in tcgen05.ld/st'
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/gemm_tcgen05.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/gemm_tcgen05.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 2889
+  title: '[BugFix][ROCm] Lower vector Select conditions lane-wise'
+  date: '2026-08-06'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/hip/hip_fp8.h'
+  files_changed:
+  - src/tl_templates/hip/hip_fp8.h
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 2892
+  title: '[Feature] Warp specialization schedules and materialization'
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/aws/flash_attention.py, examples/aws/gemm.py'
+  files_changed:
+  - examples/aws/flash_attention.py
+  - examples/aws/gemm.py
+  files_reviewed_count: 24
+  scope_disposition: retained
+- number: 2902
+  title: '[Example] Generalize TCGEN05 GEMMs for Thor (sm110a) and add Stream-K scheduling'
+  date: '2026-08-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/gemm_tcgen05/gemm_tcgen5mma_ws_persistent_streamk.py'
+  files_changed:
+  - examples/gemm_tcgen05/gemm_tcgen5mma_ws_persistent_streamk.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 2924
+  title: '[Bugfix] Carry memory_order through vectorized atomic_add'
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/atomic.h'
+  files_changed:
+  - src/tl_templates/cuda/atomic.h
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 2938
+  title: '[CUDA] Add pre-SM80 fallback for bf16 atomic add'
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/atomic.h'
+  files_changed:
+  - src/tl_templates/cuda/atomic.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 2960
+  title: '[Layout][Inference] Add IO-aware cost model for free-mode selection'
+  date: '2026-08-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: maint/layout_inference/cases/broadcast_read.py, maint/layout_inference/cases/elementwise_copy.py, maint/layout_inference/cases/fp8_copy.py,
+    maint/layout_inference/cases/mixed_dtype_chain.py, maint/layout_inference/cases/offset_region_copy.py, maint/layout_inference/cases/reduce_broadcast.py, maint/layout_inference/cases/shared_staging.py,
+    maint/layout_inference/cases/transposed_store.py, maint/layout_inference/common.py, maint/layout_inference/cute_model.py'
+  files_changed:
+  - maint/layout_inference/cases/broadcast_read.py
+  - maint/layout_inference/cases/elementwise_copy.py
+  - maint/layout_inference/cases/fp8_copy.py
+  - maint/layout_inference/cases/mixed_dtype_chain.py
+  - maint/layout_inference/cases/offset_region_copy.py
+  - maint/layout_inference/cases/reduce_broadcast.py
+  - maint/layout_inference/cases/shared_staging.py
+  - maint/layout_inference/cases/transposed_store.py
+  - maint/layout_inference/common.py
+  - maint/layout_inference/cute_model.py
+  files_reviewed_count: 35
+  scope_disposition: retained
+- number: 2965
+  title: '[BugFix][Hopper][Blackwell] Read the WGMMA/UMMA K-panel stride from the layout instead of the operand extent'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/cuda/intrinsics/macro/wgmma_macro_generator.py'
+  files_changed:
+  - tilelang/cuda/intrinsics/macro/wgmma_macro_generator.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 3059
+  title: '[Feature] [CUDA] Role-based automatic warp specialization'
+  date: '2026-09-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/aws/flash_attention.py, examples/aws/gemm.py'
+  files_changed:
+  - examples/aws/flash_attention.py
+  - examples/aws/gemm.py
+  files_reviewed_count: 33
+  scope_disposition: retained
+- number: 3074
+  title: '[Runtime][Cache] Detect and repair corrupted cache entries'
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 3089
+  title: '[Bugfix] Make TMA layouts region-aware to keep slices contiguous'
+  date: '2026-08-26'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/copy.cc'
+  files_changed:
+  - src/cuda/op/copy.cc
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 3104
+  title: '[ROCm] Preserve FP8 bits in warp shuffles'
+  date: '2026-08-29'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/hip/hip_fp8.h'
+  files_changed:
+  - src/tl_templates/hip/hip_fp8.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3106
+  title: '[CUDA] Unify TMA copy lowering on CuTe algebra'
+  date: '2026-08-29'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/copy.cc, src/cuda/op/copy.h'
+  files_changed:
+  - src/cuda/op/copy.cc
+  - src/cuda/op/copy.h
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 3147
+  title: '[ROCm] Support DeepSeek-V3.2 Top-K selector'
+  date: '2026-09-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_v32/topk_selector.py'
+  files_changed:
+  - examples/deepseek_v32/topk_selector.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3149
+  title: '[ROCm] Select feasible flash-decoding tiles'
+  date: '2026-10-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/flash_decoding/example_mha_inference.py'
+  files_changed:
+  - examples/flash_decoding/example_mha_inference.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3156
+  title: '[ROCm] Support DeepSeek mHC pre and post kernels'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_mhc/example_mhc_pre.py'
+  files_changed:
+  - examples/deepseek_mhc/example_mhc_pre.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3158
+  title: '[Refactor][CUDA] Replace per-lane-count vector constructors with variadic packers'
+  date: '2026-09-03'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/copy_sm100.h'
+  files_changed:
+  - src/tl_templates/cuda/copy_sm100.h
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 3167
+  title: '[CI] Validate built wheels on GPU runners in the Dist workflow'
+  date: '2026-09-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: maint/scripts/smoke_test_wheel.py'
+  files_changed:
+  - maint/scripts/smoke_test_wheel.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3171
+  title: '[Layout] Consider scalar reducer plans in register-count search'
+  date: '2026-09-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: maint/layout_inference/cases/reducer_scalar_candidates.py'
+  files_changed:
+  - maint/layout_inference/cases/reducer_scalar_candidates.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 3185
+  title: '[Refactor] [CUDA] Rename `AutoSchedule` to `AutoWarpSpecialization`'
+  date: '2026-09-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/aws/gemm.py'
+  files_changed:
+  - examples/aws/gemm.py
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 3186
+  title: '[Refactor][Language] Make T.Kernel target-neutral with dialect-owned launch annotations'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/language/kernel.py'
+  files_changed:
+  - tilelang/language/kernel.py
+  files_reviewed_count: 33
+  scope_disposition: retained
+- number: 3206
+  title: '[BugFix][CUDA] Lower a kernel-body assert to a device-legal check'
+  date: '2026-09-22'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/codegen/codegen_cuda.cc'
+  files_changed:
+  - src/cuda/codegen/codegen_cuda.cc
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3224
+  title: '[Example] FP8 sparse MLA forward for DeepSeek V3.2 on Hopper'
+  date: '2026-09-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/deepseek_v32/sparse_mla_fwd_fp8.py'
+  files_changed:
+  - examples/deepseek_v32/sparse_mla_fwd_fp8.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3237
+  title: '[Do not review][Op][Language][CUDA] Add common block-scaled GEMM semantics and backend dispatch'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/cuda/op/gemm/gemm_tcgen05_blockscaled.py, tilelang/language/gemm_op.py'
+  files_changed:
+  - tilelang/cuda/op/gemm/gemm_tcgen05_blockscaled.py
+  - tilelang/language/gemm_op.py
+  files_reviewed_count: 32
+  scope_disposition: retained
+- number: 3238
+  title: '[Transform][CUDA] Plan atomic vector widths from destination addresses'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: maint/layout_inference/cases/atomic_destination.py'
+  files_changed:
+  - maint/layout_inference/cases/atomic_destination.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 3248
+  title: '[BugFix][CUDA] Only emit 256-bit global load/store on SM100+ targets'
+  date: '2026-09-19'
+  decision: include
+  reason: 'retain: added device-code construct in: src/tl_templates/cuda/copy_sm100.h'
+  files_changed:
+  - src/tl_templates/cuda/copy_sm100.h
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3249
+  title: '[ROCm] Add safe-gated KDA decode example'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/kda/example_safe_gated_kda_decode.py'
+  files_changed:
+  - examples/kda/example_safe_gated_kda_decode.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3254
+  title: '[ROCm] Add GLM-5.3 k-pool Top-K transform'
+  date: '2026-09-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/kpool/example_glm53_kpool_compress.py, examples/kpool/example_glm53_kpool_decode_tail.py, examples/kpool/example_glm53_kpool_fp8_mqa_logits.py,
+    examples/kpool/example_glm53_kpool_topk_transform.py'
+  files_changed:
+  - examples/kpool/example_glm53_kpool_compress.py
+  - examples/kpool/example_glm53_kpool_decode_tail.py
+  - examples/kpool/example_glm53_kpool_fp8_mqa_logits.py
+  - examples/kpool/example_glm53_kpool_topk_transform.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 3257
+  title: '[CUDA] Support SM120 block-scaled GEMM fragments and odd warp atom grids'
+  date: '2026-09-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/cuda/op/gemm/gemm_mma_sm120.py'
+  files_changed:
+  - tilelang/cuda/op/gemm/gemm_mma_sm120.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 3289
+  title: '[Codegen] Share C-like source emission and preserve import boundaries'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/codegen/codegen_cuda.cc'
+  files_changed:
+  - src/cuda/codegen/codegen_cuda.cc
+  files_reviewed_count: 20
+  scope_disposition: retained
+- number: 3303
+  title: '[CUDA] Emit packed FP16 and BF16 vector comparisons'
+  date: '2026-10-08'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/codegen/codegen_cuda.cc'
+  files_changed:
+  - src/cuda/codegen/codegen_cuda.cc
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3308
+  title: '[Public Release 9/30] Introduce Ascend 950 backend'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/ascend/deepgemm/kernels/copy.py, examples/ascend/deepgemm/kernels/epilogue.py, examples/ascend/deepgemm/kernels/kmn/bf16_gemm.py,
+    examples/ascend/deepgemm/kernels/kmn/fp8_gemm.py, examples/ascend/deepgemm/kernels/mnk/bf16_gemm.py, examples/ascend/deepgemm/kernels/mnk/fp8_gemm.py, examples/ascend/deepgemm/kernels/transform_sf.py,
+    examples/ascend/example_gemm.py, examples/ascend/example_gemm_splitk.py, examples/ascend/example_per_token_cast_to_fp8.py, examples/ascend/example_rmsnorm.py, examples/ascend/example_vecadd.py, examples/ascend/flash_attention/core.py,
+    examples/ascend/flash_attention/core_bwd.py, tilelang/ascend/analysis/vf_checker.py, tilelang/ascend/language/kernel.py, tilelang/ascend/op/gemm/gemm_mad.py, tilelang/ascend/op/gemm/gemm_mad_blockscaled.py,
+    tilelang/profiler/msprof.py'
+  files_changed:
+  - examples/ascend/deepgemm/kernels/copy.py
+  - examples/ascend/deepgemm/kernels/epilogue.py
+  - examples/ascend/deepgemm/kernels/kmn/bf16_gemm.py
+  - examples/ascend/deepgemm/kernels/kmn/fp8_gemm.py
+  - examples/ascend/deepgemm/kernels/mnk/bf16_gemm.py
+  - examples/ascend/deepgemm/kernels/mnk/fp8_gemm.py
+  - examples/ascend/deepgemm/kernels/transform_sf.py
+  - examples/ascend/example_gemm.py
+  - examples/ascend/example_gemm_splitk.py
+  - examples/ascend/example_per_token_cast_to_fp8.py
+  - examples/ascend/example_rmsnorm.py
+  - examples/ascend/example_vecadd.py
+  - examples/ascend/flash_attention/core.py
+  - examples/ascend/flash_attention/core_bwd.py
+  - tilelang/ascend/analysis/vf_checker.py
+  - tilelang/ascend/language/kernel.py
+  - tilelang/ascend/op/gemm/gemm_mad.py
+  - tilelang/ascend/op/gemm/gemm_mad_blockscaled.py
+  - tilelang/profiler/msprof.py
+  files_reviewed_count: 379
+  scope_disposition: retained
+- number: 3400
+  title: '[BugFix][CuTeDSL] Elect one grid-barrier leader per block'
+  date: '2026-10-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/grid_sync.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/grid_sync.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3414
+  title: '[BugFix] Preserve parameter identity in NVRTC and CuTeDSL wrappers'
+  date: '2026-10-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/jit/adapter/cutedsl/adapter.py, tilelang/jit/adapter/cutedsl/wrapper.py'
+  files_changed:
+  - tilelang/jit/adapter/cutedsl/adapter.py
+  - tilelang/jit/adapter/cutedsl/wrapper.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 3430
+  title: '[CUDA] Enable SM120 block-scaled MMA on SM121'
+  date: '2026-10-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/cpasync.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/cpasync.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3439
+  title: '[BugFix][CUDA] Gate fp8 T.gemm on SM89 instead of trapping at launch'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/op/gemm.cc'
+  files_changed:
+  - src/cuda/op/gemm.cc
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3449
+  title: '[Refactor][CUDA] Split math codegen dispatch'
+  date: '2026-10-08'
+  decision: include
+  reason: 'retain: added device-code construct in: src/cuda/codegen/codegen_cuda.cc'
+  files_changed:
+  - src/cuda/codegen/codegen_cuda.cc
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3474
+  title: '[Ascend] Allow selecting target for examples'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/ascend/deepgemm/kernels/kmn/bf16_gemm.py, examples/ascend/deepgemm/kernels/kmn/fp8_gemm.py, examples/ascend/deepgemm/kernels/mnk/bf16_gemm.py,
+    examples/ascend/deepgemm/kernels/mnk/fp8_gemm.py, examples/ascend/deepgemm/kernels/transform_sf.py, examples/ascend/example_per_token_cast_to_fp8.py'
+  files_changed:
+  - examples/ascend/deepgemm/kernels/kmn/bf16_gemm.py
+  - examples/ascend/deepgemm/kernels/kmn/fp8_gemm.py
+  - examples/ascend/deepgemm/kernels/mnk/bf16_gemm.py
+  - examples/ascend/deepgemm/kernels/mnk/fp8_gemm.py
+  - examples/ascend/deepgemm/kernels/transform_sf.py
+  - examples/ascend/example_per_token_cast_to_fp8.py
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 3576
+  title: '[CuTeDSL][Scan] Handle participating thread offsets'
+  date: '2026-10-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tilelang/contrib/cutedsl/reduce.py'
+  files_changed:
+  - tilelang/contrib/cutedsl/reduce.py
+  files_reviewed_count: 2
+  scope_disposition: retained

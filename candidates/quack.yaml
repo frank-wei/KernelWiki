@@ -1,5 +1,5 @@
 repo: Dao-AILab/quack
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - cute
 - tma
@@ -7,8 +7,8 @@ keywords_used:
 - attention
 - hopper
 - blackwell
-total_candidates: 51
-included: 2
+total_candidates: 57
+included: 8
 excluded: 0
 deferred: 49
 prs:
@@ -1651,3 +1651,69 @@ prs:
   deletions: 51
   changed_file_count: 5
   artifact_dir: evidence/pull-bundles/quack/gh-138
+- number: 133
+  title: '[Bug fix]: Fix the SwiGLU/dSwiGLU bug for the (2, 2) epilogue layout'
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/epilogue/ops.py'
+  files_changed:
+  - quack/epilogue/ops.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 158
+  title: '[GEMM] Add SplitK Serial,Parallel,Separate modes to all GEMM classes and dtypes'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/blockscaled/utils.py, quack/gemm.py, quack/gemm_base.py, quack/gemm_default_epi.py, quack/gemm_sm100.py, quack/gemm_sm120.py, quack/gemm_sm90.py,
+    quack/split_k_reduce.py, quack/tile_scheduler.py, quack/utils.py'
+  files_changed:
+  - quack/blockscaled/utils.py
+  - quack/gemm.py
+  - quack/gemm_base.py
+  - quack/gemm_default_epi.py
+  - quack/gemm_sm100.py
+  - quack/gemm_sm120.py
+  - quack/gemm_sm90.py
+  - quack/split_k_reduce.py
+  - quack/tile_scheduler.py
+  - quack/utils.py
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 164
+  title: Avoid pre-electing bulk G2S copies
+  date: '2026-07-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/copy_utils.py'
+  files_changed:
+  - quack/copy_utils.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 170
+  title: '[GEMM] Full blockscaled MXFP4/6/8 QMMA and MXFP4/NVFP4 OMMA support for SM100 GEMM'
+  date: '2026-07-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/gemm_sm100.py, quack/gemm_tvm_ffi_utils.py, quack/sm100_utils.py'
+  files_changed:
+  - quack/gemm_sm100.py
+  - quack/gemm_tvm_ffi_utils.py
+  - quack/sm100_utils.py
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 174
+  title: Bump CuTe-DSL to 4.6.1
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/fast_math.py'
+  files_changed:
+  - quack/fast_math.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 181
+  title: Revert electone clean up in PR-#164
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: quack/copy_utils.py'
+  files_changed:
+  - quack/copy_utils.py
+  files_reviewed_count: 2
+  scope_disposition: retained

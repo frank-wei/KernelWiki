@@ -1,5 +1,5 @@
 repo: NVIDIA/cutlass
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - blackwell
 - sm100
@@ -23,8 +23,8 @@ keywords_used:
 - tile_scheduler
 - grouped_gemm
 - sub_byte
-total_candidates: 79
-included: 39
+total_candidates: 139
+included: 99
 excluded: 16
 deferred: 24
 prs:
@@ -1234,3 +1234,730 @@ prs:
   - include/cutlass/gemm/kernel/tile_scheduler_params.h
   files_reviewed_count: 4
   scope_disposition: removed
+- number: 2851
+  title: add `SM75_16x8x8_F16F16F16F16_TN`
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cute/arch/mma_sm75.hpp'
+  files_changed:
+  - include/cute/arch/mma_sm75.hpp
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3043
+  title: add fp4_x2 example
+  date: '2026-06-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/tvm_ffi/fp4_x2_tensor.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/tvm_ffi/fp4_x2_tensor.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3124
+  title: '[CuTeDSL] Add SM103 grouped block-scaled GEMM kernel and tests'
+  date: '2026-07-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_grouped_gemm/sm103_grouped_blockscaled_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_grouped_gemm/sm103_grouped_blockscaled_gemm.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3135
+  title: '[CuTeDSL] Add a render function hook to allow render layout natively'
+  date: '2026-06-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/utils/print_latex.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/utils/print_latex.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3244
+  title: '[CuTe] Add missing include for smem_ptr_flag_bits in print_tensor.hpp'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cute/util/print_tensor.hpp'
+  files_changed:
+  - include/cute/util/print_tensor.hpp
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3251
+  title: '[CLI] Update FMHA & improve perf'
+  date: '2026-05-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py, examples/python/CuTeDSL/helpers/fmha_helpers.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py
+  - examples/python/CuTeDSL/helpers/fmha_helpers.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3262
+  title: Fix hopper grouped gemm example `elect_sync` api use
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3264
+  title: v4.5.2 update.
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm.py, python/CuTeDSL/cutlass/cute/nvgpu/cpasync/copy.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/cpasync/copy.py
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 3270
+  title: '[CuTeDSL] Make @cute.struct instances flattenable across scf.if / scf.while'
+  date: '2026-05-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/cute/core.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/cute/core.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3272
+  title: Add Blackwell GeForce blockscaled GEMM examples
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/blockscaled_gemm_dispatch.py, examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent_cooperative.py,
+    examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent_pingpong.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/blockscaled_gemm_dispatch.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent_cooperative.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent_pingpong.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3274
+  title: '[CLI] add mixed precision blockscaled gemm example'
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_gemm/dense_blockscaled_gemm_persistent.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3280
+  title: '[SM120] Add ptr-array TMA collective for tensor/token-scaled FP8 grouped GEMM'
+  date: '2026-06-13'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cutlass/gemm/collective/builders/sm120_array_mma_builder.inl, include/cutlass/gemm/collective/sm120_mma_array_tma.hpp'
+  files_changed:
+  - include/cutlass/gemm/collective/builders/sm120_array_mma_builder.inl
+  - include/cutlass/gemm/collective/sm120_mma_array_tma.hpp
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 3283
+  title: Enable tcgen05 blockscaled ops on Thor SM110
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/cute/nvgpu/tcgen05/copy.py, python/CuTeDSL/cutlass/cute/nvgpu/tcgen05/mma.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/cute/nvgpu/tcgen05/copy.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/tcgen05/mma.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3285
+  title: 'NFC: Replace deprecated cute.make_fragment with cute.make_rmem_tensor'
+  date: '2026-06-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py, examples/python/CuTeDSL/dsl_tutorials/jax/elementwise_apply_example.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py
+  - examples/python/CuTeDSL/dsl_tutorials/jax/elementwise_apply_example.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3291
+  title: '[CLI] Recover fmha perf'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3292
+  title: add tileN = 8,16 for SM120 blockscale GEMM.
+  date: '2026-06-26'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cutlass/gemm/collective/builders/sm120_blockscaled_mma_builder.inl, include/cutlass/gemm/collective/builders/sm120_common.inl'
+  files_changed:
+  - include/cutlass/gemm/collective/builders/sm120_blockscaled_mma_builder.inl
+  - include/cutlass/gemm/collective/builders/sm120_common.inl
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3293
+  title: Fix example with upcoming release
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3294
+  title: Fix CUDA Device import for distributed CuTeDSL examples
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py, examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 3295
+  title: '[CLI] quick fix for fmha compile options'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3303
+  title: Fix dense_gemm_fp8_2xacc validation codes
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/hopper/kernel/dense_gemm/dense_gemm_fp8_2xacc.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/hopper/kernel/dense_gemm/dense_gemm_fp8_2xacc.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3309
+  title: quick fix for fmha_bwd regressions
+  date: '2026-07-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha_bwd.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha_bwd.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3315
+  title: v4.6 dev update.
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): examples/113_hopper_gemm_activation_fusion/113_hopper_gemm_fused_act.cu, examples/113_hopper_gemm_activation_fusion/113_hopper_gemm_fused_gated_act.cu,
+    examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_act.cu, examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_gated_act.cu, examples/113_hopper_gemm_activation_fusion/activation_kernel.cuh'
+  files_changed:
+  - examples/113_hopper_gemm_activation_fusion/113_hopper_gemm_fused_act.cu
+  - examples/113_hopper_gemm_activation_fusion/113_hopper_gemm_fused_gated_act.cu
+  - examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_act.cu
+  - examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_gated_act.cu
+  - examples/113_hopper_gemm_activation_fusion/activation_kernel.cuh
+  files_reviewed_count: 182
+  scope_disposition: retained
+- number: 3322
+  title: Update tensorop_gemm.py
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/ampere/kernel/dense_gemm/tensorop_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/ampere/kernel/dense_gemm/tensorop_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3328
+  title: Fix license.
+  date: '2026-06-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/mla/mla_decode_fp8.py, examples/python/CuTeDSL/cute/blackwell/kernel/attention/mla/mla_helpers.py,
+    examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_0.py, examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_1.py, examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_2.py,
+    examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_3.py, examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm_2sm.py, examples/python/CuTeDSL/dsl_tutorials/dataclass_immutable.py,
+    examples/python/CuTeDSL/dsl_tutorials/tvm_ffi/compile_with_fake_tensor.py, examples/python/CuTeDSL/utils/fmha_helpers.py, examples/python/CuTeDSL/utils/sparse_utils.py, python/CuTeDSL/cutlass/_pth_hook.py,
+    python/CuTeDSL/cutlass/cute/experimental/host_runtime.py, python/CuTeDSL/cutlass/utils/gemm/sm100.py, python/CuTeDSL/cutlass/utils/gemm/tensor_utils.py, python/CuTeDSL/cutlass/utils/grouped_gemm_tile_scheduler_helper.py,
+    python/CuTeDSL/prep_editable_install.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/mla/mla_decode_fp8.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/mla/mla_helpers.py
+  - examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_0.py
+  - examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_1.py
+  - examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_2.py
+  - examples/python/CuTeDSL/cute/blackwell/tutorial/tutorial_gemm/fp16_gemm_3.py
+  - examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm_2sm.py
+  - examples/python/CuTeDSL/dsl_tutorials/dataclass_immutable.py
+  - examples/python/CuTeDSL/dsl_tutorials/tvm_ffi/compile_with_fake_tensor.py
+  - examples/python/CuTeDSL/utils/fmha_helpers.py
+  - examples/python/CuTeDSL/utils/sparse_utils.py
+  - python/CuTeDSL/cutlass/_pth_hook.py
+  - python/CuTeDSL/cutlass/cute/experimental/host_runtime.py
+  - python/CuTeDSL/cutlass/utils/gemm/sm100.py
+  - python/CuTeDSL/cutlass/utils/gemm/tensor_utils.py
+  - python/CuTeDSL/cutlass/utils/grouped_gemm_tile_scheduler_helper.py
+  - python/CuTeDSL/prep_editable_install.py
+  files_reviewed_count: 26
+  scope_disposition: retained
+- number: 3344
+  title: '[CLI] Recover ssd and blockwise group gemm perf'
+  date: '2026-06-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/mamba2_ssd/mamba2_ssd.py, examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py,
+    examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py, examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/masked_grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/mamba2_ssd/mamba2_ssd.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/masked_grouped_gemm.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3362
+  title: v4.6 tag release.
+  date: '2026-07-06'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_gated_act.cu'
+  files_changed:
+  - examples/113_hopper_gemm_activation_fusion/113_hopper_grouped_gemm_fused_gated_act.cu
+  files_reviewed_count: 292
+  scope_disposition: retained
+- number: 3369
+  title: Fix grouped GEMM issue
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/hopper/kernel/grouped_gemm/grouped_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3370
+  title: '[CuTeDSL] Gate Blackwell example tuning by CUDA backend'
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/mamba2_ssd/mamba2_ssd.py, examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py,
+    examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/masked_grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/mamba2_ssd/mamba2_ssd.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/masked_grouped_gemm.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3376
+  title: fix arguments for tensorop_gemm
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/dsl_tutorials/call_bypass_dlpack.py, examples/python/CuTeDSL/dsl_tutorials/call_from_jit.py, examples/python/CuTeDSL/dsl_tutorials/tvm_ffi/ampere_gemm_with_fake_tensor.py'
+  files_changed:
+  - examples/python/CuTeDSL/dsl_tutorials/call_bypass_dlpack.py
+  - examples/python/CuTeDSL/dsl_tutorials/call_from_jit.py
+  - examples/python/CuTeDSL/dsl_tutorials/tvm_ffi/ampere_gemm_with_fake_tensor.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 3378
+  title: '[Hopper CuTeDSL] Add FP8 GEMM with GELU epilogues'
+  date: '2026-07-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/hopper/kernel/dense_gemm/dense_gemm_fp8_gelu_persistent.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/hopper/kernel/dense_gemm/dense_gemm_fp8_gelu_persistent.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3381
+  title: SM100 GEMM AR, GEMM RS Update
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py, examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 3383
+  title: v4.6.1 update.
+  date: '2026-07-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/_mlir_helpers/op.py, python/CuTeDSL/cutlass/base_dsl/env_manager.py, python/CuTeDSL/cutlass/base_dsl/runtime/cuda.py,
+    python/CuTeDSL/cutlass/cute/arch/nvvm_wrappers.py, python/CuTeDSL/cutlass/cute/core.py, python/CuTeDSL/cutlass/jax/ffi.py, python/CuTeDSL/cutlass/jax/primitive.py, python/CuTeDSL/cutlass/testing.py'
+  files_changed:
+  - python/CuTeDSL/_mlir_helpers/op.py
+  - python/CuTeDSL/cutlass/base_dsl/env_manager.py
+  - python/CuTeDSL/cutlass/base_dsl/runtime/cuda.py
+  - python/CuTeDSL/cutlass/cute/arch/nvvm_wrappers.py
+  - python/CuTeDSL/cutlass/cute/core.py
+  - python/CuTeDSL/cutlass/jax/ffi.py
+  - python/CuTeDSL/cutlass/jax/primitive.py
+  - python/CuTeDSL/cutlass/testing.py
+  files_reviewed_count: 19
+  scope_disposition: retained
+- number: 3384
+  title: '[CuTeDSL] Allow `reassoc` fastmath flag on vector reduction ops'
+  date: '2026-08-26'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/_mlir_helpers/vector.py'
+  files_changed:
+  - python/CuTeDSL/_mlir_helpers/vector.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3387
+  title: quick fix for fmha regression
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3397
+  title: SM100f distributed fix
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py, examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_all_gather_gemm_blackwell.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/distributed/distributed_gemm_reduce_scatter_blackwell.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3400
+  title: fix fmha regression
+  date: '2026-07-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/attention/fmha/fmha.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3407
+  title: '[CuTeDSL] Publish IKET GEMM tutorial and update JSON schema'
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/dsl_tutorials/fp16_gemm_4_iket.py'
+  files_changed:
+  - examples/python/CuTeDSL/dsl_tutorials/fp16_gemm_4_iket.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3424
+  title: '[CuTe DSL] Fix REPL crash: clear diagnostic and keep the interpreter alive (issue #3413)'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/ast_preprocessor.py, python/CuTeDSL/cutlass/base_dsl/common.py, python/CuTeDSL/cutlass/base_dsl/diagnostics.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/ast_preprocessor.py
+  - python/CuTeDSL/cutlass/base_dsl/common.py
+  - python/CuTeDSL/cutlass/base_dsl/diagnostics.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3426
+  title: 'Cutlass compiler: Introducing CuTe IR MLIR dialect'
+  date: '2026-08-03'
+  decision: include
+  reason: 'retain: added device-code construct in: cutlass_compiler/cute_ir/include/cute_ir/Dialect/Cute/IR/CuteDialect.h, cutlass_compiler/cute_ir/lib/Conversion/CuteToBase/CuteToBase.cpp, cutlass_compiler/cute_ir/lib/Conversion/CuteToBase/ExpandOps.cpp,
+    cutlass_compiler/cute_ir/lib/Dialect/IR/CuteAttributes.cpp, cutlass_compiler/cute_ir/lib/Dialect/Transforms/CuteFoldStatic.cpp, cutlass_compiler/cute_ir/tools/cute-opt/cute-opt.cpp, cutlass_compiler/tools/cutlass-compiler/cutlass-compiler.cpp,
+    cutlass_compiler/tools/cutlass-lsp-server/cutlass-lsp-server.cpp'
+  files_changed:
+  - cutlass_compiler/cute_ir/include/cute_ir/Dialect/Cute/IR/CuteDialect.h
+  - cutlass_compiler/cute_ir/lib/Conversion/CuteToBase/CuteToBase.cpp
+  - cutlass_compiler/cute_ir/lib/Conversion/CuteToBase/ExpandOps.cpp
+  - cutlass_compiler/cute_ir/lib/Dialect/IR/CuteAttributes.cpp
+  - cutlass_compiler/cute_ir/lib/Dialect/Transforms/CuteFoldStatic.cpp
+  - cutlass_compiler/cute_ir/tools/cute-opt/cute-opt.cpp
+  - cutlass_compiler/tools/cutlass-compiler/cutlass-compiler.cpp
+  - cutlass_compiler/tools/cutlass-lsp-server/cutlass-lsp-server.cpp
+  files_reviewed_count: 475
+  scope_disposition: retained
+- number: 3427
+  title: Fix ScaledBasis equality for mismatched bases, add SM120 sparse metadata K assert
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cutlass/gemm/collective/sm120_blockscaled_sparse_mma_tma.hpp'
+  files_changed:
+  - include/cutlass/gemm/collective/sm120_blockscaled_sparse_mma_tma.hpp
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3432
+  title: v4.7 update.
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): examples/77_blackwell_fmha/77_blackwell_fmha_2bwd.cu'
+  files_changed:
+  - examples/77_blackwell_fmha/77_blackwell_fmha_2bwd.cu
+  files_reviewed_count: 381
+  scope_disposition: retained
+- number: 3446
+  title: '[CuTeDSL] Skip the numpy round-trip for in-range integer scalars'
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/typing.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/typing.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3448
+  title: '[CuTeDSL] Fix export_to_c shape slot width for 64-bit dynamic dims'
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/cute/export/c_header_generator.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/cute/export/c_header_generator.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3464
+  title: 'fix(tvm-ffi): env stream detection for tuple parameters'
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/tvm_ffi_builder.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/tvm_ffi_builder.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3551
+  title: v4.8 dev update.
+  date: '2026-08-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): examples/93_blackwell_low_latency_gqa/tgv_gqa.cuh, examples/cute/rubin/rubin_fp4_blockscaled.cu, examples/cute/rubin/rubin_fp8.cu, examples/cute/rubin/rubin_fp8_blockscaled.cu,
+    examples/cute/tutorial/blackwell/01_mma_sm100.cu, examples/cute/tutorial/blackwell/02_mma_tma_sm100.cu, examples/cute/tutorial/blackwell/03_mma_tma_multicast_sm100.cu, examples/cute/tutorial/blackwell/04_mma_tma_2sm_sm100.cu,
+    examples/cute/tutorial/blackwell/05_mma_tma_epi_sm100.cu'
+  files_changed:
+  - examples/93_blackwell_low_latency_gqa/tgv_gqa.cuh
+  - examples/cute/rubin/rubin_fp4_blockscaled.cu
+  - examples/cute/rubin/rubin_fp8.cu
+  - examples/cute/rubin/rubin_fp8_blockscaled.cu
+  - examples/cute/tutorial/blackwell/01_mma_sm100.cu
+  - examples/cute/tutorial/blackwell/02_mma_tma_sm100.cu
+  - examples/cute/tutorial/blackwell/03_mma_tma_multicast_sm100.cu
+  - examples/cute/tutorial/blackwell/04_mma_tma_2sm_sm100.cu
+  - examples/cute/tutorial/blackwell/05_mma_tma_epi_sm100.cu
+  files_reviewed_count: 515
+  scope_disposition: retained
+- number: 3556
+  title: Update Blackwell CuTeDSL helpers for Rubin compatibility
+  date: '2026-08-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_grouped_gemm/grouped_blockscaled_gemm.py, examples/python/CuTeDSL/cute/blackwell/kernel/dense_gemm/dense_gemm_persistent.py,
+    examples/python/CuTeDSL/cute/blackwell/kernel/grouped_gemm/grouped_gemm.py, examples/python/CuTeDSL/helpers/cli_helper.py, examples/python/CuTeDSL/helpers/grouped_gemm_persistent_tile_scheduler.py,
+    examples/python/CuTeDSL/helpers/static_persistent_tile_scheduler.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockscaled_grouped_gemm/grouped_blockscaled_gemm.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/dense_gemm/dense_gemm_persistent.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/grouped_gemm/grouped_gemm.py
+  - examples/python/CuTeDSL/helpers/cli_helper.py
+  - examples/python/CuTeDSL/helpers/grouped_gemm_persistent_tile_scheduler.py
+  - examples/python/CuTeDSL/helpers/static_persistent_tile_scheduler.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 3563
+  title: '[CuTeDSL] Fix blockwise GEMM opt-level version gate'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3565
+  title: '[CuTeDSL] Preserve deterministic link library ordering'
+  date: '2026-09-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/dsl.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/dsl.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3610
+  title: '[GitHub CI] Add CUTLASS test infrastructure and CuTeDSL/C++ coverage'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: cutlass_cicd/cutedsl/commands.py, cutlass_cicd/cutedsl/paths.py, cutlass_cicd/cutedsl/setup.py, cutlass_cicd/cutedsl/suites.py, python/CuTeDSL/_editable_backend.py,
+    python/CuTeDSL/prep_editable_install.py'
+  files_changed:
+  - cutlass_cicd/cutedsl/commands.py
+  - cutlass_cicd/cutedsl/paths.py
+  - cutlass_cicd/cutedsl/setup.py
+  - cutlass_cicd/cutedsl/suites.py
+  - python/CuTeDSL/_editable_backend.py
+  - python/CuTeDSL/prep_editable_install.py
+  files_reviewed_count: 48
+  scope_disposition: retained
+- number: 3611
+  title: Restore TMEM allocator class constants for backward compatibility
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cute/arch/tmem_allocator_sm100.hpp'
+  files_changed:
+  - include/cute/arch/tmem_allocator_sm100.hpp
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3636
+  title: '[CuTeDSL] Fix CLC epilogue TMA-store stage rotation'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/dense_gemm/dense_gemm_persistent_dynamic.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/dense_gemm/dense_gemm_persistent_dynamic.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3637
+  title: 'Fix: enable CUDA_CTA_RECONFIG_ACTIVATED for SM110a (Jetson AGX Thor)'
+  date: '2026-10-15'
+  decision: include
+  reason: 'retain: added device-code construct in: include/cutlass/arch/reg_reconfig.h'
+  files_changed:
+  - include/cutlass/arch/reg_reconfig.h
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3639
+  title: '[CuTeDSL] Use vectorized codegen for CUDA 12.9 2CTA grouped GEMM'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/contiguous_grouped_gemm.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3645
+  title: v4.8 update
+  date: '2026-09-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py, examples/python/CuTeDSL/cute/blackwell/kernel/conv/dense_blockscaled_implicit_gemm_fprop.py,
+    examples/python/CuTeDSL/cute/blackwell/kernel/conv/dense_implicit_gemm_fprop.py, examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/blockscaled_gemm_dispatch.py, examples/python/CuTeDSL/cute/blackwell_geforce/kernel/conv/dense_blockscaled_implicit_gemm_fprop.py,
+    examples/python/CuTeDSL/cute/blackwell_geforce/kernel/conv/dense_implicit_gemm_fprop.py, examples/python/CuTeDSL/cute/blackwell_geforce/kernel/dense_gemm/dense_gemm.py, examples/python/CuTeDSL/cute/rubin/kernel/dense_gemm/dense_gemm_persistent_mixed_clusters.py,
+    examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm/dense_gemm_alpha_beta_persistent.py, examples/python/CuTeDSL/cute_ext/rubin/dense_blockscaled_gemm_persistent.py, examples/python/CuTeDSL/experimental/task_scheduling/blackwell/tutorial/04_gemm_bf16_advanced_ts/02_fp16_bf16_gemm_3_cute_cluster.py,
+    operators/cutlass/operators/providers/cutedsl/gemm/implementations/sm100_tgv_gemm_impl.py, python/CuTeDSL/_mlir_helpers/arith.py, python/CuTeDSL/_mlir_helpers/dominance.py, python/CuTeDSL/_mlir_helpers/op.py,
+    python/CuTeDSL/cutlass/base_dsl/ast_helpers.py, python/CuTeDSL/cutlass/base_dsl/ast_preprocessor.py, python/CuTeDSL/cutlass/base_dsl/common.py, python/CuTeDSL/cutlass/base_dsl/compile_backend.py, python/CuTeDSL/cutlass/base_dsl/compiler.py,
+    python/CuTeDSL/cutlass/base_dsl/diagnostics.py, python/CuTeDSL/cutlass/base_dsl/dsl.py, python/CuTeDSL/cutlass/base_dsl/env_manager.py, python/CuTeDSL/cutlass/base_dsl/jit_executor.py, python/CuTeDSL/cutlass/base_dsl/multi_stage_manager.py,
+    python/CuTeDSL/cutlass/base_dsl/preprocess_mode.py, python/CuTeDSL/cutlass/base_dsl/pyir_call_boundary.py, python/CuTeDSL/cutlass/base_dsl/pyir_class_facts.py, python/CuTeDSL/cutlass/base_dsl/pyir_cleanup.py,
+    python/CuTeDSL/cutlass/base_dsl/pyir_core.py, python/CuTeDSL/cutlass/base_dsl/pyir_corewalk.py, python/CuTeDSL/cutlass/base_dsl/pyir_entrypoints.py, python/CuTeDSL/cutlass/base_dsl/pyir_loop_carry.py,
+    python/CuTeDSL/cutlass/base_dsl/pyir_preprocessor.py, python/CuTeDSL/cutlass/base_dsl/pyir_runtime.py, python/CuTeDSL/cutlass/base_dsl/pyir_spec.py, python/CuTeDSL/cutlass/base_dsl/pyir_state.py, python/CuTeDSL/cutlass/base_dsl/pyir_threading.py,
+    python/CuTeDSL/cutlass/base_dsl/runtime/cuda.py, python/CuTeDSL/cutlass/base_dsl/runtime/jit_arg_adapters.py, python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/mlir_builder.py, python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/tvm_ffi_builder.py,
+    python/CuTeDSL/cutlass/base_dsl/typing.py, python/CuTeDSL/cutlass/base_dsl/utils/leaf_utils.py, python/CuTeDSL/cutlass/base_dsl/utils/mlir_value_tree.py, python/CuTeDSL/cutlass/base_dsl/utils/tree_utils.py,
+    python/CuTeDSL/cutlass/cute/algorithm.py, python/CuTeDSL/cutlass/cute/arch/nvvm_wrappers.py, python/CuTeDSL/cutlass/cute/arch/tmem.py, python/CuTeDSL/cutlass/cute/launch_facts.py, python/CuTeDSL/cutlass/cute/nvgpu/cpasync/copy.py,
+    python/CuTeDSL/cutlass/cute/nvgpu/cpasync/helpers.py, python/CuTeDSL/cutlass/cute/nvgpu/helpers.py, python/CuTeDSL/cutlass/cute/runtime.py, python/CuTeDSL/cutlass/cute/tensor.py, python/CuTeDSL/cutlass/cutlass_dsl/_launch_facts_metadata.py,
+    python/CuTeDSL/cutlass/cutlass_dsl/cuda_jit_executor.py, python/CuTeDSL/cutlass/cutlass_dsl/cutlass.py, python/CuTeDSL/cutlass/cutlass_dsl/cutlass_ast_decorators.py, python/CuTeDSL/cutlass/cutlass_dsl/cutlass_ast_decorators_pyir.py,
+    python/CuTeDSL/cutlass/cutlass_dsl/cutlass_function.py, python/CuTeDSL/cutlass/experimental/cuda/tensor_map.py, python/CuTeDSL/cutlass/experimental/primitives/descriptors.py, python/CuTeDSL/cutlass/experimental/primitives/gpu_ops.py,
+    python/CuTeDSL/cutlass/experimental/primitives/nvvm_wrapper.py, python/CuTeDSL/cutlass/experimental/task_scheduling/resources.py, python/CuTeDSL/cutlass/experimental/task_scheduling/task.py, python/CuTeDSL/cutlass/memory/tmem.py,
+    python/CuTeDSL/cutlass/pipeline/helpers.py, python/CuTeDSL/cutlass/pipeline/sm90.py, python/CuTeDSL/cutlass/testing.py, python/CuTeDSL/cutlass/utils/blackwell_helpers.py, python/CuTeDSL/cutlass/utils/mixed_input_helpers.py'
+  files_changed:
+  - examples/python/CuTeDSL/cute/blackwell/kernel/blockwise_gemm/blockwise_gemm.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/conv/dense_blockscaled_implicit_gemm_fprop.py
+  - examples/python/CuTeDSL/cute/blackwell/kernel/conv/dense_implicit_gemm_fprop.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/blockscaled_gemm/blockscaled_gemm_dispatch.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/conv/dense_blockscaled_implicit_gemm_fprop.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/conv/dense_implicit_gemm_fprop.py
+  - examples/python/CuTeDSL/cute/blackwell_geforce/kernel/dense_gemm/dense_gemm.py
+  - examples/python/CuTeDSL/cute/rubin/kernel/dense_gemm/dense_gemm_persistent_mixed_clusters.py
+  - examples/python/CuTeDSL/cute_ext/blackwell/dense_gemm/dense_gemm_alpha_beta_persistent.py
+  - examples/python/CuTeDSL/cute_ext/rubin/dense_blockscaled_gemm_persistent.py
+  - examples/python/CuTeDSL/experimental/task_scheduling/blackwell/tutorial/04_gemm_bf16_advanced_ts/02_fp16_bf16_gemm_3_cute_cluster.py
+  - operators/cutlass/operators/providers/cutedsl/gemm/implementations/sm100_tgv_gemm_impl.py
+  - python/CuTeDSL/_mlir_helpers/arith.py
+  - python/CuTeDSL/_mlir_helpers/dominance.py
+  - python/CuTeDSL/_mlir_helpers/op.py
+  - python/CuTeDSL/cutlass/base_dsl/ast_helpers.py
+  - python/CuTeDSL/cutlass/base_dsl/ast_preprocessor.py
+  - python/CuTeDSL/cutlass/base_dsl/common.py
+  - python/CuTeDSL/cutlass/base_dsl/compile_backend.py
+  - python/CuTeDSL/cutlass/base_dsl/compiler.py
+  - python/CuTeDSL/cutlass/base_dsl/diagnostics.py
+  - python/CuTeDSL/cutlass/base_dsl/dsl.py
+  - python/CuTeDSL/cutlass/base_dsl/env_manager.py
+  - python/CuTeDSL/cutlass/base_dsl/jit_executor.py
+  - python/CuTeDSL/cutlass/base_dsl/multi_stage_manager.py
+  - python/CuTeDSL/cutlass/base_dsl/preprocess_mode.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_call_boundary.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_class_facts.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_cleanup.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_core.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_corewalk.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_entrypoints.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_loop_carry.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_preprocessor.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_runtime.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_spec.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_state.py
+  - python/CuTeDSL/cutlass/base_dsl/pyir_threading.py
+  - python/CuTeDSL/cutlass/base_dsl/runtime/cuda.py
+  - python/CuTeDSL/cutlass/base_dsl/runtime/jit_arg_adapters.py
+  - python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/mlir_builder.py
+  - python/CuTeDSL/cutlass/base_dsl/tvm_ffi_builder/tvm_ffi_builder.py
+  - python/CuTeDSL/cutlass/base_dsl/typing.py
+  - python/CuTeDSL/cutlass/base_dsl/utils/leaf_utils.py
+  - python/CuTeDSL/cutlass/base_dsl/utils/mlir_value_tree.py
+  - python/CuTeDSL/cutlass/base_dsl/utils/tree_utils.py
+  - python/CuTeDSL/cutlass/cute/algorithm.py
+  - python/CuTeDSL/cutlass/cute/arch/nvvm_wrappers.py
+  - python/CuTeDSL/cutlass/cute/arch/tmem.py
+  - python/CuTeDSL/cutlass/cute/launch_facts.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/cpasync/copy.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/cpasync/helpers.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/helpers.py
+  - python/CuTeDSL/cutlass/cute/runtime.py
+  - python/CuTeDSL/cutlass/cute/tensor.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/_launch_facts_metadata.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/cuda_jit_executor.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/cutlass.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/cutlass_ast_decorators.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/cutlass_ast_decorators_pyir.py
+  - python/CuTeDSL/cutlass/cutlass_dsl/cutlass_function.py
+  - python/CuTeDSL/cutlass/experimental/cuda/tensor_map.py
+  - python/CuTeDSL/cutlass/experimental/primitives/descriptors.py
+  - python/CuTeDSL/cutlass/experimental/primitives/gpu_ops.py
+  - python/CuTeDSL/cutlass/experimental/primitives/nvvm_wrapper.py
+  - python/CuTeDSL/cutlass/experimental/task_scheduling/resources.py
+  - python/CuTeDSL/cutlass/experimental/task_scheduling/task.py
+  - python/CuTeDSL/cutlass/memory/tmem.py
+  - python/CuTeDSL/cutlass/pipeline/helpers.py
+  - python/CuTeDSL/cutlass/pipeline/sm90.py
+  - python/CuTeDSL/cutlass/testing.py
+  - python/CuTeDSL/cutlass/utils/blackwell_helpers.py
+  - python/CuTeDSL/cutlass/utils/mixed_input_helpers.py
+  files_reviewed_count: 169
+  scope_disposition: retained
+- number: 3663
+  title: Update 4.8 tag
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: examples/python/CuTeDSL/helpers/dynamic_persistent_tile_scheduler.py'
+  files_changed:
+  - examples/python/CuTeDSL/helpers/dynamic_persistent_tile_scheduler.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3666
+  title: '[CuTeDSL] docs: fix cutlass.range unroll=0 and unroll_full descriptions'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/ast_helpers.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/ast_helpers.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 3702
+  title: '[CuTeDSL] Add MLIR_RAW and keep source locations in the clean IR'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/compile_backend.py, python/CuTeDSL/cutlass/base_dsl/dsl.py, python/CuTeDSL/cutlass/base_dsl/jit_executor.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/compile_backend.py
+  - python/CuTeDSL/cutlass/base_dsl/dsl.py
+  - python/CuTeDSL/cutlass/base_dsl/jit_executor.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 3720
+  title: '[CuTeDSL] docs: fix local_tile example output shapes'
+  date: '2026-10-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/cute/core.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/cute/core.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3725
+  title: '[CuTeDSL] fix: accept bare int as local_partition''s index argument'
+  date: '2026-10-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/cute/core.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/cute/core.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 3747
+  title: v4.8.1 update.
+  date: '2026-10-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: python/CuTeDSL/cutlass/base_dsl/compiler.py, python/CuTeDSL/cutlass/base_dsl/diagnostics.py, python/CuTeDSL/cutlass/base_dsl/ffi.py,
+    python/CuTeDSL/cutlass/cute/core.py, python/CuTeDSL/cutlass/cute/nvgpu/common.py, python/CuTeDSL/cutlass/experimental/primitives/nvvm_wrapper.py, python/CuTeDSL/cutlass/utils/distributed.py'
+  files_changed:
+  - python/CuTeDSL/cutlass/base_dsl/compiler.py
+  - python/CuTeDSL/cutlass/base_dsl/diagnostics.py
+  - python/CuTeDSL/cutlass/base_dsl/ffi.py
+  - python/CuTeDSL/cutlass/cute/core.py
+  - python/CuTeDSL/cutlass/cute/nvgpu/common.py
+  - python/CuTeDSL/cutlass/experimental/primitives/nvvm_wrapper.py
+  - python/CuTeDSL/cutlass/utils/distributed.py
+  files_reviewed_count: 16
+  scope_disposition: retained

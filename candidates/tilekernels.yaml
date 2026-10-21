@@ -1,13 +1,13 @@
 repo: deepseek-ai/TileKernels
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - tilekernels
 - deepseek
 - fp8
 - gemm
 - blackwell
-total_candidates: 1
-included: 0
+total_candidates: 3
+included: 2
 excluded: 0
 deferred: 1
 prs:
@@ -36,3 +36,102 @@ prs:
   changed_paths:
   - tile_kernels/engram/engram_gate_kernel.py
   artifact_dir: evidence/pull-bundles/tilekernels/gh-1
+- number: 34
+  title: Release tile-kernels v2.0.0
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tile_kernels/engram/engram_fused_weight_asc.py, tile_kernels/engram/engram_fused_weight_cuda.py, tile_kernels/engram/engram_gate_bwd_asc.py,
+    tile_kernels/engram/engram_gate_bwd_cuda.py, tile_kernels/engram/engram_gate_fwd_asc.py, tile_kernels/engram/engram_gate_fwd_cuda.py, tile_kernels/engram/engram_grad_w_reduce_asc.py, tile_kernels/engram/engram_grad_w_reduce_cuda.py,
+    tile_kernels/engram/engram_hash_asc.py, tile_kernels/engram/engram_hash_cuda.py, tile_kernels/engram/engram_sinkhorn_asc.py, tile_kernels/engram/engram_sinkhorn_cuda.py, tile_kernels/mhc/expand_asc.py,
+    tile_kernels/mhc/expand_cuda.py, tile_kernels/mhc/head_compute_mix_asc.py, tile_kernels/mhc/head_compute_mix_cuda.py, tile_kernels/mhc/multilayer_recompute_asc.py, tile_kernels/mhc/multilayer_recompute_cuda.py,
+    tile_kernels/mhc/norm_fn_asc.py, tile_kernels/mhc/norm_fn_cuda.py, tile_kernels/mhc/post_asc.py, tile_kernels/mhc/post_cuda.py, tile_kernels/mhc/pre_apply_mix_asc.py, tile_kernels/mhc/pre_apply_mix_cuda.py,
+    tile_kernels/mhc/pre_big_fuse_asc.py, tile_kernels/mhc/pre_big_fuse_cuda.py, tile_kernels/mhc/pre_split_mixes_asc.py, tile_kernels/mhc/pre_split_mixes_cuda.py, tile_kernels/mhc/sinkhorn_asc.py, tile_kernels/mhc/sinkhorn_cuda.py,
+    tile_kernels/moe/moe_topk_gate_backward_asc.py, tile_kernels/moe/moe_topk_gate_backward_cuda.py, tile_kernels/moe/moe_topk_gate_forward_asc.py, tile_kernels/moe/moe_topk_gate_forward_cuda.py, tile_kernels/moe/normalize_weight_asc.py,
+    tile_kernels/moe/normalize_weight_cuda.py, tile_kernels/moe/topk_gate_asc.py, tile_kernels/moe/topk_gate_cuda.py, tile_kernels/quant/batched_transpose_weight_sf_asc.py, tile_kernels/quant/batched_transpose_weight_sf_cuda.py,
+    tile_kernels/quant/cast_asc.py, tile_kernels/quant/cast_back_asc.py, tile_kernels/quant/cast_back_cuda.py, tile_kernels/quant/cast_cuda.py, tile_kernels/quant/norm_backward_asc.py, tile_kernels/quant/norm_backward_cuda.py,
+    tile_kernels/quant/norm_forward_asc.py, tile_kernels/quant/norm_forward_cuda.py, tile_kernels/quant/per_block_cast_asc.py, tile_kernels/quant/per_block_cast_cuda.py, tile_kernels/quant/per_block_cast_lossless_asc.py,
+    tile_kernels/quant/per_block_cast_lossless_cuda.py, tile_kernels/quant/per_channel_cast_asc.py, tile_kernels/quant/per_channel_cast_cuda.py, tile_kernels/quant/per_token_cast_and_cast_back_asc.py, tile_kernels/quant/per_token_cast_and_cast_back_cuda.py,
+    tile_kernels/quant/per_token_cast_asc.py, tile_kernels/quant/per_token_cast_cuda.py, tile_kernels/quant/swiglu_backward_asc.py, tile_kernels/quant/swiglu_backward_cuda.py, tile_kernels/quant/swiglu_forward_asc.py,
+    tile_kernels/quant/swiglu_forward_cuda.py, tile_kernels/rand/randn_asc.py, tile_kernels/transform/rope_asc.py, tile_kernels/transform/rope_cuda.py'
+  files_changed:
+  - tile_kernels/engram/engram_fused_weight_asc.py
+  - tile_kernels/engram/engram_fused_weight_cuda.py
+  - tile_kernels/engram/engram_gate_bwd_asc.py
+  - tile_kernels/engram/engram_gate_bwd_cuda.py
+  - tile_kernels/engram/engram_gate_fwd_asc.py
+  - tile_kernels/engram/engram_gate_fwd_cuda.py
+  - tile_kernels/engram/engram_grad_w_reduce_asc.py
+  - tile_kernels/engram/engram_grad_w_reduce_cuda.py
+  - tile_kernels/engram/engram_hash_asc.py
+  - tile_kernels/engram/engram_hash_cuda.py
+  - tile_kernels/engram/engram_sinkhorn_asc.py
+  - tile_kernels/engram/engram_sinkhorn_cuda.py
+  - tile_kernels/mhc/expand_asc.py
+  - tile_kernels/mhc/expand_cuda.py
+  - tile_kernels/mhc/head_compute_mix_asc.py
+  - tile_kernels/mhc/head_compute_mix_cuda.py
+  - tile_kernels/mhc/multilayer_recompute_asc.py
+  - tile_kernels/mhc/multilayer_recompute_cuda.py
+  - tile_kernels/mhc/norm_fn_asc.py
+  - tile_kernels/mhc/norm_fn_cuda.py
+  - tile_kernels/mhc/post_asc.py
+  - tile_kernels/mhc/post_cuda.py
+  - tile_kernels/mhc/pre_apply_mix_asc.py
+  - tile_kernels/mhc/pre_apply_mix_cuda.py
+  - tile_kernels/mhc/pre_big_fuse_asc.py
+  - tile_kernels/mhc/pre_big_fuse_cuda.py
+  - tile_kernels/mhc/pre_split_mixes_asc.py
+  - tile_kernels/mhc/pre_split_mixes_cuda.py
+  - tile_kernels/mhc/sinkhorn_asc.py
+  - tile_kernels/mhc/sinkhorn_cuda.py
+  - tile_kernels/moe/moe_topk_gate_backward_asc.py
+  - tile_kernels/moe/moe_topk_gate_backward_cuda.py
+  - tile_kernels/moe/moe_topk_gate_forward_asc.py
+  - tile_kernels/moe/moe_topk_gate_forward_cuda.py
+  - tile_kernels/moe/normalize_weight_asc.py
+  - tile_kernels/moe/normalize_weight_cuda.py
+  - tile_kernels/moe/topk_gate_asc.py
+  - tile_kernels/moe/topk_gate_cuda.py
+  - tile_kernels/quant/batched_transpose_weight_sf_asc.py
+  - tile_kernels/quant/batched_transpose_weight_sf_cuda.py
+  - tile_kernels/quant/cast_asc.py
+  - tile_kernels/quant/cast_back_asc.py
+  - tile_kernels/quant/cast_back_cuda.py
+  - tile_kernels/quant/cast_cuda.py
+  - tile_kernels/quant/norm_backward_asc.py
+  - tile_kernels/quant/norm_backward_cuda.py
+  - tile_kernels/quant/norm_forward_asc.py
+  - tile_kernels/quant/norm_forward_cuda.py
+  - tile_kernels/quant/per_block_cast_asc.py
+  - tile_kernels/quant/per_block_cast_cuda.py
+  - tile_kernels/quant/per_block_cast_lossless_asc.py
+  - tile_kernels/quant/per_block_cast_lossless_cuda.py
+  - tile_kernels/quant/per_channel_cast_asc.py
+  - tile_kernels/quant/per_channel_cast_cuda.py
+  - tile_kernels/quant/per_token_cast_and_cast_back_asc.py
+  - tile_kernels/quant/per_token_cast_and_cast_back_cuda.py
+  - tile_kernels/quant/per_token_cast_asc.py
+  - tile_kernels/quant/per_token_cast_cuda.py
+  - tile_kernels/quant/swiglu_backward_asc.py
+  - tile_kernels/quant/swiglu_backward_cuda.py
+  - tile_kernels/quant/swiglu_forward_asc.py
+  - tile_kernels/quant/swiglu_forward_cuda.py
+  - tile_kernels/rand/randn_asc.py
+  - tile_kernels/transform/rope_asc.py
+  - tile_kernels/transform/rope_cuda.py
+  files_reviewed_count: 229
+  scope_disposition: retained
+- number: 38
+  title: Release tile-kernels v2.1.0
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tile_kernels/quant/norm_backward_asc.py, tile_kernels/quant/norm_forward_asc.py, tile_kernels/quant/swiglu_backward_asc.py, tile_kernels/quant/swiglu_forward_asc.py,
+    tile_kernels/quant/swiglu_forward_cuda.py'
+  files_changed:
+  - tile_kernels/quant/norm_backward_asc.py
+  - tile_kernels/quant/norm_forward_asc.py
+  - tile_kernels/quant/swiglu_backward_asc.py
+  - tile_kernels/quant/swiglu_forward_asc.py
+  - tile_kernels/quant/swiglu_forward_cuda.py
+  files_reviewed_count: 16
+  scope_disposition: retained

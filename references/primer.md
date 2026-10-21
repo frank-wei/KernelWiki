@@ -105,16 +105,20 @@ All page IDs below resolve via `get_page.py <id>`. All paths are relative to the
 
 | Repo | PR pages | Ledger |
 |---|---:|---|
-| NVIDIA/cutlass | 36 | `candidates/cutlass.yaml` |
-| sgl-project/sglang | 169 | `candidates/sglang.yaml` |
-| vllm-project/vllm | 205 | `candidates/vllm.yaml` |
-| flashinfer-ai/flashinfer | 322 | `candidates/flashinfer.yaml` |
-| pytorch/pytorch | 4 | `candidates/pytorch.yaml` |
-| deepseek-ai/DeepGEMM | 8 | `candidates/deepgemm.yaml` |
-| NVIDIA/cccl | 60 | `candidates/cccl-cub.yaml` |
-| Dao-AILab/flash-attention | 33 | `candidates/flash-attention.yaml` |
-| NVIDIA/TensorRT-LLM | 88 | `candidates/tensorrt-llm.yaml` |
-| tile-ai/tilelang | 19 | `candidates/tilelang.yaml` |
+| NVIDIA/cutlass | 96 | `candidates/cutlass.yaml` |
+| sgl-project/sglang | 794 | `candidates/sglang.yaml` |
+| vllm-project/vllm | 750 | `candidates/vllm.yaml` |
+| flashinfer-ai/flashinfer | 1266 | `candidates/flashinfer.yaml` |
+| pytorch/pytorch | 317 | `candidates/pytorch.yaml` |
+| deepseek-ai/DeepGEMM | 17 | `candidates/deepgemm.yaml` |
+| NVIDIA/cccl | 625 | `candidates/cccl-cub.yaml` |
+| Dao-AILab/flash-attention | 71 | `candidates/flash-attention.yaml` |
+| NVIDIA/TensorRT-LLM | 365 | `candidates/tensorrt-llm.yaml` |
+| tile-ai/tilelang | 117 | `candidates/tilelang.yaml` |
+| Dao-AILab/quack | 6 | `candidates/quack.yaml` |
+| HazyResearch/ThunderKittens | 5 | `candidates/thunderkittens.yaml` |
+| deepseek-ai/TileKernels | 2 | `candidates/tilekernels.yaml` |
+| triton-lang/triton | 128 | `candidates/triton.yaml` |
 
 Query by repo: `python3 scripts/query.py --repo <name>`.
 

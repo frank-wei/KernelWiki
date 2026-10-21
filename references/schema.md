@@ -8,7 +8,7 @@ Every page has a unique `id` with a type-specific prefix:
 
 | Type | ID Prefix | Purpose |
 |------|-----------|---------|
-| source-pr | `pr-<repo>-<N>` | A PR from a tracked repo with an evidence-backed status (942 of 944 are `merged`; two are `closed` without merge) |
+| source-pr | `pr-<repo>-<N>` | A PR from a tracked repo with an evidence-backed status (4557 of 4559 are `merged`; two are `closed` without merge) |
 | source-doc | `doc-*` | Official NVIDIA docs, papers |
 | source-blog | `blog-*` | Community blog posts, tutorials |
 | source-contest | `contest-*` | Competition problems / tracks |

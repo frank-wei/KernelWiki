@@ -1,13 +1,13 @@
 repo: HazyResearch/ThunderKittens
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - thunderkittens
 - attention
 - gemm
 - hopper
 - blackwell
-total_candidates: 13
-included: 0
+total_candidates: 18
+included: 5
 excluded: 0
 deferred: 13
 prs:
@@ -444,3 +444,85 @@ prs:
   - src/ops/warp/shared/maps.cuh
   - src/ops/warpgroup/wgmma/wgmma.cuh
   artifact_dir: evidence/pull-bundles/thunderkittens/gh-11
+- number: 198
+  title: Use XOR shuffles for register tile reductions
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): include/common/util.cuh, include/ops/group/register/tile/reductions.cuh'
+  files_changed:
+  - include/common/util.cuh
+  - include/ops/group/register/tile/reductions.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 201
+  title: Add SM103 NVFP4 K96 tcgen05 support and B300 GEMM sample
+  date: '2026-07-12'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): include/ops/group/mma/tcgen05.cuh, include/ops/thread/mma/tcgen05.cuh, include/types/shared/descriptor.cuh, kernels/gemm/common.cuh, kernels/gemm/nvfp4_b300/nvfp4_b300_gemm.cu,
+    kernels/gemm/nvfp4_b300/nvfp4_b300_gemm_optimized.cu'
+  files_changed:
+  - include/ops/group/mma/tcgen05.cuh
+  - include/ops/thread/mma/tcgen05.cuh
+  - include/types/shared/descriptor.cuh
+  - kernels/gemm/common.cuh
+  - kernels/gemm/nvfp4_b300/nvfp4_b300_gemm.cu
+  - kernels/gemm/nvfp4_b300/nvfp4_b300_gemm_optimized.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 208
+  title: Add SM107 support and Vera Rubin FP8/NVFP4 GEMMs
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): include/common/base_types.cuh, include/common/util.cuh, include/kittens.cuh, include/ops/group/memory/tile/tensor_to_register.cuh, include/ops/group/memory/tile/tma_cluster.cuh,
+    include/ops/group/memory/vec/tma_cluster.cuh, include/ops/group/mma/tcgen05.cuh, include/ops/group/mma/warp.cuh, include/ops/group/util/tma_cluster.cuh, include/ops/thread/memory/tile/shared_to_tensor.cuh,
+    include/ops/thread/memory/tile/tma.cuh, include/ops/thread/memory/vec/tma.cuh, include/ops/thread/mma/tcgen05.cuh, include/ops/thread/util/sync.cuh, include/ops/thread/util/tma.cuh, include/types/shared/descriptor.cuh,
+    include/types/tensor/tensor.cuh, include/types/tensor/tt.cuh, kernels/gemm/common.cuh, kernels/gemm/fp8_vr200/fp8_vr200_gemm.cu, kernels/gemm/nvfp4_b200/nvfp4_b200_gemm.cu, kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm.cu'
+  files_changed:
+  - include/common/base_types.cuh
+  - include/common/util.cuh
+  - include/kittens.cuh
+  - include/ops/group/memory/tile/tensor_to_register.cuh
+  - include/ops/group/memory/tile/tma_cluster.cuh
+  - include/ops/group/memory/vec/tma_cluster.cuh
+  - include/ops/group/mma/tcgen05.cuh
+  - include/ops/group/mma/warp.cuh
+  - include/ops/group/util/tma_cluster.cuh
+  - include/ops/thread/memory/tile/shared_to_tensor.cuh
+  - include/ops/thread/memory/tile/tma.cuh
+  - include/ops/thread/memory/vec/tma.cuh
+  - include/ops/thread/mma/tcgen05.cuh
+  - include/ops/thread/util/sync.cuh
+  - include/ops/thread/util/tma.cuh
+  - include/types/shared/descriptor.cuh
+  - include/types/tensor/tensor.cuh
+  - include/types/tensor/tt.cuh
+  - kernels/gemm/common.cuh
+  - kernels/gemm/fp8_vr200/fp8_vr200_gemm.cu
+  - kernels/gemm/nvfp4_b200/nvfp4_b200_gemm.cu
+  - kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm.cu
+  files_reviewed_count: 29
+  scope_disposition: retained
+- number: 209
+  title: Fix compiler ordering around mbarrier waits
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): include/ops/group/util/sync.cuh, include/ops/thread/util/sync.cuh'
+  files_changed:
+  - include/ops/group/util/sync.cuh
+  - include/ops/thread/util/sync.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 210
+  title: Add FP8-output and FP4-output Vera Rubin GEMMs
+  date: '2026-09-12'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): include/ops/group/memory/tile/tensor_to_register.cuh, kernels/gemm/fp8_vr200/fp8_vr200_gemm.cu, kernels/gemm/fp8_vr200/fp8_vr200_gemm_fp8out.cu,
+    kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm.cu, kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm_fp4out.cu'
+  files_changed:
+  - include/ops/group/memory/tile/tensor_to_register.cuh
+  - kernels/gemm/fp8_vr200/fp8_vr200_gemm.cu
+  - kernels/gemm/fp8_vr200/fp8_vr200_gemm_fp8out.cu
+  - kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm.cu
+  - kernels/gemm/nvfp4_vr200/nvfp4_vr200_gemm_fp4out.cu
+  files_reviewed_count: 8
+  scope_disposition: retained

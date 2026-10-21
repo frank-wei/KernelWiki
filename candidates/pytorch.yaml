@@ -1,5 +1,5 @@
 repo: pytorch/pytorch
-searched_at: '2026-05-20'
+searched_at: '2026-10-20'
 keywords_used:
 - blackwell
 - sm100
@@ -25,9 +25,9 @@ keywords_used:
 - gemm
 - triton+blackwell
 - fp8+kernel
-total_candidates: 201
-included: 25
-excluded: 110
+total_candidates: 520
+included: 338
+excluded: 116
 deferred: 66
 prs:
 - number: 180470
@@ -1656,3 +1656,3087 @@ prs:
   - .github/workflows/inductor-periodic.yml
   files_reviewed_count: 13
   scope_disposition: removed
+- number: 171588
+  title: Remove CUB branches for CUDA <12
+  date: '2026-05-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/cub.cuh, aten/src/ATen/cuda/cub_definitions.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/cub.cuh
+  - aten/src/ATen/cuda/cub_definitions.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 172108
+  title: '[cuDNN][varlen] Fixes for cuDNN varlen SDPA'
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 173895
+  title: Remove named tensor
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DilatedMaxPool2d.cu, aten/src/ATen/native/cuda/DilatedMaxPool3d.cu, aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/SortingRadixSelect.cuh,
+    aten/src/ATen/native/sparse/cuda/SparseMatMul.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DilatedMaxPool2d.cu
+  - aten/src/ATen/native/cuda/DilatedMaxPool3d.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/SortingRadixSelect.cuh
+  - aten/src/ATen/native/sparse/cuda/SparseMatMul.cu
+  files_reviewed_count: 215
+  scope_disposition: retained
+- number: 177037
+  title: Add cublasLt as a backend for grouped GEMM (bf16/fp16 support)
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/CublasGroupedArgs.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/CublasGroupedArgs.cu
+  files_reviewed_count: 18
+  scope_disposition: retained
+- number: 180310
+  title: '[ROCm] Workaround for UpSamplingNearest2D Fwd due to HIP UINT32_MAX limit'
+  date: '2026-06-12'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/UpSampleNearest2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/UpSampleNearest2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 180885
+  title: 'CUDA: unrolled kernels for upsample_linear1d forward/backward when grid is small'
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/UpSampleLinear1d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/UpSampleLinear1d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 182329
+  title: Plumb precompile metadata through async_compile to subprocess workers
+  date: '2026-05-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 182809
+  title: '[2/N] Replace data_ptr with mutable_data_ptr'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/quantized/cuda/FusedObsFakeQuant.cu'
+  files_changed:
+  - aten/src/ATen/native/quantized/cuda/FusedObsFakeQuant.cu
+  files_reviewed_count: 43
+  scope_disposition: retained
+- number: 182986
+  title: '[Eager] [Bitwise-Equivalence] Implement an INNER_TREE sum reduction (#182986)'
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/sum/inner_tree_kernel.py'
+  files_changed:
+  - torch/_native/ops/sum/inner_tree_kernel.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 183864
+  title: '[ROCm] Fix LayerNorm backward kernel for AMD Strix Halo GPUs'
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 183938
+  title: Expand dtype/shape coverage
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton_split_scan.py'
+  files_changed:
+  - torch/_inductor/codegen/triton_split_scan.py
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 183946
+  title: '[cuda][eager] Preserve internal precision for native_group_norm'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 183982
+  title: Remove CUDA <=11 version guards
+  date: '2026-05-30'
+  decision: include
+  reason: 'retain: added device-code construct in: aten/src/ATen/native/cuda/cutlass_extensions/epilogue/thread/ft_fused_activations.h'
+  files_changed:
+  - aten/src/ATen/native/cuda/cutlass_extensions/epilogue/thread/ft_fused_activations.h
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 183984
+  title: Fix CUDA atan numerics in Inductor
+  date: '2026-05-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 184008
+  title: Handle fp8e4m3fn dequantization on pre-sm89 CUDA
+  date: '2026-06-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 184093
+  title: '[inductor] Rewrite Triton self-subtraction locally'
+  date: '2026-05-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 184152
+  title: '[c10] Make basic_string_view inherit from std::basic_string_view'
+  date: '2026-06-12'
+  decision: include
+  reason: 'retain: added device-code construct in: c10/util/string_view.h'
+  files_changed:
+  - c10/util/string_view.h
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 184166
+  title: Stabilize efficient attention checkpoint metadata
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 184176
+  title: Fix Inductor CUDA frexp exponent for non-finite inputs
+  date: '2026-05-22'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 184288
+  title: '[ROCm] Bump AOTriton to 0.12b'
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 184301
+  title: Hoist invariant gather prologue loads in mm templates
+  date: '2026-07-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 184377
+  title: Use rand4x for Inductor Triton random
+  date: '2026-06-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 184393
+  title: Modernize some CUDA kernels
+  date: '2026-05-22'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AdaptiveAveragePooling.cu, aten/src/ATen/native/cuda/AveragePool2d.cu, aten/src/ATen/native/cuda/DepthwiseConv3d.cu,
+    aten/src/ATen/native/cuda/DilatedMaxPool2d.cu, aten/src/ATen/native/cuda/Distributions.cu, aten/src/ATen/native/cuda/EmbeddingBackwardKernel.cu, aten/src/ATen/native/cuda/EmbeddingBag.cu, aten/src/ATen/native/cuda/Loss.cu,
+    aten/src/ATen/native/cuda/ReduceMaxValuesKernel.cu, aten/src/ATen/native/cuda/ReduceMinValuesKernel.cu, aten/src/ATen/native/cuda/RreluWithNoise.cu, aten/src/ATen/native/cuda/ScatterGatherKernel.cu,
+    aten/src/ATen/native/cuda/UpSampleNearest2d.cu, aten/src/ATen/native/cuda/group_norm_kernel.cu, aten/src/ATen/native/cuda/int4mm.cu, aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AdaptiveAveragePooling.cu
+  - aten/src/ATen/native/cuda/AveragePool2d.cu
+  - aten/src/ATen/native/cuda/DepthwiseConv3d.cu
+  - aten/src/ATen/native/cuda/DilatedMaxPool2d.cu
+  - aten/src/ATen/native/cuda/Distributions.cu
+  - aten/src/ATen/native/cuda/EmbeddingBackwardKernel.cu
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  - aten/src/ATen/native/cuda/Loss.cu
+  - aten/src/ATen/native/cuda/ReduceMaxValuesKernel.cu
+  - aten/src/ATen/native/cuda/ReduceMinValuesKernel.cu
+  - aten/src/ATen/native/cuda/RreluWithNoise.cu
+  - aten/src/ATen/native/cuda/ScatterGatherKernel.cu
+  - aten/src/ATen/native/cuda/UpSampleNearest2d.cu
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  - aten/src/ATen/native/cuda/int4mm.cu
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 23
+  scope_disposition: retained
+- number: 184474
+  title: Replace deprecated std::aligned_storage in group/layer norm CUDA kernels
+  date: '2026-05-23'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu, aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 184538
+  title: '[Inductor] add broader CuteDSL op overrides'
+  date: '2026-05-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 184676
+  title: Use at::aminmax
+  date: '2026-05-22'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/SummaryOps.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/SummaryOps.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 184706
+  title: Validate MaxUnpool output sizes
+  date: '2026-06-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/MaxUnpooling.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/MaxUnpooling.cu
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 184824
+  title: '[Reland] Port D104346887/PR 182675 for index_add fast path (#184824)'
+  date: '2026-05-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Indexing.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Indexing.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 184865
+  title: '[cuteDSL] Remove cuda dependency in forked precompile subprocesses'
+  date: '2026-05-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 184926
+  title: '[Native DSL] Add CuTeDSL radix-select topk override'
+  date: '2026-06-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/topk/cutedsl_kernels.py'
+  files_changed:
+  - torch/_native/ops/topk/cutedsl_kernels.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 184927
+  title: '[Native DSL] Register-resident topk for small K, small N'
+  date: '2026-06-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/topk/cutedsl_kernels.py'
+  files_changed:
+  - torch/_native/ops/topk/cutedsl_kernels.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 185019
+  title: Add lane analysis helpers for CuteDSL vector loads
+  date: '2026-05-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/lane_analysis.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/lane_analysis.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 185020
+  title: Generalize flex flash vectorization config for mask mods
+  date: '2026-06-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/lane_analysis.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/lane_analysis.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 185024
+  title: Fix reflection_pad1d backward CUDA launch for large batches
+  date: '2026-06-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ReflectionPad.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ReflectionPad.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 185040
+  title: Clean up unused variables, redundant casts and namespaces in CUDA kernels
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/detail/BLASConstants.cu, aten/src/ATen/native/cuda/AmpKernels.cu, aten/src/ATen/native/cuda/DilatedMaxPool2d.cu, aten/src/ATen/native/cuda/DilatedMaxPool3d.cu,
+    aten/src/ATen/native/cuda/Dropout.cu, aten/src/ATen/native/cuda/Embedding.cu, aten/src/ATen/native/cuda/EmbeddingBag.cu, aten/src/ATen/native/cuda/ForeachReduceOp.cu, aten/src/ATen/native/cuda/Indexing.cu,
+    aten/src/ATen/native/cuda/Nonzero.cu, aten/src/ATen/native/cuda/RangeFactories.cu, aten/src/ATen/native/cuda/ReplicationPadding.cu, aten/src/ATen/native/cuda/Shape.cu, aten/src/ATen/native/cuda/SortStable.cu,
+    aten/src/ATen/native/cuda/TensorShape.cu, aten/src/ATen/native/cuda/UniqueCub.cu, aten/src/ATen/native/cuda/int4mm.cu, aten/src/ATen/native/cuda/layer_norm_kernel.cu, torch/csrc/distributed/c10d/quantization/quantization_gpu.cu,
+    torch/csrc/distributed/c10d/symm_mem/intra_node_comm.cu'
+  files_changed:
+  - aten/src/ATen/cuda/detail/BLASConstants.cu
+  - aten/src/ATen/native/cuda/AmpKernels.cu
+  - aten/src/ATen/native/cuda/DilatedMaxPool2d.cu
+  - aten/src/ATen/native/cuda/DilatedMaxPool3d.cu
+  - aten/src/ATen/native/cuda/Dropout.cu
+  - aten/src/ATen/native/cuda/Embedding.cu
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  - aten/src/ATen/native/cuda/ForeachReduceOp.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/Nonzero.cu
+  - aten/src/ATen/native/cuda/RangeFactories.cu
+  - aten/src/ATen/native/cuda/ReplicationPadding.cu
+  - aten/src/ATen/native/cuda/Shape.cu
+  - aten/src/ATen/native/cuda/SortStable.cu
+  - aten/src/ATen/native/cuda/TensorShape.cu
+  - aten/src/ATen/native/cuda/UniqueCub.cu
+  - aten/src/ATen/native/cuda/int4mm.cu
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  - torch/csrc/distributed/c10d/quantization/quantization_gpu.cu
+  - torch/csrc/distributed/c10d/symm_mem/intra_node_comm.cu
+  files_reviewed_count: 24
+  scope_disposition: retained
+- number: 185241
+  title: Fix typos in comments and documentation
+  date: '2026-05-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 185254
+  title: '[BE][Ez]: Add missing std::move in std::make_tuple calls'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Dropout.cu, aten/src/ATen/native/cuda/EmbeddingBag.cu, aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/Normalization.cuh,
+    aten/src/ATen/native/cuda/Unique.cu, aten/src/ATen/native/cuda/UniqueCub.cu, aten/src/ATen/native/quantized/cuda/FusedObsFakeQuant.cu, aten/src/ATen/native/sparse/cuda/SoftMax.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Dropout.cu
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/Normalization.cuh
+  - aten/src/ATen/native/cuda/Unique.cu
+  - aten/src/ATen/native/cuda/UniqueCub.cu
+  - aten/src/ATen/native/quantized/cuda/FusedObsFakeQuant.cu
+  - aten/src/ATen/native/sparse/cuda/SoftMax.cu
+  files_reviewed_count: 50
+  scope_disposition: retained
+- number: 185354
+  title: '[fix][cuda][easy] signed zero in relu and clamp'
+  date: '2026-07-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorCompare.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorCompare.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 185490
+  title: '[cpp] use std::clamp'
+  date: '2026-06-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ScanUtils.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/ScanUtils.cuh
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 185552
+  title: '[contd][cpp] use std::clamp'
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/Reduce.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/Reduce.cuh
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 185788
+  title: Support 64-bit indexing in channels_last bilinear upsampling
+  date: '2026-07-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/KernelUtils.cuh, aten/src/ATen/native/cuda/UpSampleBilinear2d.cu, aten/src/ATen/native/cuda/UpSampleNearest2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  - aten/src/ATen/native/cuda/UpSampleBilinear2d.cu
+  - aten/src/ATen/native/cuda/UpSampleNearest2d.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 185812
+  title: Fix arange int64 fractional truncation
+  date: '2026-07-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RangeFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RangeFactories.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 185853
+  title: Separate value index expressions from indexing
+  date: '2026-06-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 22
+  scope_disposition: retained
+- number: 185854
+  title: '[MPS] Add `_dirichlet_grad` Metal implementation'
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: added device-code construct in: aten/src/ATen/native/Distributions.h'
+  files_changed:
+  - aten/src/ATen/native/Distributions.h
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 185889
+  title: Support bfloat16 in _embedding_bag_per_sample_weights_backward on CUDA
+  date: '2026-06-03'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 185988
+  title: Fix FlexAttention scalar captured grad backward
+  date: '2026-06-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 186006
+  title: '[Inductor] No-bench per-subkernel combo-kernel config selection'
+  date: '2026-06-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton_combo_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/triton_combo_kernel.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 186019
+  title: Add aux-scalars binding to flex flash
+  date: '2026-06-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/aux_scalars.py, torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/cutedsl_template.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/aux_scalars.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_template.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 186262
+  title: '[inductor] Make template / extern kernel registration idempotent'
+  date: '2026-07-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_template.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_template.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 186284
+  title: Bring in gemm kernels form quack and CI testing for patch set
+  date: '2026-06-05'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/activation.py, torch/_vendor/quack/blockscaled_gemm_utils.py, torch/_vendor/quack/epi_composable.py, torch/_vendor/quack/epi_ops.py,
+    torch/_vendor/quack/epi_utils.py, torch/_vendor/quack/gemm_act.py, torch/_vendor/quack/gemm_base.py, torch/_vendor/quack/gemm_default_epi.py, torch/_vendor/quack/gemm_sm120.py, torch/_vendor/quack/gemm_sm80.py,
+    torch/_vendor/quack/gemm_sm90.py, torch/_vendor/quack/gemm_tvm_ffi_utils.py, torch/_vendor/quack/pipeline.py, torch/_vendor/quack/rmsnorm.py, torch/_vendor/quack/sm100_utils.py, torch/_vendor/quack/sm80_utils.py,
+    torch/_vendor/quack/sm90_utils.py, torch/_vendor/quack/tile_scheduler.py, torch/_vendor/quack/varlen_utils.py'
+  files_changed:
+  - torch/_vendor/quack/activation.py
+  - torch/_vendor/quack/blockscaled_gemm_utils.py
+  - torch/_vendor/quack/epi_composable.py
+  - torch/_vendor/quack/epi_ops.py
+  - torch/_vendor/quack/epi_utils.py
+  - torch/_vendor/quack/gemm_act.py
+  - torch/_vendor/quack/gemm_base.py
+  - torch/_vendor/quack/gemm_default_epi.py
+  - torch/_vendor/quack/gemm_sm120.py
+  - torch/_vendor/quack/gemm_sm80.py
+  - torch/_vendor/quack/gemm_sm90.py
+  - torch/_vendor/quack/gemm_tvm_ffi_utils.py
+  - torch/_vendor/quack/pipeline.py
+  - torch/_vendor/quack/rmsnorm.py
+  - torch/_vendor/quack/sm100_utils.py
+  - torch/_vendor/quack/sm80_utils.py
+  - torch/_vendor/quack/sm90_utils.py
+  - torch/_vendor/quack/tile_scheduler.py
+  - torch/_vendor/quack/varlen_utils.py
+  files_reviewed_count: 51
+  scope_disposition: retained
+- number: 186310
+  title: Add PyTorch QuACK GEMM epilogue adapter
+  date: '2026-06-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/trace.py'
+  files_changed:
+  - torch/_vendor/quack/trace.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 186346
+  title: Handle invalid CUDA JITerator cache entries
+  date: '2026-08-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Reduce.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Reduce.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 186390
+  title: remove plain assertions in torch/_inductor/codegen
+  date: '2026-06-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py, torch/_inductor/codegen/cutedsl/cutedsl_template.py,
+    torch/_inductor/codegen/cutedsl/lane_analysis.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_scheduling.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_template.py
+  - torch/_inductor/codegen/cutedsl/lane_analysis.py
+  files_reviewed_count: 54
+  scope_disposition: retained
+- number: 186414
+  title: 'native_group_norm: Handle non-contiguous tensors, rather than throwing'
+  date: '2026-07-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 186480
+  title: '[BE][Ez]: More semi-automated edits to move return values'
+  date: '2026-06-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/MultiLabelMarginCriterion.cu, aten/src/ATen/native/cuda/NLLLoss2d.cu, aten/src/ATen/native/cuda/Unique.cu, aten/src/ATen/native/sparse/cuda/SparseSemiStructuredApply.cu,
+    aten/src/ATen/native/sparse/cuda/SparseSemiStructuredTile.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/MultiLabelMarginCriterion.cu
+  - aten/src/ATen/native/cuda/NLLLoss2d.cu
+  - aten/src/ATen/native/cuda/Unique.cu
+  - aten/src/ATen/native/sparse/cuda/SparseSemiStructuredApply.cu
+  - aten/src/ATen/native/sparse/cuda/SparseSemiStructuredTile.cu
+  files_reviewed_count: 30
+  scope_disposition: retained
+- number: 186483
+  title: Add PyTorch QuACK GEMM epilogue adapter e.g FlexGemm
+  date: '2026-06-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/epilogue.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/epilogue.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 186621
+  title: Repro for Inductor tl.broadcast_to(False) Triton compile crash (#186621)
+  date: '2026-06-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 186928
+  title: '`bcomplex32` dtype, attempt 2'
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/CompareEQKernel.cu, aten/src/ATen/native/cuda/Copy.cu, aten/src/ATen/native/cuda/FillKernel.cu, aten/src/ATen/native/cuda/IndexKernel.cu,
+    aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/ScatterGatherKernel.cu, aten/src/ATen/native/cuda/Shape.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/CompareEQKernel.cu
+  - aten/src/ATen/native/cuda/Copy.cu
+  - aten/src/ATen/native/cuda/FillKernel.cu
+  - aten/src/ATen/native/cuda/IndexKernel.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/ScatterGatherKernel.cu
+  - aten/src/ATen/native/cuda/Shape.cu
+  files_reviewed_count: 60
+  scope_disposition: retained
+- number: 186933
+  title: '[inductor] Use tl.minimum to handle signed zeros in torch.minimum'
+  date: '2026-06-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 186944
+  title: Fix QuACK vendoring source and patch split
+  date: '2026-06-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/epi_utils.py, torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_vendor/quack/epi_utils.py
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 30
+  scope_disposition: retained
+- number: 186956
+  title: '[ROCm] Fix layer_norm fallback launch limit'
+  date: '2026-06-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 187108
+  title: Add dense FlexGEMM QuACK tuning
+  date: '2026-06-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_template.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_template.py
+  files_reviewed_count: 23
+  scope_disposition: retained
+- number: 187165
+  title: '[ROCm] Enable FMA inductor lowering on ROCm'
+  date: '2026-08-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/lowering.py'
+  files_changed:
+  - torch/_inductor/lowering.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 187254
+  title: Add captured tensor FlexGEMM epilogue args
+  date: '2026-06-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/epilogue.py, torch/_vendor/quack/epi_ops.py, torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/epilogue.py
+  - torch/_vendor/quack/epi_ops.py
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 187278
+  title: Add in Aux-return support for just 1 aux
+  date: '2026-06-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 187354
+  title: Match Inductor i0/i1 infinities to eager CUDA
+  date: '2026-07-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/common.py'
+  files_changed:
+  - torch/_inductor/codegen/common.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 187569
+  title: ' Support fp32 output for row-wise scaled fp8 matmul on the CUTLASS path'
+  date: '2026-06-22'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RowwiseScaledMM.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RowwiseScaledMM.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 187642
+  title: Add parameter-contiguous all-gather (symm_mem.all_gather_offset)
+  date: '2026-08-30'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 187700
+  title: Fix for 187407
+  date: '2026-06-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 187750
+  title: Tune all_gather_offset launch with flat per-shard byte tiles
+  date: '2026-06-20'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 187767
+  title: Fix uninitialized return in Chebyshev polynomial helpers for NaN inputs
+  date: '2026-06-28'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Math.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Math.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 187776
+  title: Speed up all_gather_offset writes with a shared unrolled copy helper
+  date: '2026-06-21'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 187961
+  title: '[inductor] Add compile-time per-subkernel autotuning for combo kernels'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton_combo_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/triton_combo_kernel.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 187971
+  title: '[inductor] Add strict_numerics config to emit INNER_TREE reduction ordering for sum'
+  date: '2026-08-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py, torch/utils/_triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  - torch/utils/_triton.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 188006
+  title: Fix pdist and cdist launch failure past 2^24 outputs on ROCm
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DistanceKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DistanceKernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188031
+  title: Fix 64-bit indexing in spatial softmax backward
+  date: '2026-08-16'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SoftMax.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SoftMax.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188067
+  title: '[ROCm] fix wait instructions'
+  date: '2026-07-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/KernelUtils.cuh, aten/src/ATen/native/cuda/reduction_template.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  - aten/src/ATen/native/cuda/reduction_template.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188072
+  title: '[ROCm] derive the hipcub compatible cccl version from ''HIPCUB_CCCL_VERSION'''
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/cub.cuh, aten/src/ATen/cuda/cub_definitions.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/cub.cuh
+  - aten/src/ATen/cuda/cub_definitions.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 188112
+  title: 'flex_gemm: feed local reductions into epilogues'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/epi_ops.py'
+  files_changed:
+  - torch/_vendor/quack/epi_ops.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 188186
+  title: '[native] Add TLParse-based compile/cache instrumentation for native DSL ops'
+  date: '2026-07-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/bmm_outer_product/triton_kernels.py'
+  files_changed:
+  - torch/_native/ops/bmm_outer_product/triton_kernels.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 188229
+  title: Fix 64-bit indexing in avg_pool3d backward atomic kernel
+  date: '2026-07-20'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool3d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool3d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188247
+  title: Align softmax path for half_to_float
+  date: '2026-06-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SoftMax.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SoftMax.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 188345
+  title: Fix avg_pool2d CUDA backward for channels_last inputs with padding
+  date: '2026-07-04'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool2d.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 188469
+  title: 'flex_gemm: support compressed local reduce aux outputs'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py, torch/_inductor/kernel/flex_gemm/epilogue.py, torch/_vendor/quack/epi_ops.py,
+    torch/_vendor/quack/gemm_act.py, torch/_vendor/quack/gemm_base.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  - torch/_inductor/kernel/flex_gemm/epilogue.py
+  - torch/_vendor/quack/epi_ops.py
+  - torch/_vendor/quack/gemm_act.py
+  - torch/_vendor/quack/gemm_base.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 188470
+  title: 'flex_gemm: extend local reduce aux groups'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/quack_reductions.py, torch/_vendor/quack/epi_ops.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/quack_reductions.py
+  - torch/_vendor/quack/epi_ops.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 188494
+  title: '[CUDA] Fix AvgPool2d backward handling of zero-padding '
+  date: '2026-06-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188556
+  title: '[inductor] Preserve eager semantics for infinite Bessel inputs'
+  date: '2026-07-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/common.py'
+  files_changed:
+  - torch/_inductor/codegen/common.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188597
+  title: '[ROCm] Add initial support for gfx1250'
+  date: '2026-07-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/int4mm.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/int4mm.cu
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 188661
+  title: Fix `int32` overflow in `embedding_bag(mode="max")` backward pass
+  date: '2026-07-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 188739
+  title: 'flex_gemm: add quant lowerings'
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/_inline_asm.py, torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/_inline_asm.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 188820
+  title: '[native] Move scatter-add N-dim to dynamic'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/scatter_add/tma_kernel.py, torch/_native/ops/scatter_add/vec_scatter_kernel.py'
+  files_changed:
+  - torch/_native/ops/scatter_add/tma_kernel.py
+  - torch/_native/ops/scatter_add/vec_scatter_kernel.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 188865
+  title: '[inductor][NVGEMM] Use string literals for CuTeDSL fence_proxy API'
+  date: '2026-07-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 188869
+  title: Fix from 20260702-pytorch-adhoc-6f35e0
+  date: '2026-07-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 188876
+  title: '[FlexAttention] Fix int64/int32 index dtype mismatches in CuTeDSL score_mod codegen'
+  date: '2026-07-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/_cutedsl_utils.py, torch/_inductor/codegen/cutedsl/cutedsl_kernel.py, torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/_cutedsl_utils.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 188971
+  title: Fix OOB write in repeat_interleave with output_size and negative repeats (#188938)
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Repeat.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Repeat.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 189082
+  title: 'Fix #188957'
+  date: '2026-07-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AdaptiveAveragePooling.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AdaptiveAveragePooling.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 189094
+  title: '[torchTLX] move codebase to triton-beta / fbtriton (#189094)'
+  date: '2026-07-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/template_heuristics/tlx.py, torch/_inductor/utils.py'
+  files_changed:
+  - torch/_inductor/template_heuristics/tlx.py
+  - torch/_inductor/utils.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 189162
+  title: '[inductor] Use non-NaN-propagating fmax in softmax persistent reduction'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py, torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 189188
+  title: 'flex_gemm: support scalar captured epilogue args'
+  date: '2026-07-21'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/epi_ops.py, torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_vendor/quack/epi_ops.py
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 189332
+  title: '[submodule] bump cutlass to 4.5.3'
+  date: '2026-07-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/c10d/cuda/cutlass/gemm/kernel/persistent_async_input_scheduler.cuh'
+  files_changed:
+  - torch/csrc/distributed/c10d/cuda/cutlass/gemm/kernel/persistent_async_input_scheduler.cuh
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 189338
+  title: Cleanup/cuda indexing stale remnants
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Indexing.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Indexing.cu
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 189405
+  title: '[ROCm] Optimize AMD normalization backward kernel by using tiled and two pass implementations where they are most efficient.'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 189463
+  title: Fix segfault in replication_pad{1d,2d}_backward on channel mismatch
+  date: '2026-07-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ReplicationPadding.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ReplicationPadding.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 189506
+  title: '[Reland] Port D104346887/PR 182675 for index_add fast path (#184824)'
+  date: '2026-07-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Indexing.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Indexing.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 189685
+  title: Fix int32 overflow in CUDA bincount/histogram bin index
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SummaryOps.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SummaryOps.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 189767
+  title: Add support for full uint64 range + tensor data to fold_in()
+  date: '2026-07-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/PhiloxKeySplit.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/PhiloxKeySplit.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 189772
+  title: '[inductor][NVGEMM] Migrate to cutlass.operators'
+  date: '2026-07-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 189805
+  title: '[inductor][NVGEMM] Perf: NVFP4 alpha fusion, oracle configs, TMA prefetch, zero-copy swap_ab'
+  date: '2026-07-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 189915
+  title: MTA now writes the same len of data as prescribed for complex
+  date: '2026-07-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/MultiTensorApply.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/MultiTensorApply.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 189953
+  title: ' Add Barebones Unsigned Integer Support to the Clamp Family'
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorCompare.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorCompare.cu
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 190036
+  title: Simplify stateless RNG split() / fold_in() kernels with no grid-stride loop
+  date: '2026-08-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/PhiloxKeySplit.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/PhiloxKeySplit.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 190039
+  title: Fix typos in comments, docstrings, and strings across inductor and fx passes
+  date: '2026-07-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/lane_analysis.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/lane_analysis.py
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 190092
+  title: Add c10::safe_conv (strict, integer-only) and c10::unsafe_wrapping_convert (#190092)
+  date: '2026-08-03'
+  decision: include
+  reason: 'retain: added device-code construct in: c10/util/safe_conv.h'
+  files_changed:
+  - c10/util/safe_conv.h
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 190144
+  title: '[CUDA] Use 64-bit sample offsets in NLLLoss2d backward'
+  date: '2026-07-19'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/NLLLoss2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/NLLLoss2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 190158
+  title: 'flex_gemm: support contracted main outputs'
+  date: '2026-08-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py, torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 190245
+  title: 'native_group_norm_backward: Fix precision errors'
+  date: '2026-07-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 190246
+  title: '[native_group_norm] Do some basic code cleanups'
+  date: '2026-07-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 190253
+  title: Introduce stateless RNG APIs for randint / raw bits
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/PhiloxDistribution.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/PhiloxDistribution.cu
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 190269
+  title: Add 32-bit indexed kernel for CUDA FFT conjugate-symmetry fill
+  date: '2026-07-20'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SpectralOps.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SpectralOps.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 190329
+  title: '[CUDA][LinAlg] Batched LU with partial pivoting: a MAGMA-like kernel'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/linalg/LURecBlas3Kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/linalg/LURecBlas3Kernel.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 190372
+  title: Bump cublasLt grouped GEMM version requirement to 13.3
+  date: '2026-07-20'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/CublasGroupedArgs.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/CublasGroupedArgs.cu
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 190404
+  title: '[inductor] Use native NaN-propagating Triton minmax'
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 190410
+  title: Fix 32-bit shift in Bitfield<uint64_t> non-PTX path
+  date: '2026-07-19'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/AsmUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/AsmUtils.cuh
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 190546
+  title: '[ATen] [Native] [CUDA] Increase elements per thread for Rubin vectorized_elementwise_kernel'
+  date: '2026-07-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/CUDALoops.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/CUDALoops.cuh
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 190549
+  title: '[cuda] Compact ragged partials for foreach norm/max reductions'
+  date: '2026-10-03'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ForeachReduceOp.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ForeachReduceOp.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 190568
+  title: Remove obsolete CUTLASS compatibility versioning
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/c10d/cuda/cutlass/gemm/kernel/persistent_async_input_scheduler.cuh'
+  files_changed:
+  - torch/csrc/distributed/c10d/cuda/cutlass/gemm/kernel/persistent_async_input_scheduler.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 190594
+  title: '[inductor] Fuse interleaved sub-parent reduction epilogues'
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 190689
+  title: '[inductor] Emit combo sub-kernel bodies as noinline device functions'
+  date: '2026-07-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton_combo_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/triton_combo_kernel.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 190692
+  title: '[inductor] Add scalar accumulators for online softmax'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py, torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 190710
+  title: 'flex_gemm: add fast math kernel option'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 190752
+  title: 'flex_gemm: accept explicit QUACK configs'
+  date: '2026-07-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/epi_ops.py'
+  files_changed:
+  - torch/_vendor/quack/epi_ops.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 190769
+  title: '[Inductor][autoWS] Enable 2-CTA for Blackwell max-autotune GEMM'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/autows_utils.py'
+  files_changed:
+  - torch/_inductor/autows_utils.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 190774
+  title: '[BC breaking] Deduplicate ADAM_MODE enum and collapse fused Adam CUDA impls  '
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/fused_adam_utils.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/fused_adam_utils.cuh
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 190808
+  title: '[inductor][NVGEMM] Fuse pointwise epilogues into scaled GEMM'
+  date: '2026-07-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 190810
+  title: '[inductor][NVGEMM] Fuse grouped reduction epilogues'
+  date: '2026-07-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/reduction_utils.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/reduction_utils.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 190813
+  title: '[inductor][NVGEMM] Compose grouped reductions with scaled outputs'
+  date: '2026-07-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 190817
+  title: '[inductor][NVGEMM] Support physical grouped reductions and centering'
+  date: '2026-07-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 190819
+  title: '[inductor][NVGEMM] Vendor the SM100 dense EFC kernel'
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 190820
+  title: '[inductor][NVGEMM] Extend block-scaled kernel reduction mechanics'
+  date: '2026-08-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 190821
+  title: '[inductor][NVGEMM] Register vendored epilogue providers'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 13
+  scope_disposition: retained
+- number: 190895
+  title: '[native_aot] tools: declaration contract, CuTeDSL toolchain, AOT export driver'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tools/native_aot/cutedsl_warmup.py, tools/native_aot/toolchains.py'
+  files_changed:
+  - tools/native_aot/cutedsl_warmup.py
+  - tools/native_aot/toolchains.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 190896
+  title: '[native_aot][1/7] tools: shared sm-string parsing + the toolchain link/ABI contract'
+  date: '2026-09-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tools/native_aot/toolchains.py'
+  files_changed:
+  - tools/native_aot/toolchains.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 190899
+  title: '[native_aot] topk: first AOT declaration (fp32/bf16 radix kernels) + e2e tests'
+  date: '2026-09-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/topk/cutedsl_kernels.py'
+  files_changed:
+  - torch/_native/ops/topk/cutedsl_kernels.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 190953
+  title: Remove redundant zero-init of fully-overwritten buffers in CUDA kernels
+  date: '2026-07-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DepthwiseConv3d.cu, aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/MaxUnpooling.cu, aten/src/ATen/native/cuda/MultiLabelMarginCriterion.cu,
+    aten/src/ATen/native/cuda/UpSampleBicubic2d.cu, aten/src/ATen/native/cuda/UpSampleLinear1d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DepthwiseConv3d.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/MaxUnpooling.cu
+  - aten/src/ATen/native/cuda/MultiLabelMarginCriterion.cu
+  - aten/src/ATen/native/cuda/UpSampleBicubic2d.cu
+  - aten/src/ATen/native/cuda/UpSampleLinear1d.cu
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 191007
+  title: '[Inductor] Gate deprecated Triton block-pointer codegen (`tl.make_block_ptr`)'
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/utils/_triton.py'
+  files_changed:
+  - torch/utils/_triton.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 191026
+  title: 'flex_gemm: support blocked local-reduce output layouts'
+  date: '2026-08-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/output_layout_cutedsl.py, torch/_vendor/quack/epi_ops.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/output_layout_cutedsl.py
+  - torch/_vendor/quack/epi_ops.py
+  files_reviewed_count: 20
+  scope_disposition: retained
+- number: 191062
+  title: '[ROCm] Use flattened literal OCKL path for ROCm device kernel asserts'
+  date: '2026-09-14'
+  decision: include
+  reason: 'retain: added device-code construct in: torch/headeronly/macros/Macros.h'
+  files_changed:
+  - torch/headeronly/macros/Macros.h
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 191085
+  title: '[SDPA] Add memory-efficient GQA and vmap backward support'
+  date: '2026-07-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 191086
+  title: '[CUDA] Add non-overlapping fast path for avg_pool2d backward'
+  date: '2026-08-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 191107
+  title: '[BE][Ez]: Add missing moves to std::get from std::tuple'
+  date: '2026-07-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 191166
+  title: '[ROCm][inductor] gfx1250 TDM support for dense mm/addmm'
+  date: '2026-09-09'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/utils/_triton.py'
+  files_changed:
+  - torch/utils/_triton.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 191271
+  title: 'flex_gemm: support bool main outputs'
+  date: '2026-08-12'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/gemm_act.py'
+  files_changed:
+  - torch/_vendor/quack/gemm_act.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 191301
+  title: Add half and bfloat16 support to angle on CUDA
+  date: '2026-07-28'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/UnaryComplexKernels.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/UnaryComplexKernels.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 191358
+  title: '[BE][Ez]: Optimize some TensorIter calls to use const_inputs'
+  date: '2026-07-29'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Loss.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Loss.cu
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 191381
+  title: 'inductor: reduce autotune logging noise'
+  date: '2026-07-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_template.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_template.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 191491
+  title: '[BE][CUDA] Centralize cuda::std compatibility alias'
+  date: '2026-07-29'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SoftMax.cu'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SoftMax.cu
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 191514
+  title: '[inductor][NVGEMM] Adapt dense EFC to direct CuTeDSL epilogues'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 191515
+  title: '[inductor][NVGEMM] Use direct CuTeDSL lowering for dense epilogues'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 191536
+  title: '[CUDA] Simplify alpha_ptr setup in scaled_gemm'
+  date: '2026-07-31'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/detail/BLASConstants.cu'
+  files_changed:
+  - aten/src/ATen/cuda/detail/BLASConstants.cu
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 191576
+  title: '[cuDNN][varlen] Support paged KV cache (block_table) and seqused_k in cuDNN varlen attention'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 191600
+  title: '[inductor][FlexGEMM] Share CuTeDSL epilogue codegen'
+  date: '2026-07-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py, torch/_inductor/kernel/gemm_epilogue_codegen.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py
+  - torch/_inductor/kernel/gemm_epilogue_codegen.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 191628
+  title: '[inductor][ROCm] Skip GEMM configs where BLOCK_K underfills the packed MFMA'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/utils.py'
+  files_changed:
+  - torch/_inductor/utils.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 191775
+  title: '[WIP] [inductor] Fuse staged MXFP6 packing epilogues'
+  date: '2026-08-31'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 191915
+  title: 'fix(grid_sampler): Validate grad_output shape in 2D/3D backward'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/GridSampler.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/GridSampler.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 191945
+  title: '[CUDA] Add NHWC GroupNorm Implementation'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/group_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/group_norm_kernel.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 192138
+  title: '[CUDA][SDPA] Fix remap extents, causal key bound, and 32-bit dropout offsets in mem-efficient attention'
+  date: '2026-08-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 192247
+  title: '[Inductor][CuTeDSL] CSE repeated captured loads'
+  date: '2026-08-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 192271
+  title: '[SDPA] Enable fused CUDA backends for rank-3 inputs'
+  date: '2026-08-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 192298
+  title: '[inductor][NVGEMM] Cover epilogue providers and share reduction metadata'
+  date: '2026-09-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 192348
+  title: 'BE: Raise NotImplementedError for unsupported bool ops'
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ForeachUnaryOp.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ForeachUnaryOp.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 192410
+  title: '[triton][inductor] Eliminate full-tile loads when the value repeats across the reduction (#192410)'
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 192546
+  title: '[BE] Move Aten files to be CLANG-FORMATTED and do it'
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/Atomic.cuh, aten/src/ATen/native/cuda/KernelUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/Atomic.cuh
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 192547
+  title: '[BE] Delete old ROCm branches that apply to ROCM < 6.4'
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/Atomic.cuh, aten/src/ATen/native/cuda/KernelUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/Atomic.cuh
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 192548
+  title: Fix (unused) return type for AtomicFPOp for BF16
+  date: '2026-08-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/Atomic.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/Atomic.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 192571
+  title: '[ROCm] Fix bfe() bit-field extraction in the quantized CUDA EmbeddingBag kernel (#192571)'
+  date: '2026-08-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 192573
+  title: '[CUDA][ROCm] Support pruned lookups in quantized embedding_bag_byte_rowwise_offsets (#192573)'
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 192661
+  title: 'flex_gemm: support contiguous transposed reduction outputs'
+  date: '2026-08-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/output_layout_cutedsl.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/output_layout_cutedsl.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 192662
+  title: 'flex_gemm: route QUACK through modern EpiMod'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py, torch/_inductor/kernel/flex_gemm/quack_ops/grouped_reduce.py, torch/_inductor/kernel/flex_gemm/quack_ops/main_store.py,
+    torch/_vendor/quack/activation.py, torch/_vendor/quack/blockscaled/nvfp4_utils.py, torch/_vendor/quack/gemm_sm120.py, torch/_vendor/quack/gemm_sm90.py, torch/_vendor/quack/gemm_tvm_ffi_utils.py, torch/_vendor/quack/layout_utils.py,
+    torch/_vendor/quack/operand_transform/formats/__init__.py, torch/_vendor/quack/operand_transform/formats/qtip.py, torch/_vendor/quack/operand_transform/frontend.py, torch/_vendor/quack/operand_transform/kinds.py,
+    torch/_vendor/quack/operand_transform/transform.py, torch/_vendor/quack/reduce.py, torch/_vendor/quack/reduction_base.py, torch/_vendor/quack/rms_final_reduce.py, torch/_vendor/quack/rmsnorm.py, torch/_vendor/quack/rounding.py,
+    torch/_vendor/quack/sm100_utils.py, torch/_vendor/quack/sm90_utils.py, torch/_vendor/quack/split_k_reduce.py, torch/_vendor/quack/sync/barrier.py, torch/_vendor/quack/tile_scheduler.py, torch/_vendor/quack/varlen_utils.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py
+  - torch/_inductor/kernel/flex_gemm/quack_ops/grouped_reduce.py
+  - torch/_inductor/kernel/flex_gemm/quack_ops/main_store.py
+  - torch/_vendor/quack/activation.py
+  - torch/_vendor/quack/blockscaled/nvfp4_utils.py
+  - torch/_vendor/quack/gemm_sm120.py
+  - torch/_vendor/quack/gemm_sm90.py
+  - torch/_vendor/quack/gemm_tvm_ffi_utils.py
+  - torch/_vendor/quack/layout_utils.py
+  - torch/_vendor/quack/operand_transform/formats/__init__.py
+  - torch/_vendor/quack/operand_transform/formats/qtip.py
+  - torch/_vendor/quack/operand_transform/frontend.py
+  - torch/_vendor/quack/operand_transform/kinds.py
+  - torch/_vendor/quack/operand_transform/transform.py
+  - torch/_vendor/quack/reduce.py
+  - torch/_vendor/quack/reduction_base.py
+  - torch/_vendor/quack/rms_final_reduce.py
+  - torch/_vendor/quack/rmsnorm.py
+  - torch/_vendor/quack/rounding.py
+  - torch/_vendor/quack/sm100_utils.py
+  - torch/_vendor/quack/sm90_utils.py
+  - torch/_vendor/quack/split_k_reduce.py
+  - torch/_vendor/quack/sync/barrier.py
+  - torch/_vendor/quack/tile_scheduler.py
+  - torch/_vendor/quack/varlen_utils.py
+  files_reviewed_count: 133
+  scope_disposition: retained
+- number: 192844
+  title: Migrate fastAtomicAdd to headeronly
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/Atomic.cuh, aten/src/ATen/cuda/detail/ROCmMacros.cuh, aten/src/ATen/native/cuda/KernelUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/Atomic.cuh
+  - aten/src/ATen/cuda/detail/ROCmMacros.cuh
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 192883
+  title: '[inductor] Extend strict_numerics INNER_TREE ordering to prod'
+  date: '2026-08-11'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 192894
+  title: 'flex_gemm: compose paired fragment reductions'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py, torch/_inductor/kernel/flex_gemm/quack_reductions.py, torch/_vendor/quack/gemm_sm100.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py
+  - torch/_inductor/kernel/flex_gemm/quack_reductions.py
+  - torch/_vendor/quack/gemm_sm100.py
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 193016
+  title: '[CUDA] Fix out-of-bounds/invalid-gradient in layer_norm''s huge-M gamma/beta backward'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 193291
+  title: '[ROCm] Fix incorrect results in cross-CTA reductions (argmax/max)'
+  date: '2026-08-19'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Reduce.cuh, aten/src/ATen/native/cuda/reduction_template.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Reduce.cuh
+  - aten/src/ATen/native/cuda/reduction_template.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 193404
+  title: '[CUDA][LinAlg] nopiv LU - improve performance for batched moderate size (<= 1024) inputs'
+  date: '2026-10-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/linalg/LURecBlas3Kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/linalg/LURecBlas3Kernel.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 193408
+  title: Fix CUDA illegal memory access in embedding_bag per_sample_weights backward
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 193434
+  title: Extend inline asm hop for multiple-return
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/_inline_asm.py, torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/_inline_asm.py
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 193459
+  title: Support inline_asm_elementwise in flex_attention score/mask mods
+  date: '2026-08-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_kernel.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_kernel.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 193583
+  title: '[BE] Share matrix multiplication shape checks'
+  date: '2026-08-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SparseMatMul.cu'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SparseMatMul.cu
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 193604
+  title: '[pytorch][PR] Migrate fastAtomicAdd to headeronly (#193176) (#193604)'
+  date: '2026-08-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/Atomic.cuh, aten/src/ATen/cuda/detail/ROCmMacros.cuh, aten/src/ATen/native/cuda/KernelUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/Atomic.cuh
+  - aten/src/ATen/cuda/detail/ROCmMacros.cuh
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  files_reviewed_count: 16
+  scope_disposition: retained
+- number: 193632
+  title: '[sdpa] Fix bottom-right efficient attention when Q exceeds K'
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 193729
+  title: '[BE][Ez]: Update c10::complex kernels to use sincos'
+  date: '2026-08-18'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/LogAddExpKernel.cu, aten/src/ATen/native/cuda/LogcumsumexpKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/LogAddExpKernel.cu
+  - aten/src/ATen/native/cuda/LogcumsumexpKernel.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 193857
+  title: '[Inductor][Host-side TMA] Add host-side TMA support for Triton B200 GEMM templates'
+  date: '2026-09-04'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 193873
+  title: '[torchTLX] tri-state knob with a build-supplied default and a JustKnob override (#193873)'
+  date: '2026-08-19'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/heuristics/template/tlx.py'
+  files_changed:
+  - torch/_inductor/heuristics/template/tlx.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 193927
+  title: '[ROCm][BE] Remove outdated version conditions'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SortUtils.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/SortUtils.cuh
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 193940
+  title: Support `nvidia-cutlass-operators==0.2.0`
+  date: '2026-08-20'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 194100
+  title: '[ROCm] Check AOTriton attention errors at the originating callsite'
+  date: '2026-09-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 194131
+  title: '[ROCm] Guard native BMM outer-product launches against the HIP work-item limit'
+  date: '2026-08-29'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/bmm_outer_product/triton_kernels.py'
+  files_changed:
+  - torch/_native/ops/bmm_outer_product/triton_kernels.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 194160
+  title: Name the foreach norm block reduction once
+  date: '2026-08-21'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ForeachReduceOp.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ForeachReduceOp.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194169
+  title: Build tensor_lists without copying each inner list
+  date: '2026-08-21'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ForeachBinaryOpList.cu, aten/src/ATen/native/cuda/ForeachReduceOp.cu, aten/src/ATen/native/cuda/ForeachUnaryOp.cu,
+    aten/src/ATen/native/cuda/FusedSgdKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ForeachBinaryOpList.cu
+  - aten/src/ATen/native/cuda/ForeachReduceOp.cu
+  - aten/src/ATen/native/cuda/ForeachUnaryOp.cu
+  - aten/src/ATen/native/cuda/FusedSgdKernel.cu
+  files_reviewed_count: 21
+  scope_disposition: retained
+- number: 194177
+  title: '[inductor] Vendor and adapt QuACK symmetric GEMM'
+  date: '2026-08-25'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/gemm_symmetric.py'
+  files_changed:
+  - torch/_vendor/quack/gemm_symmetric.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 194184
+  title: Stop instantiating unreachable cat kernels
+  date: '2026-09-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Shape.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Shape.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194189
+  title: Drop the unused BiasType parameter from the grouped FP8 GEMM
+  date: '2026-08-22'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ScaledGroupMM.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ScaledGroupMM.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194246
+  title: '[ROCm] Restore preview_unsafeAtomicAdd for ROCm < 6.4 in headeronly'
+  date: '2026-08-21'
+  decision: include
+  reason: 'retain: added device-code construct in: torch/headeronly/cuda/KernelUtils.h'
+  files_changed:
+  - torch/headeronly/cuda/KernelUtils.h
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194263
+  title: '[ROCm] Avoid OpenMP capture of structured bindings in SparseCsrTensorMath (#194263)'
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194310
+  title: Add tiled CUDA kernel for dense 2D transpose copies
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Copy.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Copy.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 194364
+  title: '[NVGEMM] Migrate to CUTLASS Operators and Re-enable NVGEMM in B200 CI'
+  date: '2026-09-19'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py,
+    torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 19
+  scope_disposition: retained
+- number: 194391
+  title: '[CUDA] Remove unused multinomial probability copy'
+  date: '2026-08-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/MultinomialKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/MultinomialKernel.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194434
+  title: '[FSDP2] Separate sharded and unsharded gradient dtypes'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/fsdp/ChunkCat.cu'
+  files_changed:
+  - torch/csrc/distributed/fsdp/ChunkCat.cu
+  files_reviewed_count: 15
+  scope_disposition: retained
+- number: 194651
+  title: '[inductor][NVGEMM] Fuse NVFP4 output scaling'
+  date: '2026-10-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 194652
+  title: '[inductor][NVGEMM] Improve NVFP4 autotuning'
+  date: '2026-10-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 194727
+  title: make sure `stream` is `torch.cuda.ExternalStream` or `torch.cuda.Stream`
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 194787
+  title: 'grid_sample: support mode=''bicubic'' with 5-D input, including its double backward'
+  date: '2026-09-18'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/GridSampler.cu, aten/src/ATen/native/cuda/GridSampler.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/GridSampler.cu
+  - aten/src/ATen/native/cuda/GridSampler.cuh
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 194792
+  title: '[inductor][NVGEMM] Generalize block-scaled GEMM epilogues'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/gemm_epilogue_codegen.py, torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py,
+    torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/gemm_epilogue_codegen.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 194793
+  title: '[inductor][NVGEMM] Generalize dense GEMM epilogues'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 194818
+  title: '[varlen] Fix cuDNN backend bugs found by fuzz testing'
+  date: '2026-08-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 194873
+  title: '[inductor][NVGEMM] Define scheduler Loop IR epilogue lowering'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/loop_ir_cutedsl_codegen.py'
+  files_changed:
+  - torch/_inductor/kernel/loop_ir_cutedsl_codegen.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 194890
+  title: '[ATen]: complex type support for arange method'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RangeFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RangeFactories.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 194927
+  title: '[cuDNN] Add guards for cuDNN SDPA decode'
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 194934
+  title: '[CUDA][ROCm] Support pruned lookups in quantized embedding_bag_byte_rowwise_offsets'
+  date: '2026-08-27'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu'
+  files_changed:
+  - aten/src/ATen/native/quantized/cuda/EmbeddingBag.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 195041
+  title: '[inductor] Fix frexp returning mantissa 0 for float32 subnormals on CUDA'
+  date: '2026-09-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 195050
+  title: '[_native][2/8] Add shared CuTeDSL and reduction machinery'
+  date: '2026-09-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/cutedsl/dtypes.py, torch/_native/cutedsl/hw_caps.py, torch/_native/cutedsl/launch.py, torch/_native/cutedsl/plan_cache.py,
+    torch/_native/ops/reductions/traits.py'
+  files_changed:
+  - torch/_native/cutedsl/dtypes.py
+  - torch/_native/cutedsl/hw_caps.py
+  - torch/_native/cutedsl/launch.py
+  - torch/_native/cutedsl/plan_cache.py
+  - torch/_native/ops/reductions/traits.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 195051
+  title: '[_native][5/8] Add general, column, and cross-CTA reductions'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/reductions/kernel_xcta.py, torch/_native/ops/reductions/tile.py'
+  files_changed:
+  - torch/_native/ops/reductions/kernel_xcta.py
+  - torch/_native/ops/reductions/tile.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 195052
+  title: '[_native][3/8] Add shared tile reduction and the row driver'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/cutedsl/hw_caps.py, torch/_native/cutedsl/launch.py, torch/_native/ops/reductions/tile.py'
+  files_changed:
+  - torch/_native/cutedsl/hw_caps.py
+  - torch/_native/cutedsl/launch.py
+  - torch/_native/ops/reductions/tile.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 195056
+  title: '[_native][4/8] Serve narrow rows on the tile body, TMA-staged where that wins'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/reductions/kernel_rowtile.py, torch/_native/ops/reductions/tile.py'
+  files_changed:
+  - torch/_native/ops/reductions/kernel_rowtile.py
+  - torch/_native/ops/reductions/tile.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 195059
+  title: '[_native][6/8] Add the inner-tree fold order, with the static-fragment datapath it needs'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/reductions/kernel_rowtile.py, torch/_native/ops/reductions/tile.py'
+  files_changed:
+  - torch/_native/ops/reductions/kernel_rowtile.py
+  - torch/_native/ops/reductions/tile.py
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 195061
+  title: '[_native][7/8] Stage the inner-tree order''s mid-band through smem, in tiles'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/reductions/tile.py'
+  files_changed:
+  - torch/_native/ops/reductions/tile.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 195062
+  title: '[_native][8/8] Serve the ordered sum/prod overrides with the shared kernel''s inner-tree order'
+  date: '2026-10-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/reductions/kernel_rowtile.py'
+  files_changed:
+  - torch/_native/ops/reductions/kernel_rowtile.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 195119
+  title: '[CUDA] Hoist uniform divisor in avg_pool3d backward'
+  date: '2026-08-31'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool3d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool3d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 195303
+  title: '[ATen] Zero CUDA tensors with cudaMemsetAsync instead of a fill kernel (#195303)'
+  date: '2026-08-31'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorFactories.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 195307
+  title: Pop the diagnostic pushes that were never popped
+  date: '2026-08-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/GroupMM.cu, aten/src/ATen/native/cuda/RowwiseScaledMM.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/GroupMM.cu
+  - aten/src/ATen/native/cuda/RowwiseScaledMM.cu
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 195396
+  title: Name RowwiseScaledMM's EVT arguments, drop dead warning suppression
+  date: '2026-08-31'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RowwiseScaledMM.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RowwiseScaledMM.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 195516
+  title: '[SymmMem] Also use `get_window_offset` in `all_gather_offset`'
+  date: '2026-09-01'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 195537
+  title: '[CUDA] Optimize 2d scatter_reduce/index_reduce min/max'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/IndexKernelUtils.cu, aten/src/ATen/native/cuda/Indexing.cu, aten/src/ATen/native/cuda/ScatterGatherKernel.cu, aten/src/ATen/native/cuda/TmaScatterKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/IndexKernelUtils.cu
+  - aten/src/ATen/native/cuda/Indexing.cu
+  - aten/src/ATen/native/cuda/ScatterGatherKernel.cu
+  - aten/src/ATen/native/cuda/TmaScatterKernel.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 195538
+  title: '[inductor][NVGEMM] Support swap_ab reduction epilogues'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py,
+    torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_gemm_efc.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 195542
+  title: '[ATen] Vectorize bf16/fp16 -> fp32 copies on CUDA'
+  date: '2026-09-01'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Copy.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Copy.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 195650
+  title: '[cuDNN][varlen] Support causal GQA paged KV serving'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 195676
+  title: Delete the never-instantiated apply1 machinery in CUDAApplyUtils
+  date: '2026-10-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/CUDAApplyUtils.cuh'
+  files_changed:
+  - aten/src/ATen/cuda/CUDAApplyUtils.cuh
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 195697
+  title: Make the int4mm sm_80 requirement an actual runtime check
+  date: '2026-10-17'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/int4mm.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/int4mm.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 195786
+  title: '[ROCm][FlexAttention] Enable TLX backward template choices'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/utils.py'
+  files_changed:
+  - torch/_inductor/utils.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 195829
+  title: 'torch/_native: one CuTeDSL kernel for the chunked linear_cross_entropy backward'
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/linear_cross_entropy/fused_grad_logits_kernel.py'
+  files_changed:
+  - torch/_native/ops/linear_cross_entropy/fused_grad_logits_kernel.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 195947
+  title: '[symm_mem]: Add per-PG stream serialization for ops'
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/c10d/symm_mem/nccl_extension.cu'
+  files_changed:
+  - torch/csrc/distributed/c10d/symm_mem/nccl_extension.cu
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 196088
+  title: Reject non-contiguous noise on CUDA instead of silently dropping its writes
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RreluWithNoise.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RreluWithNoise.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 196100
+  title: Fix histc(out=) dtype validation mismatch between CPU and CUDA
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SummaryOps.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SummaryOps.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 196125
+  title: Widen Float2 constructor to accscalar_t in batch norm reduction
+  date: '2026-09-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Normalization.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Normalization.cuh
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 196155
+  title: Let fastAtomicAdd derive its bound from a packed accessor
+  date: '2026-10-11'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/FractionalMaxPool2d.cu, aten/src/ATen/native/cuda/FractionalMaxPool3d.cu, aten/src/ATen/native/cuda/KernelUtils.cuh,
+    aten/src/ATen/native/cuda/ReplicationPadding.cu, aten/src/ATen/native/cuda/UpSampleLinear1d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/FractionalMaxPool2d.cu
+  - aten/src/ATen/native/cuda/FractionalMaxPool3d.cu
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  - aten/src/ATen/native/cuda/ReplicationPadding.cu
+  - aten/src/ATen/native/cuda/UpSampleLinear1d.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 196156
+  title: Use fastAtomicAdd for the max-pool backward scatters
+  date: '2026-09-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AdaptiveMaxPooling2d.cu, aten/src/ATen/native/cuda/AdaptiveMaxPooling3d.cu, aten/src/ATen/native/cuda/DilatedMaxPool3d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AdaptiveMaxPooling2d.cu
+  - aten/src/ATen/native/cuda/AdaptiveMaxPooling3d.cu
+  - aten/src/ATen/native/cuda/DilatedMaxPool3d.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 196174
+  title: 'flex_gemm: Inductor-owned QUACK autotuning'
+  date: '2026-09-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/compile_lock.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/compile_lock.py
+  files_reviewed_count: 26
+  scope_disposition: retained
+- number: 196230
+  title: '[BE] Unify Pooling shape checks across backends / families'
+  date: '2026-09-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DilatedMaxPool3d.cu, aten/src/ATen/native/cuda/MaxUnpooling.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DilatedMaxPool3d.cu
+  - aten/src/ATen/native/cuda/MaxUnpooling.cu
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 196318
+  title: 'flex_gemm: support F.grouped_mm through QuACK varlen-M'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/quack_ops/col_load.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/quack_ops/col_load.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 196356
+  title: '[BE][Ez]: Use cuda::std::midpoint for clarity, safety and perf'
+  date: '2026-09-08'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 196371
+  title: '[inductor] Scalar accumulators for all reductions in large inner loops'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/triton.py, torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/codegen/triton.py
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 196431
+  title: '[native] Compute bmm outer-product kernel offsets in int64 (OOB writes for (batch-1)*M*N > INT32_MAX)'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/bmm_outer_product/triton_kernels.py'
+  files_changed:
+  - torch/_native/ops/bmm_outer_product/triton_kernels.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 196457
+  title: '[BE] Unify reflection/replication padding shape checks'
+  date: '2026-09-10'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ReflectionPad.cu, aten/src/ATen/native/cuda/ReplicationPadding.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ReflectionPad.cu
+  - aten/src/ATen/native/cuda/ReplicationPadding.cu
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 196507
+  title: '[native_aot] tools: Triton toolchain (raw-cubin + generated driver-API launcher)'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: tools/native_aot/toolchains.py'
+  files_changed:
+  - tools/native_aot/toolchains.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 196538
+  title: '[ROCm] Enforce signed short for __builtin_amdgcn_flat_atomic_fadd_v2bf16'
+  date: '2026-09-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/KernelUtils.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/KernelUtils.cuh
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 196578
+  title: 'Fix #187340: [torch.compile][Inductor][CUDA] torch.nextafter is incorrectly compiled as no-op'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/runtime/triton_helpers.py'
+  files_changed:
+  - torch/_inductor/runtime/triton_helpers.py
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 196598
+  title: '[Native DSL] Make topk kernels N-dynamic'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/topk/cutedsl_kernels.py'
+  files_changed:
+  - torch/_native/ops/topk/cutedsl_kernels.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 196599
+  title: '[Native DSL] Share topk policy across JIT and AOT'
+  date: '2026-09-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/topk/cutedsl_kernels.py'
+  files_changed:
+  - torch/_native/ops/topk/cutedsl_kernels.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 196718
+  title: '[torchTLX] Reland tri-state tlx_mode knob, with a type-safe JK read'
+  date: '2026-09-14'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/heuristics/template/tlx.py'
+  files_changed:
+  - torch/_inductor/heuristics/template/tlx.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 196984
+  title: '[inductor][NVGEMM] Support nvidia-cutlass-operators==0.2.0: a follow-up'
+  date: '2026-09-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_gemm_efc_kernel.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 197008
+  title: '[native] Share RMSNorm forward and backward kernel launchers'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/cutedsl/launch.py, torch/_native/cutedsl/reduce.py, torch/_native/ops/norm/rmsnorm_kernels.py'
+  files_changed:
+  - torch/_native/cutedsl/launch.py
+  - torch/_native/cutedsl/reduce.py
+  - torch/_native/ops/norm/rmsnorm_kernels.py
+  files_reviewed_count: 14
+  scope_disposition: retained
+- number: 197011
+  title: '[native] Optimize RMSNorm backward reduction and dispatch'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/ops/norm/rmsnorm_kernels.py'
+  files_changed:
+  - torch/_native/ops/norm/rmsnorm_kernels.py
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 197017
+  title: '[ATen] Keep the fill_ kernel for zero_ on ROCm 7.0.0-7.1.0 (hipMemsetAsync corrupts under graph capture) (#197017)'
+  date: '2026-09-16'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorFactories.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 197199
+  title: '[CUDA] Support float8 scalar scatter'
+  date: '2026-09-16'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ScatterGatherKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ScatterGatherKernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 197204
+  title: '[FSDP2] Add native collective copy ops'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/fsdp/ChunkCat.cu'
+  files_changed:
+  - torch/csrc/distributed/fsdp/ChunkCat.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 197377
+  title: '[ATen] Keep the fill_ kernel for zero_ on ROCm 7.0.x (hipMemsetAsync corrupts under graph capture) (#197377)'
+  date: '2026-09-18'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorFactories.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 197444
+  title: '[pytorch][aten] make isinf/isfinite work for fp8 dtypes that cannot encode infinity (#197444)'
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AbsKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AbsKernel.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 197470
+  title: Fix sort and topk for dimensions longer than INT_MAX
+  date: '2026-10-19'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/cuda/cub-RadixSortPairs.cuh, aten/src/ATen/native/cuda/SortStable.cu'
+  files_changed:
+  - aten/src/ATen/cuda/cub-RadixSortPairs.cuh
+  - aten/src/ATen/native/cuda/SortStable.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 197485
+  title: '[inductor][NVGEMM] Chain dependent NVFP4 launches into Triton consumers'
+  date: '2026-10-03'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py, torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py'
+  files_changed:
+  - torch/_inductor/kernel/vendored_templates/cutedsl/dense_blockscaled_gemm_persistent.py
+  - torch/_inductor/kernel/vendored_templates/cutedsl/wrappers/dense_blockscaled_gemm_kernel.py
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 197564
+  title: Fix sparse CSR add aliasing indices between out and inputs
+  date: '2026-09-18'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SparseCsrTensorMath.cu
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 197713
+  title: '[CUDA] Fix arange overflow for N >= 2**32'
+  date: '2026-09-23'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RangeFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RangeFactories.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 197747
+  title: '[ROCm] Bump AOTriton to 0.14.2b'
+  date: '2026-09-26'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 198022
+  title: '[ROCm] Return early from memory-efficient attention on empty inputs and unskip its tests'
+  date: '2026-09-22'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 198050
+  title: '[Inductor] Refactor user_defined triton kerenls transitive closure to exclude imports (#198050)'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/wrapper.py'
+  files_changed:
+  - torch/_inductor/codegen/wrapper.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 198196
+  title: '[ROCm] Clamp nearest2d backward launch grid'
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/UpSampleNearest2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/UpSampleNearest2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 198231
+  title: '[RAWTHROW][13] widen include_patterns: 20 conversions, 11 that must not be'
+  date: '2026-09-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RowwiseScaledMM.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RowwiseScaledMM.cu
+  files_reviewed_count: 17
+  scope_disposition: retained
+- number: 198415
+  title: '[BE] Compute linspace/logspace step in the opmath type for half and bfloat16'
+  date: '2026-09-24'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/RangeFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/RangeFactories.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 198452
+  title: Fix int32 overflow in cdist CUDA backward kernel
+  date: '2026-09-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DistanceKernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DistanceKernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 198565
+  title: '[ATen][ROCm] zero_: keep the memset fast path outside graph capture on ROCm 7.0.x'
+  date: '2026-09-25'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorFactories.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorFactories.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 198648
+  title: '[Profiler] Upstreaming Kineto into Pytorch'
+  date: '2026-09-28'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): third_party/kineto/libkineto/sample_programs/kineto_playground.cu, third_party/kineto/libkineto/sample_programs/kineto_playground.cuh, third_party/kineto/libkineto/stress_test/tensor_cache.cu,
+    third_party/kineto/libkineto/stress_test/tensor_cache.cuh'
+  files_changed:
+  - third_party/kineto/libkineto/sample_programs/kineto_playground.cu
+  - third_party/kineto/libkineto/sample_programs/kineto_playground.cuh
+  - third_party/kineto/libkineto/stress_test/tensor_cache.cu
+  - third_party/kineto/libkineto/stress_test/tensor_cache.cuh
+  files_reviewed_count: 208
+  scope_disposition: retained
+- number: 198723
+  title: '[ATen] Specialize int32/bool -> int64 and bool -> float64 copies on CUDA'
+  date: '2026-09-29'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Copy.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Copy.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 198737
+  title: Fix LayerNorm returning non-zero on constant input
+  date: '2026-10-06'
+  decision: exclude
+  reason: 'remove: PR is not merged'
+  files_changed: []
+- number: 198789
+  title: '[precompile] carry Triton''s JIT runtime cache through precompile.capture / load'
+  date: '2026-10-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_precompile.py'
+  files_changed:
+  - torch/_precompile.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 198809
+  title: '[inductor-perf] allow fusion into template epilogue inputs. '
+  date: '2026-10-06'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 198922
+  title: Fix missing cp.async drain in memory-efficient attention forward kernel
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: added device-code construct in: aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/mma_from_smem.h'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/mma_from_smem.h
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 199040
+  title: 'flex_gemm: consider small swapped tiles for skinny dense mm'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/quack_ops/main_store.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/quack_ops/main_store.py
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 199049
+  title: '[CUDA] Remove outdated grouped GEMM alignment constraints'
+  date: '2026-09-30'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/CublasGroupedArgs.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/CublasGroupedArgs.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199154
+  title: '[precompile] hydrate Triton''s JIT cache from a verified bundle'
+  date: '2026-10-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/compiler/_triton_runtime_cache.py'
+  files_changed:
+  - torch/compiler/_triton_runtime_cache.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199172
+  title: Use slow path to support barebones unsigned types in CUDA _foreach_copy_
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ForeachBinaryOpList.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/ForeachBinaryOpList.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 199425
+  title: '[ROCm] Make single-block topk gather deterministic'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorTopK.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorTopK.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199427
+  title: '[triton][3.8] Lazily load TLX registry options (#199427)'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/utils.py'
+  files_changed:
+  - torch/_inductor/utils.py
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 199438
+  title: '[ROCm] Fix layer_norm vectorized chunk offset overflow'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199444
+  title: '[ROCm] Stop hipify from rewriting std::max/std::min to ::max/::min'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Normalization.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Normalization.cuh
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 199472
+  title: Use mutable_data_ptr in nested tensor kernels
+  date: '2026-10-11'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/nested/cuda/NestedTensorBinaryOps.cu, aten/src/ATen/native/nested/cuda/NestedTensorMatmul.cu'
+  files_changed:
+  - aten/src/ATen/native/nested/cuda/NestedTensorBinaryOps.cu
+  - aten/src/ATen/native/nested/cuda/NestedTensorMatmul.cu
+  files_reviewed_count: 9
+  scope_disposition: retained
+- number: 199479
+  title: Remove unused dummy_mean_/dummy_var_ in Normalization.cuh
+  date: '2026-10-03'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Normalization.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/Normalization.cuh
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 199484
+  title: '[ROCm] Fix feature tile offset in coalesceValuesKernel'
+  date: '2026-10-02'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/sparse/cuda/SparseCUDAApplyUtils.cuh'
+  files_changed:
+  - aten/src/ATen/native/sparse/cuda/SparseCUDAApplyUtils.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 199569
+  title: Fix shared-memory race in embedding_backward_feature_kernel
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Embedding.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Embedding.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 199594
+  title: Fix CUDA SDPA grid overflow for large batches and heads
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/transformers/cuda/attention.cu'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/attention.cu
+  files_reviewed_count: 6
+  scope_disposition: retained
+- number: 199598
+  title: Fix CUDA short-row scan launch configuration
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/ScanUtils.cuh'
+  files_changed:
+  - aten/src/ATen/native/cuda/ScanUtils.cuh
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 199710
+  title: Extend tiled CUDA transpose copy to batched and N-dim permutes
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Copy.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Copy.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199732
+  title: Fix CUDA split_with_sizes_copy crash on empty inputs
+  date: '2026-10-05'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorShape.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorShape.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199775
+  title: Fix missing cp.async drain in memory-efficient attention backward kernel
+  date: '2026-10-06'
+  decision: include
+  reason: 'retain: added device-code construct in: aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/custom_mma_multistage.h, aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/custom_mma_pipelined.h'
+  files_changed:
+  - aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/custom_mma_multistage.h
+  - aten/src/ATen/native/transformers/cuda/mem_eff_attention/gemm/custom_mma_pipelined.h
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 199848
+  title: '[ROCm] Batch the single-block topk gather and shorten its warp scan'
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/TensorTopK.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/TensorTopK.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 199947
+  title: Make CUDA median(dim) deterministic among tied values
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Sorting.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Sorting.cu
+  files_reviewed_count: 7
+  scope_disposition: retained
+- number: 199969
+  title: Make _CudaDeviceProperties clock rates query their own device
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_native/cutedsl/hw_caps.py'
+  files_changed:
+  - torch/_native/cutedsl/hw_caps.py
+  files_reviewed_count: 4
+  scope_disposition: retained
+- number: 199972
+  title: '[symm_mem]: Let the NCCL tensor-only ops take a group, and expose a handle''s group'
+  date: '2026-10-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/c10d/symm_mem/nccl_extension.cu'
+  files_changed:
+  - torch/csrc/distributed/c10d/symm_mem/nccl_extension.cu
+  files_reviewed_count: 12
+  scope_disposition: retained
+- number: 199986
+  title: Vectorize inner-contiguous strided CUDA copies with 16-byte chunks
+  date: '2026-10-09'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/Copy.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/Copy.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 200046
+  title: Avoid redundant zeroing in CUDA max_pool2d backward
+  date: '2026-10-07'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/DilatedMaxPool2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/DilatedMaxPool2d.cu
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 200164
+  title: '[CUDA][avgpool2d] Scope sm10x launch-bounds fix to architecture, not dtype'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/AveragePool2d.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/AveragePool2d.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 200179
+  title: '[FSDP2] Fold _reduce_scatter_copy_in_ into chunk_cat_mixed_dtype'
+  date: '2026-10-08'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/fsdp/ChunkCat.cu'
+  files_changed:
+  - torch/csrc/distributed/fsdp/ChunkCat.cu
+  files_reviewed_count: 8
+  scope_disposition: retained
+- number: 200202
+  title: '[ROCm] Enable triton rocshmem device reduction'
+  date: '2026-10-14'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): torch/csrc/distributed/c10d/symm_mem/rocshmem_extension.cu'
+  files_changed:
+  - torch/csrc/distributed/c10d/symm_mem/rocshmem_extension.cu
+  files_reviewed_count: 5
+  scope_disposition: retained
+- number: 200328
+  title: '[ROCm] Speed up radixSelect with a register-resident path'
+  date: '2026-10-15'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/SortingRadixSelect.cuh, aten/src/ATen/native/cuda/TensorTopK.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/SortingRadixSelect.cuh
+  - aten/src/ATen/native/cuda/TensorTopK.cu
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 200499
+  title: '[module-level kernels] inductor: define user-defined Triton kernels at module level too'
+  date: '2026-10-15'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/wrapper.py'
+  files_changed:
+  - torch/_inductor/codegen/wrapper.py
+  files_reviewed_count: 2
+  scope_disposition: retained
+- number: 200591
+  title: reland [inductor-perf] allow fusion into template epilogue inputs. (#198809) (#200591)
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/select_algorithm.py'
+  files_changed:
+  - torch/_inductor/select_algorithm.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 200593
+  title: Launch only the warps a narrow row needs in vectorized layer/RMS norm forward
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: CUDA/CuTe/PTX device implementation path(s): aten/src/ATen/native/cuda/layer_norm_kernel.cu'
+  files_changed:
+  - aten/src/ATen/native/cuda/layer_norm_kernel.cu
+  files_reviewed_count: 1
+  scope_disposition: retained
+- number: 200710
+  title: '[quack] Stop relying on the process-wide mixed_constexpr_if AST patch'
+  date: '2026-10-13'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_vendor/quack/copy_utils.py, torch/_vendor/quack/gemm_sm120.py'
+  files_changed:
+  - torch/_vendor/quack/copy_utils.py
+  - torch/_vendor/quack/gemm_sm120.py
+  files_reviewed_count: 11
+  scope_disposition: retained
+- number: 201085
+  title: 'cutedsl: lower division by a constant to a reciprocal multiply'
+  date: '2026-10-16'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py'
+  files_changed:
+  - torch/_inductor/codegen/cutedsl/cutedsl_op_overrides.py
+  files_reviewed_count: 3
+  scope_disposition: retained
+- number: 201087
+  title: 'flex_gemm: read and write interleaved two-lane epilogue tensors'
+  date: '2026-10-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py, torch/_inductor/kernel/flex_gemm/quack_ops/interleaved.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py
+  - torch/_inductor/kernel/flex_gemm/quack_ops/interleaved.py
+  files_reviewed_count: 10
+  scope_disposition: retained
+- number: 201127
+  title: 'flex_gemm: compose output transforms with captures, aux outputs, and varlen-M reductions'
+  date: '2026-10-17'
+  decision: include
+  reason: 'retain: Python DSL device-kernel implementation added in: torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py, torch/_inductor/kernel/flex_gemm/quack_ops/grouped_reduce.py'
+  files_changed:
+  - torch/_inductor/kernel/flex_gemm/fx_cutedsl_codegen.py
+  - torch/_inductor/kernel/flex_gemm/quack_ops/grouped_reduce.py
+  files_reviewed_count: 9
+  scope_disposition: retained
