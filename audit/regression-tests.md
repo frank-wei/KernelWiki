@@ -10,9 +10,10 @@ body, scope, metadata, query, and provenance guards were absent.
 
 Command: `python3 -m unittest discover -s tests -p 'test_*.py'`
 
-Result: **pass — 168 tests** (158 at the 2026-08-19 gate; six
+Result: **pass — 174 tests** (158 at the 2026-08-19 gate; six
 `tests/test_sync_prs.py` tests added 2026-10-20 UTC with `scripts/sync_prs.py`;
-four more added 2026-10-21 UTC for bot-landed and relanded prefilter PRs).
+four more added 2026-10-21 UTC for bot-landed and relanded prefilter PRs; six
+`tests/test_query_ranking.py` tests added 2026-10-21 UTC for sectioned keyword ranking).
 
 Coverage includes:
 

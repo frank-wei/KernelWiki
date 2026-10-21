@@ -52,7 +52,9 @@ python3 scripts/query.py --symptom tail-effect --compact
 Filters: `--type`, `--tag`, `--repo`, `--language`, `--architecture`,
 `--symptom`, `--confidence`, `--limit`, `--compact`, `--paths-only`. `--tag`
 and `--architecture` accept aliases — `--tag UMMA` matches `tcgen05`,
-`--architecture B200` matches `sm100`, etc.
+`--architecture B200` matches `sm100`, etc. Keyword queries print two sections:
+synthesized wiki pages first (up to half of `--limit`), then source evidence;
+add `--type pr` (or another type) for a single list.
 
 ### Path 2: Fetch a specific page by id or path
 

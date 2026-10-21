@@ -11,6 +11,8 @@ Usage:
     query.py --symptom memory-bound
 
 Returns a ranked list of matching pages with titles, paths, and key frontmatter fields.
+Keyword queries without --type list synthesized wiki pages and source evidence
+as separate sections, so the much larger source corpus cannot crowd out the wiki.
 """
 
 import argparse
@@ -115,35 +117,112 @@ def detect_page_type(fm, path):
     return "unknown"
 
 
-def score_keyword_match(fm, body, keywords):
-    """Score a page by keyword matches in title, tags, and body (title > tags > body).
+def is_wiki_page(page):
+    return detect_page_type(page["fm"], page["path"]).startswith("wiki-")
 
-    Each user keyword is expanded through the alias map so that typing 'UMMA'
-    also scores 'tcgen05', 'B200' also scores 'sm100', etc.
+
+# ---------------------------------------------------------------------------
+# Keyword ranking: title > tags > body, matched on token boundaries
+# ---------------------------------------------------------------------------
+
+STOPWORDS = frozenset("""
+a an and are as at be by can do does for from how i in into is it its of on or
+that the this to use using via vs what when where which why with
+""".split())
+TAG_KEYS = ("tags", "techniques", "hardware_features", "kernel_types", "languages", "aliases", "symptoms")
+_TOKEN_RE = re.compile(r"[a-z0-9]+")
+
+
+def normalize_tokens(text):
+    """Lowercase alphanumeric tokens with a light plural strip (kernels -> kernel)."""
+    tokens = []
+    for tok in _TOKEN_RE.findall(str(text).lower()):
+        if len(tok) > 3 and tok.endswith("s") and not tok.endswith("ss"):
+            tok = tok[:-1]
+        tokens.append(tok)
+    return tokens
+
+
+def query_terms(keywords):
+    """Return one list of normalized phrases per keyword: the keyword plus its alias.
+
+    Stopwords are dropped unless the query consists only of stopwords. Phrases
+    match on token boundaries, so 'on' no longer matches 'Operations' and
+    'gate-up' matches the adjacent tokens 'gate up'.
     """
+    content = [kw for kw in keywords if kw.lower() not in STOPWORDS] or list(keywords)
+    terms = []
+    for kw in content:
+        phrases = [" ".join(normalize_tokens(v)) for v in expand_keyword(kw)]
+        phrases = list(dict.fromkeys(p for p in phrases if p))
+        if phrases:
+            terms.append(phrases)
+    return terms
+
+
+def page_fields(page):
+    """Cache title/tags/body as ' tok tok ... ' so matching respects token boundaries."""
+    fields = page.get("_fields")
+    if fields is None:
+        fm = page["fm"]
+        tags = " ".join(str(v) for k in TAG_KEYS for v in (fm.get(k) or []))
+        fields = {name: " " + " ".join(normalize_tokens(text)) + " "
+                  for name, text in (("title", fm.get("title", "")), ("tags", tags), ("body", page["body"]))}
+        page["_fields"] = fields
+    return fields
+
+
+def count_phrase(field, needle, cap):
+    """Count ' phrase ' hits up to ``cap``; adjacent hits share their separating space."""
+    hits, start = 0, field.find(needle)
+    while start != -1 and hits < cap:
+        hits += 1
+        start = field.find(needle, start + len(needle) - 1)
+    return hits
+
+
+def score_keyword_match(page, terms):
+    """Score a page for query terms: title hit 10, tag hit 5, body hits up to 3.
+
+    Each term scores its best alias variant, so typing 'UMMA' also scores
+    'tcgen05', 'B200' also scores 'sm100', etc.
+    """
+    fields = page_fields(page)
     score = 0
-    title_text = str(fm.get("title", "")).lower()
-    tag_text = " ".join(
-        str(v) for k in ("tags", "techniques", "hardware_features", "kernel_types",
-                          "languages", "aliases", "symptoms")
-        for v in (fm.get(k) or [])
-    ).lower()
-    body_lower = body.lower()
-    for kw in keywords:
-        best_variant_score = 0
-        for variant in expand_keyword(kw):
-            v_l = variant.lower()
-            variant_score = 0
-            if v_l in title_text:
-                variant_score += 10
-            if v_l in tag_text:
-                variant_score += 5
-            body_hits = body_lower.count(v_l)
-            variant_score += min(body_hits, 3)
-            if variant_score > best_variant_score:
-                best_variant_score = variant_score
-        score += best_variant_score
+    for phrases in terms:
+        best = 0
+        for phrase in phrases:
+            needle = f" {phrase} "
+            best = max(best, (10 if needle in fields["title"] else 0)
+                       + (5 if needle in fields["tags"] else 0)
+                       + count_phrase(fields["body"], needle, 3))
+        score += best
     return score
+
+
+def rank_pages(pages, keywords):
+    """Return the pages matching the keywords, best first."""
+    terms = query_terms(keywords)
+    for p in pages:
+        p["_score"] = score_keyword_match(p, terms)
+    ranked = [p for p in pages if p["_score"] > 0]
+    ranked.sort(key=lambda p: (-p["_score"], p["path"]))
+    return ranked
+
+
+def split_sections(ranked, limit):
+    """Split ranked pages into (wiki, sources) within ``limit`` results.
+
+    Synthesized wiki pages and source evidence are separate layers, so they do
+    not compete for slots: up to half the slots (rounded up) go to wiki pages,
+    and slots one section cannot fill go to the other.
+    """
+    wiki = [p for p in ranked if is_wiki_page(p)]
+    sources = [p for p in ranked if not is_wiki_page(p)]
+    n_wiki = min(len(wiki), (limit + 1) // 2)
+    n_sources = min(len(sources), limit - n_wiki)
+    n_wiki = min(len(wiki), limit - n_sources)
+    return wiki[:n_wiki], sources[:n_sources]
 
 
 def filter_pages(pages, args):
@@ -355,15 +434,18 @@ def main():
         for tok in re.split(r"\s+", q.strip()):
             if tok:
                 keywords.append(tok)
+    # Keyword queries without --type list synthesized wiki pages and source
+    # evidence as separate sections; everything else is one list.
     if keywords:
-        for p in pages:
-            p["_score"] = score_keyword_match(p["fm"], p["body"], keywords)
-        pages = [p for p in pages if p["_score"] > 0]
-        pages.sort(key=lambda x: (-x["_score"], x["path"]))
+        pages = rank_pages(pages, keywords)
     else:
         pages.sort(key=lambda x: x["path"])
-
-    pages = pages[:args.limit]
+    if keywords and not args.type:
+        wiki, sources = split_sections(pages, args.limit)
+        sections = [("Wiki pages (synthesized)", wiki), ("Source evidence", sources)]
+    else:
+        sections = [(None, pages[:args.limit])]
+    pages = [p for _, section in sections for p in section]
 
     if args.paths_only:
         for p in pages:
@@ -376,9 +458,15 @@ def main():
 
     print(f"# {len(pages)} result(s)")
     print()
-    for p in pages:
-        print(format_result(p, compact=args.compact))
-        if not args.compact:
+    for heading, section in sections:
+        if heading:
+            print(f"# {heading}: {len(section)}")
+            print()
+        for p in section:
+            print(format_result(p, compact=args.compact))
+            if not args.compact:
+                print()
+        if heading and args.compact:
             print()
 
 
