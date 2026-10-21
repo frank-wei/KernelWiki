@@ -514,7 +514,7 @@ class ShippedDocumentationContractTests(unittest.TestCase):
         )
         bundles = len(list((ROOT / "artifacts").rglob("PROVENANCE.yaml")))
 
-        self.assertEqual(158, discovered_tests)
+        self.assertEqual(164, discovered_tests)
         for path in (ROOT / "audit/regression-tests.md", ROOT / "audit/validation-results.md"):
             self.assertIn(f"{discovered_tests} tests", path.read_text(encoding="utf-8"))
         for path in (
@@ -781,7 +781,10 @@ class ShippedDocumentationContractTests(unittest.TestCase):
             statuses.append(fm["status"])
             self.assertEqual([], validate.merge_sha_contract_errors(fm, path))
 
-        self.assertEqual(942, statuses.count("merged"))
+        # Exact counts are bound to SKILL.md/schema.md by
+        # test_skill_pr_status_distribution_matches_pages; scripts/sync_prs.py
+        # keeps those documents current as merged PRs are added.
+        self.assertEqual(len(statuses), statuses.count("merged") + statuses.count("closed"))
         self.assertEqual(2, statuses.count("closed"))
         self.assertTrue(validate.merge_sha_contract_errors({"status": "merged"}))
         self.assertTrue(validate.merge_sha_contract_errors({"status": "merged", "merge_sha": "unknown"}))

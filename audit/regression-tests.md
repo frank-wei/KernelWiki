@@ -10,9 +10,14 @@ body, scope, metadata, query, and provenance guards were absent.
 
 Command: `python3 -m unittest discover -s tests -p 'test_*.py'`
 
-Result: **pass — 158 tests**.
+Result: **pass — 164 tests** (158 at the 2026-08-19 gate; six
+`tests/test_sync_prs.py` tests added 2026-10-20 UTC with `scripts/sync_prs.py`).
 
 Coverage includes:
+
+- `scripts/sync_prs.py` intake: date-window bisection at the 1000-result
+  search cap, keyword-union ordering, include/exclude/defer ledger rows from
+  the shared scope policy, and PR-page count rewriting in shipped docs;
 
 - exact/family/unknown architecture classification; documented B200/GB200,
   B300/GB300, H100/H200/H800/H20/GH200, and A100 mappings; camel-case tokens;
