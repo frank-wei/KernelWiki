@@ -2,6 +2,8 @@ import importlib.util
 import unittest
 from datetime import date
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -86,6 +88,72 @@ class LedgerRowTests(unittest.TestCase):
 
         self.assertEqual("defer", deferred["decision"])
         self.assertEqual("exclude", unmerged["decision"])
+
+
+class ResolveLandedTests(unittest.TestCase):
+    sha = "165fff5c58e0639dd5b5a78d421dc6a8eaa7f3fc"
+    hit = {"number": 7, "title": "t", "closedAt": "2026-10-19", "landedSha": sha}
+    closed = {**merged_pr(7), "merged_at": None, "state": "closed",
+              "closed_at": "2026-10-19T19:00:26Z", "merge_commit_sha": "5b08" * 10}
+
+    def commit(self, subject, sha=None):
+        return lambda repo, s: {
+            "sha": sha or s,
+            "commit": {"message": f"{subject}\n\nbody", "committer": {"date": "2026-10-19T18:59:00Z"}},
+        }
+
+    def test_bot_landed_pr_is_merged_at_landed_commit(self):
+        evidence = SYNC.resolve_landed((self.closed, [DEVICE_FILE]), self.hit, "o/r",
+                                       self.commit("Fix sort (#7)"))
+        row, _ = SYNC.build_ledger_row(self.hit, evidence)
+
+        self.assertEqual(self.sha, evidence[0]["merge_commit_sha"])
+        self.assertEqual("2026-10-19T18:59:00Z", evidence[0]["merged_at"])
+        self.assertEqual("include", row["decision"])
+
+    def test_unconfirmed_landing_stays_unmerged(self):
+        cases = [
+            (self.hit, self.commit("Fix sort (#70)")),
+            (self.hit, self.commit("Fix sort (#7)", sha="0" * 40)),
+            (self.hit, lambda repo, s: None),
+            ({**self.hit, "landedSha": None}, self.commit("Fix sort (#7)")),
+        ]
+        for hit, commit_fn in cases:
+            evidence = SYNC.resolve_landed((self.closed, [DEVICE_FILE]), hit, "o/r", commit_fn)
+            self.assertIsNone(evidence[0]["merged_at"])
+
+    def test_github_merged_and_open_prs_are_untouched(self):
+        def fail(repo, sha):
+            raise AssertionError("commit lookup not expected")
+
+        merged = (merged_pr(7), [DEVICE_FILE])
+        opened = ({**self.closed, "state": "open"}, [DEVICE_FILE])
+        self.assertIs(merged, SYNC.resolve_landed(merged, self.hit, "o/r", fail))
+        self.assertIs(opened, SYNC.resolve_landed(opened, self.hit, "o/r", fail))
+        self.assertIsNone(SYNC.resolve_landed(None, self.hit, "o/r", fail))
+
+    def test_relanded_prefilter_pr_is_processed_once_at_latest_landing(self):
+        def candidate(number, sha, day):
+            return {"number": number, "merge_sha": sha * 40, "date": day, "title": f"t (#{number})"}
+
+        report = {"since": "2026-05-21", "until": "2026-10-20", "clone_head": "f" * 40, "candidates": [
+            candidate(900001, "a", "2026-06-01"),
+            candidate(900001, "b", "2026-06-09"),
+            candidate(900002, "c", "2026-06-03"),
+        ]}
+        args = SimpleNamespace(prefilter={"tilekernels": report}, retry_deferred=False,
+                               max_new=None, dry_run=False)
+        seen = []
+
+        def evidence(repo, number):
+            seen.append(number)
+            return None
+
+        with mock.patch.object(Path, "write_text", lambda *a, **k: None):  # keep the real ledger untouched
+            summary = SYNC.sync_repo("tilekernels", args, "2026-10-20", evidence_fn=evidence)
+
+        self.assertEqual([900001, 900002], seen)
+        self.assertEqual("b" * 40, [h for h in summary["seen"] if h["number"] == 900001][0]["landedSha"])
 
 
 class CountTextTests(unittest.TestCase):

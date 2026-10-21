@@ -195,6 +195,42 @@ def fetch_evidence_with_receipts(repo_full, number):
     return pr, files
 
 
+def fetch_commit(repo_full, sha):
+    """Return the GitHub commit object for ``sha``, or None when unavailable."""
+    try:
+        return json.loads(subprocess.check_output(
+            ["gh", "api", f"repos/{repo_full}/commits/{sha}"], text=True, timeout=60))
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, json.JSONDecodeError):
+        return None
+
+
+def resolve_landed(evidence, hit, repo_full, commit_fn=fetch_commit):
+    """Treat a bot-landed PR as merged when its landed commit is confirmed.
+
+    Some repos (pytorch's MergeBot) push the PR commit to the default branch
+    and then close the PR, so GitHub reports ``merged_at: null`` and its
+    ``merge_commit_sha`` is only a test merge. A local-prefilter hit carries
+    the first-parent commit that actually landed; when GitHub confirms that
+    commit exists and its subject cites this PR, the PR is merged at that
+    commit. Otherwise the evidence is returned unchanged.
+    """
+    if evidence is None:
+        return None
+    pr, files = evidence
+    landed_sha = hit.get("landedSha")
+    if pr.get("merged_at") or pr.get("state") != "closed" or not landed_sha:
+        return evidence
+    commit = commit_fn(repo_full, landed_sha)
+    if not commit or commit.get("sha") != landed_sha:
+        return evidence
+    subject = ((commit.get("commit") or {}).get("message") or "").split("\n", 1)[0]
+    number = pr["number"]
+    if f"(#{number})" not in subject and f"Merge pull request #{number} " not in f"{subject} ":
+        return evidence
+    landed_at = ((commit.get("commit") or {}).get("committer") or {}).get("date") or pr.get("closed_at")
+    return {**pr, "merged_at": landed_at, "merge_commit_sha": landed_sha}, files
+
+
 def build_ledger_row(hit, evidence):
     """Apply the shared scope policy to one search hit.
 
@@ -260,7 +296,7 @@ def recount_ledger(data):
 
 
 def sync_repo(slug, args, captured_at, evidence_fn=fetch_evidence_with_receipts,
-              search_fn=gh_search_window):
+              search_fn=gh_search_window, commit_fn=fetch_commit):
     """Search, classify, and generate pages for one repo. Returns a summary dict."""
     ledger_path = CANDIDATES_DIR / f"{slug}.yaml"
     data = yaml.safe_load(ledger_path.read_text(encoding="utf-8"))
@@ -269,9 +305,16 @@ def sync_repo(slug, args, captured_at, evidence_fn=fetch_evidence_with_receipts,
     if report is not None:
         print(f"\n{repo_full}: {len(report['candidates'])} local-prefilter candidate(s) "
               f"for {report['since']}..{report['until']} (clone HEAD {report['clone_head'][:12]})")
+        # A reverted-and-relanded PR has one candidate per landing commit;
+        # keep only its latest landing.
+        latest = {}
+        for c in report["candidates"]:
+            if c["number"] not in latest or c["date"] > latest[c["number"]]["date"]:
+                latest[c["number"]] = c
         hits = [
-            {"number": c["number"], "title": c["title"], "closedAt": c["date"]}
-            for c in sorted(report["candidates"], key=lambda c: c["number"])
+            {"number": c["number"], "title": c["title"], "closedAt": c["date"],
+             "landedSha": c.get("merge_sha")}
+            for c in sorted(latest.values(), key=lambda c: c["number"])
         ]
     else:
         keywords = [] if args.no_keywords else (args.keywords or data.get("keywords_used") or [])
@@ -303,7 +346,7 @@ def sync_repo(slug, args, captured_at, evidence_fn=fetch_evidence_with_receipts,
 
     new_rows = []
     for hit in new_hits:
-        evidence = evidence_fn(repo_full, hit["number"])
+        evidence = resolve_landed(evidence_fn(repo_full, hit["number"]), hit, repo_full, commit_fn)
         row, scope = build_ledger_row(hit, evidence)
         if row["decision"] == "include":
             try:
